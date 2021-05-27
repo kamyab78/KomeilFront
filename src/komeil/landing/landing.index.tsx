@@ -151,9 +151,56 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
                 </div>
 <div className='row row-service'>
     <div className='col-12 box-service'>
-        oo
+        <div className='row'>
+            <div className='col-12 box-title'>
+                <h6>سرویس غذاخوری</h6>
+            </div>
+        </div>
+        <div className='row'>
+        <div className='col-3'>
+            <div className='subitem-service'>
+                   
+                   <div className='div-img-service'>
+                       <img src={Mask} alt=''></img>
+                   </div>
+                   <h1>سرویس چاقو آشپزخانه</h1>
+                   <h2>200T</h2>
+                    </div>
+            </div>
+            <div className='col-3'>
+            <div className='subitem-service'>
+                   
+                   <div className='div-img-service'>
+                       <img src={Mask} alt=''></img>
+                   </div>
+                   <h1>سرویس چاقو آشپزخانه</h1>
+                   <h2>200T</h2>
+                    </div>
+            </div>
+            <div className='col-3'>
+            <div className='subitem-service'>
+                   
+                   <div className='div-img-service'>
+                       <img src={Mask} alt=''></img>
+                   </div>
+                   <h1>سرویس چاقو آشپزخانه</h1>
+                   <h2>200T</h2>
+                    </div>
+            </div>
+            <div className='col-3'>
+            <div className='subitem-service'>
+                   
+                   <div className='div-img-service'>
+                       <img src={Mask} alt=''></img>
+                   </div>
+                   <h1>سرویس چاقو آشپزخانه</h1>
+                   <h2>200T</h2>
+                    </div>
+            </div>
+        </div>
     </div>
 </div>
+
 <div className='row bannerads-row'>
             <div className='col-md-6 col-xs-12'>
                 <img src={Banner4} alt=''></img>
@@ -163,6 +210,8 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
             </div>
        
                 </div>
+           
+           
             </div>
 
         </div>
