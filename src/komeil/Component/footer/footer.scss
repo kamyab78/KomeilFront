@@ -1,116 +1,37 @@
 @import "src/utilities/references/index";
-.topnoor-footer-page{
-    background-color: $blue6A;
-    .company-box{
-        text-align: right;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        h1{
-            color: $danger;
-            font-size: 24px;
-            font-weight: normal;
-
-        }
-        .item-company-box{
-            margin-top: 30px;
-h6{
-    font-size: 18px;
-    color: $white;
-    font-weight: normal;
-    padding: 5px;
-}
-        }
-    }
+.komeil-footer-page{
+    background-color: $whitef5;
+  
     .community-box{
-        text-align: right;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        h1{
-            color: $danger;
-            font-size: 24px;
-            font-weight: normal;
-
-        }
-        .item-community-box{
-            margin-top: 30px;
-h6{
-    font-size: 18px;
-    color: $white;
-    font-weight: normal;
-    padding: 5px;
-}
-        }
-    }
-    .ertebat-box{
-        text-align: right;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        h1{
-            color: $danger;
-            font-size: 24px;
-            font-weight: normal;
-
-        }
-        .item-ertebat-box{
-            margin-top: 30px;
-h6{
-    font-size: 18px;
-    color: $white;
-    font-weight: normal;
-    padding: 5px;
-}
-        }
-    }
-    .logo-address-box{
-        text-align: right;
-        margin-top:20px ;
-        margin-bottom: 10px;
-        img{
-            width: 50px;
-        }
-   
-        .item-logo-address-box{
-           
-       
-h6{
-    font-size: 18px;
-    color: $white;
-    font-weight: normal;
-    padding: 5px;
-}
-.itemlogo-logo-address-box{
-    display: flex;
-    flex-direction: row;
-    .logo-virtual{
-margin: 8px;
-       .box-logo-virtual{
-    // margin-right: 8px;
-    width: 40px;
-    height: 40px;
-    background-color: $danger;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img{
-        width: 50%;
-    }
-} 
-    }
-
-}
-        } 
-    }
-    .box-copy{
-        margin-top: 30px;
-        border-top-style:solid ;
+        border-left-style:solid ;
         border-color: $graydd;
         border-width: 1px;
+        text-align: right;
+        margin-top: 20px;
+        margin-bottom: 10px;
         h1{
-            color: $white;
+        
+            font-size: 16px;
+            font-weight: bold;
             padding: 10px;
-            font-weight: normal;
-        }
 
+        }
+       
+           
+h6{
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+       
     }
+  .logo-enamad-box{
+      position: relative;
+      display: flex;
+   
+      align-items: center;
+      img{
+          
+      }
+  }
 }

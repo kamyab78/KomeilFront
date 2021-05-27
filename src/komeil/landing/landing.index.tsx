@@ -10,6 +10,11 @@ import Bazarcheimg from '../../assets/images/landing/shegeft.png'
 import Mask from '../../assets/images/landing/mask.png'
 import Brand from '../../assets/images/landing/brand.png'
 import Mask1 from '../../assets/images/landing/mask1.png'
+import Newproduct from '../../assets/images/landing/newpro.png'
+import Banner1 from '../../assets/images/landing/banner1.png'
+import Banner2 from '../../assets/images/landing/banner2.png'
+import Banner3 from '../../assets/images/landing/banner3.png'
+import Banner4 from '../../assets/images/landing/banner4.png'
 const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
     const sliderRef = useRef<Slider | null>(null);
     const history = useHistory();
@@ -22,56 +27,33 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
         variableWidth: true,
     };
     return (
-        <div className="topnoor-landing-page row">
+        <div className="komeil-landing-page row">
             <div className='col'>
                 <div className='row banner-row'>
-                    <div className='col-1 '></div>
-                    <div className='col-10 banner-big-box'>
+                  
+                    <div className='col-12 banner-big-box'>
                         <img src={Banner}></img>
                     </div>
-                    <div className='col-1 '></div>
+                    
                 </div>
-                <div className='row banner-row'>
-                    <div className='col-1 '></div>
-                    <div className='col-5 banner-left-box'>
-                        <img src={Banner}></img>
-
-                    </div>
-                    <div className='col-5 banner-right-box'>
-                        <img src={Banner}></img>
-                    </div>
-                    <div className='col-1 '></div>
-                </div>
+         
                 <div className='row bazarche-row'>
-                    <div className='col-1 '></div>
+                   
 
-                    <div className='col-10 bazarche-box'>
+                    <div className='col-12 bazarche-box'>
                         <div className='bazarche-box-main '>
                             <div className='col-10 item-bazarche-box-main'>
                                 <div className='col-1'></div>
-                                <div className='sub-item-bazarche-box-main col-3'>
-                                <div className='div-img'>
-                                        <img src={Mask} alt=''></img>  
-                                    </div>
-                                    <h1>چراغ پذیرایی حرفه ای</h1>
-                                    <h6>خیلی خوبه خیلی خوبه خیلی خوبه</h6>
-                                    <h3>100T</h3>
-
-                                    <div className='card-box'>
-                                        <i className="material-icons-outlined bascket">
-                                            shopping_cart
-</i>
-                                        <h6>افزودن به سبد خرید</h6>
-
-                                    </div>
+                                <div className='show-more-sub-item-bazarche-box-main col-3'>
+                     <h1>نمایش همه کالای شگفت انگیز</h1>
                                 </div>
                                 <div className='sub-item-bazarche-box-main col-3'>
-                                    <div className='div-img'>
+                                <div className='div-img'>
+                                   
                                         <img src={Mask} alt=''></img>  
                                     </div>
-                                  
-                                    <h1>چراغ پذیرایی حرفه ای</h1>
-                                    <h6>خیلی خوبه خیلی خوبه خیلی خوبه</h6>
+                                    <h1>سرویس چاقو آشپزخانه</h1>
+                                 
                                     <h3>100T</h3>
 
                                     <div className='card-box'>
@@ -84,10 +66,11 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
                                 </div>
                                 <div className='sub-item-bazarche-box-main col-3'>
                                 <div className='div-img'>
+                                   
                                         <img src={Mask} alt=''></img>  
                                     </div>
-                                    <h1>چراغ پذیرایی حرفه ای</h1>
-                                    <h6>خیلی خوبه خیلی خوبه خیلی خوبه</h6>
+                                    <h1>سرویس چاقو آشپزخانه</h1>
+                                 
                                     <h3>100T</h3>
 
                                     <div className='card-box'>
@@ -101,159 +84,85 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
                                 <div className='col-1'></div>
                             </div>
                             <div className='col-2 img-bazarche-box-main'>
+                            <h4>کالا های شگفت انگیز</h4>
                                 <img src={Bazarcheimg} alt=''></img>
                             </div>
                         </div>
                     </div>
-                    <div className='col-1 '></div>
+                 
                 </div>
-                <div className='row brand-row'>
-                    <div className='col-1 '></div>
-
-                    <div className='col-10 brand-box'>
-                        <div className='brand-box-main'>
-                            <h1>برند ها</h1>
-                            <div className='brands row'>
-
-                                <div className='brands-items col-2'>
-                                    <img src={Brand} alt=''></img>
-                                    <h6>TPR</h6>
-                                </div>
-                                <div className='brands-items col-2'>
-                                    <img src={Brand} alt=''></img>
-                                    <h6>TPR</h6>
-                                </div>
-                                <div className='brands-items col-2'>
-                                    <img src={Brand} alt=''></img>
-                                    <h6>TPR</h6>
-                                </div>
-                                <div className='brands-items col-2'>
-                                    <img src={Brand} alt=''></img>
-                                    <h6>TPR</h6>
-                                </div>
-                                <div className='brands-items col-2'>
-                                    <img src={Brand} alt=''></img>
-                                    <h6>TPR</h6>
-                                </div>
-                                <div className='col-2'>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-1 '></div>
-                </div>
-                <div className='row product-row'>
-                    <div className='col-1 '></div>
-
-                    <div className='col-10 product-box'>
-                        <div className='product-box-main'>
-                            <h1>محصولات</h1>
-
-                            <div className='product-items row'>
-
-                                <div className=' col-1'></div>
-                                <div className=' col-10'>
-                                <div className='row'>
-                                <div className=' col-3'>
-                                    <div className='sub-product-items'>
-                                        <div className='div-img'>
-    <img src={Mask} alt=''></img>
-                                        </div>
-
-                                    <h1>چراغ پذیرایی حرفه ای</h1>
-                                    <h5>خیلی خوبه خیلی خوبه خیلی خوبه</h5>
-                                    <h3>100T</h3>
-
-                                    <div className='div-btn'>
-       <div className='card-box'>
-                                        <i className="material-icons-outlined bascket">
-                                            shopping_cart
-</i>
-                                        <h6>افزودن به سبد خرید</h6>
-
-                                    </div>
-</div>
-                                    </div>
-                                
-                                </div>
-                                <div className=' col-3'>
-                                    <div className='sub-product-items'>
-                                    <div className='div-img'>
-    <img src={Mask} alt=''></img>
-                                        </div>
-                                    <h1>چراغ پذیرایی حرفه ای</h1>
-                                    <h5>خیلی خوبه خیلی خوبه خیلی خوبه</h5>
-                                    <h3>100T</h3>
-
-                                    <div className='div-btn'>
-       <div className='card-box'>
-                                        <i className="material-icons-outlined bascket">
-                                            shopping_cart
-</i>
-                                        <h6>افزودن به سبد خرید</h6>
-
-                                    </div>
-</div>
-                                    </div>
-                                
-                                </div>
-                                <div className=' col-3'>
-                                    <div className='sub-product-items'>
-                                    <div className='div-img'>
-    <img src={Mask} alt=''></img>
-                                        </div>
-                                    <h1>چراغ پذیرایی حرفه ای</h1>
-                                    <h5>خیلی خوبه خیلی خوبه خیلی خوبه</h5>
-                                    <h3>100T</h3>
-
-                                    <div className='div-btn'>
-       <div className='card-box'>
-                                        <i className="material-icons-outlined bascket">
-                                            shopping_cart
-</i>
-                                        <h6>افزودن به سبد خرید</h6>
-
-                                    </div>
-</div>
-                                    </div>
-                                
-                                </div>
-                                <div className=' col-3'>
-                                    <div className='sub-product-items'>
-                                    <div className='div-img'>
-    <img src={Mask} alt=''></img>
-                                        </div>
-                                    <h1>چراغ پذیرایی حرفه ای</h1>
-                                    <h5>خیلی خوبه خیلی خوبه خیلی خوبه</h5>
-                                    <h3>100T</h3>
-<div className='div-btn'>
-       <div className='card-box'>
-                                        <i className="material-icons-outlined bascket">
-                                            shopping_cart
-</i>
-                                        <h6>افزودن به سبد خرید</h6>
-
-                                    </div>
-</div>
-                             
-                                    </div>
-                                
-                                </div>
-                                </div>
-                                </div>
-<div className=' col-1'></div>
-
+                <div className='row newproduct-row'>
+                 
+                    <div className='col-md-6 col-xs-12 '>
+                    <div className='row'>
+                        <div className='col-md-6 col-xs-12'>
+                            <div className='subitem-newproduct'>
                    
+                           <div className='div-img-new'>
+                               <img src={Mask} alt=''></img>
+                           </div>
+                           <h1>سرویس چاقو آشپزخانه</h1>
+                           <h2>200T</h2>
                             </div>
-
-
+                        </div>
+                        <div className='col-md-6 col-xs-12'>
+                            <div className='subitem-newproduct'>
+                   
+                           <div className='div-img-new'>
+                               <img src={Mask} alt=''></img>
+                           </div>
+                           <h1>سرویس چاقو آشپزخانه</h1>
+                           <h2>200T</h2>
+                            </div>
+                        </div>
+                        <div className='col-md-6 col-xs-12'>
+                            <div className='subitem-newproduct'>
+                   
+                           <div className='div-img-new'>
+                               <img src={Mask} alt=''></img>
+                           </div>
+                           <h1>سرویس چاقو آشپزخانه</h1>
+                           <h2>200T</h2>
+                            </div>
+                        </div>
+                        <div className='col-md-6 col-xs-12'>
+                            <div className='subitem-newproduct-more'>
+                   
+                         <h6>نمایش همه محصولات جدید</h6>
+                            </div>
                         </div>
                     </div>
-                    <div className='col-1 '></div>
+                    </div>
+                    <div className='col-md-6 col-xs-12 imagebox-newproduct'>
+                        <img src={Newproduct} alt=''></img>
+                        <h6>محصولات جدید کمیل</h6>
+                    </div>
                 </div>
-
-
+                <div className='row bannerads-row'>
+            <div className='col-md-4 col-xs-12'>
+                <img src={Banner1} alt=''></img>
+            </div>
+            <div className='col-md-4 col-xs-12'>
+            <img src={Banner2} alt=''></img>
+            </div>
+            <div className='col-md-4 col-xs-12'>
+            <img src={Banner3} alt=''></img>
+            </div>
+                </div>
+<div className='row row-service'>
+    <div className='col-12 box-service'>
+        oo
+    </div>
+</div>
+<div className='row bannerads-row'>
+            <div className='col-md-6 col-xs-12'>
+                <img src={Banner4} alt=''></img>
+            </div>
+            <div className='col-md-6 col-xs-12'>
+            <img src={Banner4} alt=''></img>
+            </div>
+       
+                </div>
             </div>
 
         </div>

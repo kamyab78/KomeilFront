@@ -1,6 +1,6 @@
 @import "src/utilities/references/index";
 
-.topnoor-landing-page {
+.komeil-landing-page {
 
   position: relative;
   background-color: $whitef5;
@@ -39,9 +39,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 360px;
-      background-color: $orange;
-      border-radius: 10px;
+      height: 100%;
+      background-color: $perpel;
+     
       width: 100%;
       .item-bazarche-box-main{
         display: flex;
@@ -51,6 +51,7 @@
           text-align: right;
           border-radius: 10px;
           height: 100%;
+          min-height: 360px;
           .div-img{
             display: flex;
             justify-content: center;
@@ -81,7 +82,7 @@ background-color: $whiteff;
   margin-top: 20px;
   margin-bottom: 10px;
   border-style: solid;
-  border-color: $danger;
+  border-color: $perpel;
   border-width: 1px;
   display: flex;
   width: 100%;
@@ -92,21 +93,41 @@ background-color: $whiteff;
   flex-direction: row-reverse;
   padding-bottom: 10px;
   h6{
-    color: $danger;
+    color: $perpel;
     font-weight: bold;
   }
   i{
     padding-top: 10px;
-    color: $danger;
+    color: $perpel;
     // font-weight: bold;
   }
   
 }
 }
+.show-more-sub-item-bazarche-box-main{
+  margin: 10px;
+  text-align: right;
+  border-radius: 10px;
+  height: 100%;
+  background-color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 360px;
+  h1{
+color: $perpel;
+
+  }
+}
       }
 
 
       .img-bazarche-box-main{
+        h4{
+          font-size: 38px;
+          text-align: center;
+          color: $white;
+        }
         img{width: 100%;
           height: 100%;
         }
@@ -114,148 +135,74 @@ background-color: $whiteff;
     }
   }
 }
-.brand-row{
-  margin-top: 15px;
-  .brand-box{
- 
-    .brand-box-main{
+.newproduct-row{
+  .imagebox-newproduct{
 
-   
-      background-color: $whiteff;
-      border-radius: 10px;
+    position: relative;
+    height: 100%;
+
+    img{
       width: 100%;
-      text-align: right;
-      padding: 20px;
-      h1{
-padding: 10px;
-        border-bottom-style: solid;
-        border-color:rgba($graydd,0.5);
-        font-size: 32px;
-        color:$black
-      }
-      .brands{
-        margin-top: 15px;
-        display: flex;
-        flex-direction: row;
-        .brands-items{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          border-style: solid;
-          border-color:rgba($graydd,0.3);
-          border-radius: 10px;
-       margin: 10px;
-          // width: 10%;
-          // height: 150px;
-          img{
-            width: 100%;
-          }
-          h6{
-            font-size: 12px;
-          }
-        }
-      }
-
+      height: 100%;
+      min-height: 580px;
+    }
+    h6{
+      position: absolute;
+      bottom: 70px;
+      left: 70px;
+      font-size: 30px;
+      color: $white;
     }
   }
-}
-.product-row{
-  margin-top: 15px;
-  .product-box{
- 
-    .product-box-main{
-
-   
-      background-color: $whiteff;
-      border-radius: 10px;
-      width: 100%;
-      text-align: right;
-      padding: 20px;
-
-      h1{
-padding: 8px;
-        border-bottom-style: solid;
-        border-color:rgba($graydd,0.5);
-        font-size: 32px;
-        color:$black
-      }
-
-         .product-items{
-        display: flex;
-        flex-direction: row;
-           
-.sub-product-items{
-  border-style: solid;
-  border-color:$graydd;
-  // padding-top: 10px;
-border-width: 1px;
-  text-align: right;
-  border-radius: 10px;
-  height: 100%;
- width: 100%;
- margin: 10px;
-.div-img{
+  .subitem-newproduct{
+background-color: $white;
+margin: 20px;
+width: 100%;
+border-radius: 10px;
+min-height: 250px;
+box-shadow: 5px 5px 5px 5px $graydd;
+.div-img-new{
   display: flex;
   justify-content: center;
   align-items: center;
-   img{
-    width: 100%;
-    height: 50%;
-    padding-top: 15px;
-  }
-}
- 
-  h1{
-    padding-top: 10px;
-    padding-right: 10px;
-    font-size: 14px;
-    color: $gray66;
-  }
-  h5{
-font-size: 12px;
-color: $gray99;
-padding-top: 10px;
-padding-right: 10px;
-  }
-  h3{
-    padding-top: 10px;
-        padding-right: 10px;
-    font-size: 26px;
-  }
-background-color: $whiteff;
-.div-btn{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-   .card-box{
-  margin-top: 20px;
-  border-style: solid;
-
-  border-width: 1px;
-  display: flex;
-  width: 90%;
-  text-align: right;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  flex-direction: row-reverse;
-  padding-bottom: 10px;
-  h6{
-   font-size: 12px;
-    font-weight: bold;
-  }
+  img{
+  width: 60%;
 
 }
 }
- 
-}
 
+h1{
+text-align: center;
+  font-weight: normal;
+  font-size: 12px;
 }
-      
-
-    }
+h2{
+padding: 20px;
+}
+  }
+  .subitem-newproduct-more{
+    background-color: $perpel;
+margin: 20px;
+width: 100%;
+border-radius: 10px;
+min-height: 250px;
+box-shadow: 5px 5px 5px 5px $graydd;
+display: flex;
+align-items: center;
+justify-content: center;
+h6{
+  color: $white;
+  font-weight: bold;
+}
+  }
+}
+.bannerads-row{
+  img{width: 100%;}
+}
+.row-service{
+  .box-service{
+    background-color: $white;
+    width: 90%;
   }
 }
 }
