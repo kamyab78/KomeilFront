@@ -1,0 +1,44 @@
+@import "src/utilities/references/index";
+.topnoor-personal-page{
+    background-color: $white;
+   
+    .personal-box{
+        margin-bottom: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .box-personal-box{
+            margin-top: 80px;
+            border-radius: 5px;
+border-width: 2px;
+border-style: solid;
+border-color: $graydd;
+width: 100%;
+i{font-size: 100px;
+color: $graydd;
+margin-right: 10px;
+}
+.item-box-personal-box{
+    margin-bottom: 20px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+h6{
+    color: $gray;
+    font-size: 20px;
+    padding: 15px;
+}
+input{
+    direction: rtl;
+    margin-right:15px;
+    border-radius: 10px;
+height: 40px;
+border-style: solid;
+border-color: $graydd;
+color: $gray;
+background-color: transparent;
+}
+}
+        }
+    }
+}

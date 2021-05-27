@@ -1,0 +1,225 @@
+@import "src/utilities/references/index";
+.topnoor-detailproduct-page{
+    background-color: $white;
+    .row-item-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     
+        .small-img-row{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 100%;
+                height: 100%;
+                margin-top: 15px;
+            }
+        }
+  
+    }
+    .row-item-right{
+        display: flex;
+  flex-direction: row-reverse;
+        .big-img-row{
+  
+            height: 100%;
+            width: 100%;
+              img{
+                  width: 100%;
+                  height: 100%;
+                  padding-top: 15px;
+              }
+          }
+    }
+.overviewtxt{
+    margin-top: 50px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    h1{
+color: rgba($gray,0.5);
+font-size: 20px;
+    }
+    h2{
+padding-top: 30px;
+font-size: 17px;
+direction: rtl;
+    }
+}
+    .detail-txt-row{
+        padding-top: 15px;
+        text-align: right;
+     h6{
+font-size: 20px;
+font-weight: normal;
+     }       
+     h5{
+        font-size: 19px;
+        font-weight: normal;
+        color: $gray;
+             }    
+             h1{
+                font-size: 40px;
+                font-weight: normal;
+                padding-top: 30px;
+               
+             }
+    }
+    .detail-star-row{
+        margin-top: 50px;
+        text-align: right;
+        .detail-star-active-row{
+       
+               
+            padding: 5px;
+      color:$danger
+            
+        }
+        .detail-star-none-row{
+       
+            padding: 5px;
+      color:$danger
+        
+    }
+    }
+    .detail-color-row{
+        margin-top: 10px;
+        text-align: right;
+display: flex;
+flex-direction: row-reverse;
+    }
+    .detail-number-row{
+        display: flex;
+    flex-direction: row-reverse;
+    margin-top: 30px;
+        .plusicon{
+            background-color: $gray63;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            cursor: pointer;
+
+        }
+        .minusicon{
+            background-color: $graye0;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            cursor: pointer;
+
+        }
+        input{
+            width: 20%;
+            height: 30px;
+         text-align: center;
+            
+            border-color: rgba($black,0.3);
+            border-width: 1px;
+    
+        }
+    }
+    .detail-btn-row{
+        display: flex;
+        flex-direction: row-reverse;  
+        margin-top: 30px;
+        .card-box{
+            margin-top: 20px;
+            border-style: solid;
+            border-color: $danger;
+            border-width: 1px;
+            display: flex;
+            width: 50%;
+            text-align: right;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            flex-direction: row-reverse;
+            padding-bottom: 10px;
+            h6{
+              color: $danger;
+              font-weight: bold;
+            }
+            i{
+              color: $danger;
+              // font-weight: bold;
+            }
+            
+          }
+    }
+.txt-col-related{
+    text-align: right;
+    h6{
+       padding-top:50px ;
+       font-size: 30px;
+       font-weight: normal;
+    }
+    
+}
+.item-related{
+    margin: 10px;
+    text-align: right;
+    border-radius: 10px;
+    height: 100%;
+    width: 80%;
+    .div-img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+         img{
+      width: 50%;
+      height: 50%;
+      padding-top: 15px;
+    }  
+    }
+ 
+    h1{
+      padding-top: 20px;
+      padding-right: 10px;
+      font-size: 14px;
+      color: $gray66;
+    }
+    h5{
+font-size: 12px;
+color: $gray99;
+padding-top: 20px;
+padding-right: 10px;
+    }
+    h3{
+        padding-top: 20px;
+        padding-right: 10px;
+      font-size: 26px;
+    }
+background-color: $whiteff;
+.card-box{
+margin-top: 20px;
+border-style: solid;
+border-color: $danger;
+border-width: 1px;
+display: flex;
+width: 100%;
+text-align: right;
+justify-content: center;
+align-items: center;
+height: 40px;
+flex-direction: row-reverse;
+padding-bottom: 10px;
+h6{
+color: $danger;
+font-weight: bold;
+}
+i{
+color: $danger;
+// font-weight: bold;
+}
+
+}
+}
+
+}
