@@ -8,13 +8,8 @@ import { navigationAnim, RoutePath } from '../../data';
 import Banner from '../../assets/images/landing/banner.png'
 import Bazarcheimg from '../../assets/images/landing/shegeft.png'
 import Mask from '../../assets/images/shop/mask.png'
-import Brand from '../../assets/images/landing/brand.png'
-import Mask1 from '../../assets/images/landing/mask1.png'
-import Newproduct from '../../assets/images/landing/newpro.png'
-import Banner1 from '../../assets/images/landing/banner1.png'
-import Banner2 from '../../assets/images/landing/banner2.png'
-import Banner3 from '../../assets/images/landing/banner3.png'
-import Banner4 from '../../assets/images/landing/banner4.png'
+import { Checkbox ,Switch } from '@material-ui/core';
+
 const Shop: React.FC<ConnectedProps<typeof connector>> = function () {
     const sliderRef = useRef<Slider | null>(null);
     const history = useHistory();
@@ -100,7 +95,7 @@ const Shop: React.FC<ConnectedProps<typeof connector>> = function () {
   
 </div>
 <div className='row row-result'>
-    <div className='col-md-10 col-xs-12 box-result'>
+    <div className='col-md-9 col-xs-12 box-result'>
 <div className='row'>
    
     <div className='col-2 sortitem-box-result'>
@@ -224,6 +219,75 @@ reorder
    
 </div>
   
+    </div>
+    <div className='col-md-2 col-xs-12 box-filter'>
+        <div className='row '>
+            <div className='col-12 box-col-filter'>
+                <div className='row'>
+                    <div className='col-12 title-list-of-filter-col' >
+                        <h6>حذف همه</h6>
+<i></i>
+<h1>فیلتر های اعمال شده</h1>
+                    </div>
+                    <div className='col-12 list-of-filter-col' >
+              
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div className='row'>
+        <div className='col-12 box-col-brand-filter'>
+                <div className='row'>
+                    <div className='col-12 title-list-of-brand-filter-col' >
+                        <h6>برند ها </h6>
+
+                    </div>
+                    <div className='col-12 list-of-brand-filter-col' >
+              <div className='sub-list-of-brand-filter-col'>
+
+                  <h1>iran</h1>
+                  <i></i>
+                    <h6>ایران</h6>
+                  <Checkbox className='check-classs'></Checkbox>
+                
+              </div>
+              <div className='sub-list-of-brand-filter-col'>
+
+<h1>iran</h1>
+<i></i>
+  <h6>ایران</h6>
+<Checkbox className='check-classs'></Checkbox>
+
+</div>
+<div className='sub-list-of-brand-filter-col'>
+
+<h1>iran</h1>
+<i></i>
+  <h6>ایران</h6>
+<Checkbox className='check-classs'></Checkbox>
+
+</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div className='row'>
+        <div className='col-12 box-col-available-filter'>
+                <div className='row'>
+                    <div className='col-12 available-filter-col' >
+                        <h6>نمایش  کالاهای موجود </h6>
+<Switch className='swich-class' color='primary'/>
+                    </div>
+          
+
+            </div>
+     
+        </div>
+        </div>
+        <div className='row'></div>
+        <div className='row'></div>
     </div>
     </div>   
           

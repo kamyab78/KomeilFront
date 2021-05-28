@@ -54,6 +54,7 @@
         background-color: $whiteff;
         border-radius: 10px;
         margin: 25px;
+      
         .sortitem-box-result{
             display: flex;
             flex-direction: row;
@@ -115,6 +116,121 @@ color: $white;
             }
             }
            
+        }
+    }
+    .box-filter{
+         
+        margin-top: 25px;
+        .box-col-filter{
+            background-color: $whiteff;
+            border-radius: 10px;
+          
+             .title-list-of-filter-col{
+                 border-bottom-style:solid ;
+                 border-width: 1px;
+                 border-color: $graydd;
+                 display: flex;
+                 flex-direction: row;
+                 
+            
+h1{
+font-size: 11px;
+padding: 5px;
+font-weight: normal;
+}
+i{
+flex: 1;
+padding: 5px;
+}
+h6{
+    font-size: 11px;
+    padding: 5px;
+    font-weight: normal;
+    color:$red
+}
+        } 
+        .list-of-filter-col{
+            display: flex;
+            flex-direction: row-reverse;
+            .item-list-of-filter-col{
+                background-color: $graydd;
+               margin: 5px;
+               border-radius: 10px;
+
+                h6{
+                    padding: 5px;
+font-size:14px ;
+color: rgba($black,0.5);
+                }
+            }
+        }
+        }
+        .box-col-brand-filter{
+            background-color: $whiteff;
+            border-radius: 10px; 
+            margin-top: 25px;
+            .title-list-of-brand-filter-col{
+                border-bottom-style:solid ;
+                border-width: 1px;
+                border-color: $graydd;
+            text-align: right;
+                
+           
+
+h6{
+   font-size: 11px;
+   padding: 5px;
+   font-weight: normal;
+  
+}
+       } 
+       .list-of-brand-filter-col{
+           .sub-list-of-brand-filter-col{
+               display: flex;
+               flex-direction: row;
+          justify-content: center;
+          align-items: center;
+               i{
+flex: 1;
+               }
+               h1{
+font-size: 10px;
+color: $gray;
+               }
+               h6{
+                font-size: 10px;
+                font-weight: normal;
+               }
+               .check-classs{
+color: $perpel;
+               }
+           }
+       }
+        }
+        .box-col-available-filter{
+            background-color: $whiteff;
+            border-radius: 10px; 
+            margin-top: 25px;
+            .available-filter-col{
+           
+            text-align: right;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+           
+
+h6{
+   font-size: 11px;
+   padding: 5px;
+  
+  
+}  
+.swich-class{
+    color: $perpel;
+}
+} 
+     
         }
     }
 }
