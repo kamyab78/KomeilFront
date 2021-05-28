@@ -2,16 +2,16 @@ import React, { useRef } from 'react';
 import { ReduxState } from 'interface';
 import { connect, ConnectedProps } from 'react-redux';
 import './shop.scss';
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 import { Link, useHistory } from 'react-router-dom';
 import { navigationAnim, RoutePath } from '../../data';
 import Banner from '../../assets/images/landing/banner.png'
 import Bazarcheimg from '../../assets/images/landing/shegeft.png'
 import Mask from '../../assets/images/shop/mask.png'
-import { Checkbox ,Switch } from '@material-ui/core';
+import { Checkbox ,Switch,Slider } from '@material-ui/core';
 
 const Shop: React.FC<ConnectedProps<typeof connector>> = function () {
-    const sliderRef = useRef<Slider | null>(null);
+ 
     const history = useHistory();
     const settings = {
         dots: false,
@@ -215,6 +215,71 @@ reorder
 </div>
       </div>
    </div>
+   <div className='col-md-3 col-xs-6 subitem-box-result'>
+      <div className='div-img-subitem-box-result'>
+          <img src={Mask} alt=''></img>
+      </div>
+      <h6>سرویس چاقو آشپزخانه</h6>
+      <div className='div-price-subitem-box-result'>
+<h5>100T</h5>
+<i></i>
+<div className='discount-subitem-box-result'>
+    <h3>60%</h3>
+</div>
+      </div>
+   </div>
+   <div className='col-md-3 col-xs-6 subitem-box-result'>
+      <div className='div-img-subitem-box-result'>
+          <img src={Mask} alt=''></img>
+      </div>
+      <h6>سرویس چاقو آشپزخانه</h6>
+      <div className='div-price-subitem-box-result'>
+<h5>100T</h5>
+<i></i>
+<div className='discount-subitem-box-result'>
+    <h3>60%</h3>
+</div>
+      </div>
+   </div>
+   <div className='col-md-3 col-xs-6 subitem-box-result'>
+      <div className='div-img-subitem-box-result'>
+          <img src={Mask} alt=''></img>
+      </div>
+      <h6>سرویس چاقو آشپزخانه</h6>
+      <div className='div-price-subitem-box-result'>
+<h5>100T</h5>
+<i></i>
+<div className='discount-subitem-box-result'>
+    <h3>60%</h3>
+</div>
+      </div>
+   </div>
+   <div className='col-md-3 col-xs-6 subitem-box-result'>
+      <div className='div-img-subitem-box-result'>
+          <img src={Mask} alt=''></img>
+      </div>
+      <h6>سرویس چاقو آشپزخانه</h6>
+      <div className='div-price-subitem-box-result'>
+<h5>100T</h5>
+<i></i>
+<div className='discount-subitem-box-result'>
+    <h3>60%</h3>
+</div>
+      </div>
+   </div>
+   <div className='col-md-3 col-xs-6 subitem-box-result'>
+      <div className='div-img-subitem-box-result'>
+          <img src={Mask} alt=''></img>
+      </div>
+      <h6>سرویس چاقو آشپزخانه</h6>
+      <div className='div-price-subitem-box-result'>
+<h5>100T</h5>
+<i></i>
+<div className='discount-subitem-box-result'>
+    <h3>60%</h3>
+</div>
+      </div>
+   </div>
 
    
 </div>
@@ -286,8 +351,32 @@ reorder
      
         </div>
         </div>
-        <div className='row'></div>
-        <div className='row'></div>
+        <div className='row'>
+        <div className='col-12 box-col-price-filter'>
+                <div className='row'>
+                    <div className='col-12 title-price-filter-col' >
+                        <h6>محدوده قیمت</h6>
+
+                    </div>
+                    <div className='col-12 price-filter-col' >
+                        <h6>از قیمت</h6>
+<div className='div-input'>
+    <input></input>
+    <h6>تا</h6>
+    <input></input>
+</div>
+<Slider/>
+<div className='div-btn'>
+  <button>تایید</button>  
+</div>
+
+                    </div>
+
+            </div>
+     
+        </div>
+        </div>
+        
     </div>
     </div>   
           
