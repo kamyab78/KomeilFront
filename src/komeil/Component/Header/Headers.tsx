@@ -34,7 +34,7 @@ person
     
 </div>
                     <Link to='/' className=" col-5 logo-div" >
-                        <img alt="" />
+                        <img alt="" src={Logo}/>
                        
                     </Link>
                     <div className="col-4 search-div ">
