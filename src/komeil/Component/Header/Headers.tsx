@@ -57,7 +57,6 @@ person
                     </div>
                <div className='col-2'></div>
                     <Link to='/aboutus' className="col-1 item-box" ><h5>درباره ما</h5></Link>
-                   <Link to='/contactus' className="col-1 item-box" ><h5>تماس با ما</h5></Link>
                     <Link to='/bazarche' className="col-2 item-box" >
                         <div className='promotion-box'>
                                                <h6>

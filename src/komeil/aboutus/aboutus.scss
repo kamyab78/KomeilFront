@@ -1,122 +1,124 @@
 @import "src/utilities/references/index";
-.topnoor-aboutus-page{
+.komeil-aboutus-page{
     background-color: $white;
-    .bigbanner{
-        position: relative;
-        img{width: 100%;}
-        .box-txt-about-bigbanner{
+.row-description{
+margin-top: 30px;
+    .col-img-description{
+        height: 500px;
+        
+        img{
             width: 100%;
-            background-color: rgba($black,0.7);
             height: 100%;
-position: absolute;
-top: 0;
-right: 0;
+        }
+    }
+    .col-txt-description{
+text-align: right;
 display: flex;
-align-items: center;
-justify-content: center;
+padding: 50px;
 flex-direction: column;
 h1{
-    font-size: 40px;
-    color: $white;
+color: $black50;
+font-weight: bold;
 }
 h6{
-    font-size: 18px;
-    color: $white;
-    padding-top:15px ;
+font-weight: normal;
+padding-top: 40px;
+font-size: 14px;
+line-height: 21px;
 }
-        }
     }
-    .row2{
-        margin-top: 100px;
-        .scondbanner{
-        img{width: 100%;
-        height: 100%;}
-    } 
-    }
-       .row3{
-        margin-top: 100px;
-       
-        img{width: 100%;
-        height: 100%;}
-    .txt-box-row3{
-        display: flex;
-        justify-content: center;
-      
-        flex-direction: column;
-        text-align: right;
-        h1{
-color: rgba($black,0.4);
-font-size: 30px;
-        }
-        h2{
-            color: $black;
-            font-size: 20px;
-            padding-top: 20px;
-            border-bottom-style:solid ;
-            border-width: 1px;
-            border-color: $danger;
-            padding-bottom: 20px;
-        }
-        h6{
-            padding-top: 20px;
-            color: rgba($black,0.4);
-        }
-    }
-    }
-    .row4{
-        margin-top: 10px;
-       
-        img{width: 100%;
-        height: 100%;}
-    .txt-box-row3{
-        text-align: right;
-        display: flex;
-        justify-content: center;
-      
-        flex-direction: column;
-        h1{
-color: rgba($black,0.4);
-font-size: 30px;
-        }
-        h2{
-            color: $black;
-            font-size: 20px;
-            padding-top: 20px;
-            border-bottom-style:solid ;
-            border-width: 1px;
-            border-color: $danger;
-            padding-bottom: 20px;
-        }
-        h6{
-            padding-top: 20px;
-            color: rgba($black,0.4);
-        }
-    }
-    }
-    .row5{
-        margin-top: 100px;
-       margin-bottom: 120px;
-    .box-txt-row5{
-        border-width:1px ;
-        border-top-style:solid ;
-        border-color: $graydd;
+}
+.row-img{
+    .col-txt-img{
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        text-align: center;
         h1{
-            font-size: 28px;
-            padding-top: 40px;
+            color: $black50;
+font-weight: bold;
+padding: 60px;
         }
+    }
+    .col-img-img{
+    
+        img{
+               width: 100%;
+        height: 100%; 
+       
+        }
+    }
+}
+.row-contact{
+    margin-bottom: 30px;
+    .col-contact-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1{
+            color: $black50;
+font-weight: bold;
+padding: 60px;
+        }
+    }
+    .col-contact-input{
+display: flex;
+flex-direction: column;
+
+padding-right: 100px;
+padding-left: 100px;
+h6{
+    font-weight: normal;
+padding-top: 40px;
+font-size: 14px;
+text-align: right;
+}
+.col-contact-input-input{
+    display: flex;
+  flex-direction: row-reverse;
+    input{
+        width: 200px;
+        margin-top: 10px;
+        background-color: $grayE2;
+        border-radius: 5px;
+        border-color: transparent;
+        }
+        textarea{
+            height: 150px;
+            margin-top: 10px;
+            width: 100%;
+            background-color: $grayE2;
+            border-radius: 5px;
+            border-color: transparent;
+        } 
+}
+
+.col-contact-input-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   button{
+    width: 140px;
+    height: 40px;
+    color: $white;
+    background-color: $perpel;
+    border-color: transparent;
+    border-radius: 3px;
+    margin-top: 30px;
+} 
+}
+
+    }
+    .col-contact-txt{
+        display: flex;
+flex-direction: column;
+padding-right: 100px;
+padding-left: 100px;
         h6{
-            padding-top: 40px;
-            color: rgba($black,0.4);
-        }
-        h2{
-            padding-top: 40px;
-            font-size: 30px;
+            font-weight: normal;
+        padding-top: 18px;
+        font-size: 14px;
+        text-align: right;
         }
     }
-    }
+}
 }

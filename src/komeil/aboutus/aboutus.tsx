@@ -4,81 +4,79 @@ import './aboutus.scss';
 import { Dropdown } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
-import Bigbanner from '../../assets/images/aboutus/banner.png'
-import SecondBanner from '../../assets/images/aboutus/secondbanner1.png'
-import Image2 from '../../assets/images/aboutus/b2.png'
-import Image3 from '../../assets/images/aboutus/b3.png'
-const aboutus = () => {
+import BannerImg from '../../assets/images/aboutus/bannerimg.png'
+import GoogleMap from '../../assets/images/aboutus/googlemaps.png'
+const Aboutus = () => {
 return(
-    <div className='row topnoor-aboutus-page'>
-       <div className='col-12'>
-<div className='row'>
-    <div className='col-12 bigbanner'>
-        <img src={Bigbanner} alt=''></img>
-        <div className='box-txt-about-bigbanner'>
-            <h1>درباره ما</h1>
-            <h6>اتوبان نیایش - جنت آباد شمالی</h6>
-            <h6>خیابان گلزار شمالی</h6>
-            <h6>پلاک ۲ - واحد ۲</h6>
+ <div className='komeil-aboutus-page row'>
+<div className='col'>
+    <div className='row row-description'>
+        <div className='col-md-6 col-xs-12 col-img-description'>
+<img src={BannerImg}></img>
         </div>
-    </div>
+        <div className='col-md-6 col-xs-12 col-txt-description'>
+<h1>کمیل شاپ را بیشتر بشناسید</h1>
+<h6>کمیل شاپ در سال 1400 شروع به فعالیت کرد کمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کرد</h6>
 </div>
-<div className='row row2'>
-    <div className='col-md-1'></div>
-    <div className='col-md-10  col-xs -12 scondbanner'>
-        <img src={SecondBanner} alt=''></img>
+    </div>
+    <div className='row row-img'>
+        <div className='col-xs-12 col-md-12 col-txt-img'>
+<h1>فروشگاه ما را تماشا کنید</h1>
+        </div>
+        <div className='col-md-2 col-xs-12 col-img-img'>
+<img src={BannerImg}></img>
+</div>
+<div className='col-md-2 col-xs-12 col-img-img'>
+<img src={BannerImg}></img>
+</div>
+<div className='col-md-2 col-xs-12 col-img-img'>
+<img src={BannerImg}></img>
+</div>
+<div className='col-md-2 col-xs-12 col-img-img'>
+<img src={BannerImg}></img>
+</div>
+<div className='col-md-2 col-xs-12 col-img-img'>
+<img src={BannerImg}></img>
+</div>
+<div className='col-md-2 col-xs-12 col-img-img'>
+<img src={BannerImg}></img>
+</div>
+    </div>
+<div className='row row-contact'>
+    <div className='col-xs-12 col-md-12 col-contact-title'>
+        <h1>
+            راه های ارتباطی ما
+        </h1>
+    </div>
+<div className='col-md-6 col-xs-12 col-contact-input'>
+    <h6>نام کامل</h6>
+    <div className='col-contact-input-input'>
+ <input></input>
+    </div>
+    <h6>آدرس ایمیل</h6>
+    <div className='col-contact-input-input'>
+ <input></input>
+    </div>
+    <h6>پیام شما به ما</h6>
+    <div className='col-contact-input-input'>
+    <textarea></textarea>
+    </div>
+
+    <div className='col-contact-input-btn'>
+         <button>ارسال پیام</button> 
+    </div>
   
-    </div>
-    <div className='col-md-1'></div>
 </div>
-<div className='row row3'>
-    <div className='col-md-1'></div>
-    <div className='col-md-10  col-xs-12 '>
-        <div className='row'>
-            <div className='col-md-6 col-xs-12 '>
-                <img src={Image2} alt=''></img>
-            </div>
-            <div className='col-md-6 col-xs-12 txt-box-row3'>
-<h1>تایتل۱</h1>
-<h2>تایتل2</h2>
-<h6>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،.</h6>
-            </div>
-            </div>
-  
-    </div>
-    <div className='col-md-1'></div>
+<div className='col-md-6 col-xs-12 col-contact-txt'>
+    <img src={GoogleMap}></img>
+    <h6>آدرس : میدان شوش خ صابونیان پاساژ شهرداری طبقه منفی ۲ پلاک ۶۰</h6>
+    <h6>تلفن تماس : ۲۳۲۳۲۳۲۳</h6>
+    <h6>ساعات کاری فروشگاه: 8 الی 23 هر روز هفته</h6>
+    <h6>info@komeilshop.com :ایمیل فروشگاه </h6>
 </div>
-<div className='row row4'>
-    <div className='col-md-1'></div>
-    <div className='col-md-10  col-xs-12 '>
-        <div className='row'>
-           
-            <div className='col-md-6 col-xs-12 txt-box-row3'>
-<h1>تایتل۱</h1>
-<h2>تایتل2</h2>
-<h6>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،.</h6>
-            </div>
-            <div className='col-md-6 col-xs-12 '>
-                <img src={Image3} alt=''></img>
-            </div>
-            </div>
-  
-    </div>
-    <div className='col-md-1'></div>
 </div>
-<div className='row row5'>
-    <div className='col-md-1'></div>
-    <div className='col-md-10  col-xs-12 box-txt-row5 '>
-     <h1>لورم ایپسوم متن ساختگی با تولید سادگی</h1>
-<h6> و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد</h6> 
-<h2>و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روز</h2> 
-    </div>
-    <div className='col-md-1'></div>
 </div>
-   
-     
-       </div>
-    </div>
+ </div>
 )
 }
-export default aboutus
+export default Aboutus
