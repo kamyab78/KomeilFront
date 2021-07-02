@@ -1,5 +1,5 @@
 @import "src/utilities/references/index";
-.topnoor-bazarche-page{
+.koemil-bazarche-page{
     background-color: $white;
     .title-bazarche{
         display: flex;
@@ -20,218 +20,230 @@
     height: 90%;
 } 
     }
-    .bazarche-box{
-     
-        background-color: $danger;
-        align-items: center;
-        justify-content: center;
-        .bazarche-box-main{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-      
-        //   border-radius: 10px;
-          width: 100%;
-          .item-bazarche-box-main{
-            display: flex;
-            flex-direction: column;
-            .title-best-offer{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                // position: fixed;
-                h1{
-                    font-size: 20px;
-                    padding: 25px;
-                    color:$white;
-                    // border-bottom-style: solid;
-                    // border-color: $graydd;
-                    // border-width: 1px;
 
-                }
-            }
-            .row-subitem{
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                margin: 15px;
-                     .sub-item-bazarche-box-main{
-              margin: 10px;
-              text-align: right;
-            //   border-radius: 10px;
-              height: 100%;
-              .div-img{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                   img{
-                width: 75%;
-                height: 50%;
-                padding-top: 15px;
-              }
-              }
-           
-              h1{
-                padding-top: 10px;
-                font-size: 14px;
-                color: $gray66;
+        
+          .subitem-box-result{
+            border-color: $graydd;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 5px;
+            margin: 20px;
+              .div-img-subitem-box-result{
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+  img{
+  width: 60%;
+  }
               }
               h6{
-    font-size: 12px;
-    color: $gray99;
-    padding-top: 10px;
-              }
-              h3{
-                padding-top: 10px;
-                font-size: 26px;
-              }
-    background-color: $whiteff;
-    .card-box{
-      margin-top: 20px;
-      margin-bottom: 10px;
-      border-style: solid;
-      border-color: $danger;
-      border-width: 1px;
-      display: flex;
-      width: 100%;
-      text-align: right;
-      justify-content: center;
-      align-items: center;
-      height: 40px;
-      flex-direction: row-reverse;
-      padding-bottom: 10px;
-      h6{
-        color: $danger;
-        font-weight: bold;
-      }
-      i{
-        padding-top: 10px;
-        color: $danger;
-        // font-weight: bold;
-      }
-      
-    }
-    }   
-            }
-    
-          }
-    
-    
-          .img-bazarche-box-main{
-            img{width: 100%;
-              height: 100%;
-            }
-          }
-        }
-      }
-    .seconnd-banner{
-    display: flex;
- background-color: $orange;
-  
-   img{
-width: 100%;
-height: 90%;
-} 
-}
-.product-box{
- background-color: $orange;
-    .product-box-main{
-
- 
-      border-radius: 10px;
-      width: 100%;
-      text-align: center;
-      padding: 20px;
-
-      h1{
-padding: 8px;
-        border-bottom-style: solid;
-        border-color:rgba($graydd,0.4);
-        font-size: 25px;
-        color:$white
-      }
-
-         .product-items{
-        display: flex;
-        flex-direction: row;
-      .col-sub-item{
-          margin-top: 10px;
-          margin-bottom: 10px;
-    .sub-product-items{
-  border-style: solid;
-  border-color:$graydd;
-  // padding-top: 10px;
-border-width: 1px;
-  text-align: right;
-//   border-radius: 10px;
-  height: 100%;
- width: 100%;
- margin: 10px;
- margin-top: 20px;
-.div-img{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-   img{
-    width: 100%;
-    height: 50%;
-    padding-top: 15px;
-  }
-}
- 
-  h1{
-    padding-top: 10px;
-    padding-right: 10px;
-    font-size: 14px;
-    color: $gray66;
-  }
-  h5{
-font-size: 12px;
-color: $gray99;
-padding-top: 10px;
-padding-right: 10px;
-  }
+                  font-weight: normal;
+                  font-size: 15px;
+                  text-align: center;
+                                  }
+              .div-price-subitem-box-result{
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: center;
+                  align-items: center;
+                  margin: 15px;
+                  h5{
+  font-weight: normal;
+  font-size: 15px;
+                  }
+                  i{
+  flex: 1;
+                  }
+   .discount-subitem-box-result{
+       width: 30px;
+       height: 30px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color: $perpel;
+       border-top-left-radius: 10px;
+       border-top-right-radius:10px ;
   h3{
-    padding-top: 10px;
-        padding-right: 10px;
-    font-size: 26px;
+  font-size: 14px;
+  color: $white;
   }
-background-color: $whiteff;
-.div-btn{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-   .card-box{
-  margin-top: 20px;
-  border-style: solid;
-
-  border-width: 1px;
-  display: flex;
-  width: 90%;
-  text-align: right;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  flex-direction: row-reverse;
-  padding-bottom: 10px;
+              }
+              }
+             
+          }
+      }
+      .box-filter{
+           
+          margin-top: 25px;
+          .box-col-filter{
+              background-color: $whiteff;
+              border-radius: 10px;
+            
+               .title-list-of-filter-col{
+                   border-bottom-style:solid ;
+                   border-width: 1px;
+                   border-color: $graydd;
+                   display: flex;
+                   flex-direction: row;
+                   
+              
+  h1{
+  font-size: 11px;
+  padding: 5px;
+  font-weight: normal;
+  }
+  i{
+  flex: 1;
+  padding: 5px;
+  }
   h6{
-   font-size: 12px;
-    font-weight: bold;
+      font-size: 11px;
+      padding: 5px;
+      font-weight: normal;
+      color:$red
   }
-
-}
-}
- 
-}      
-      }     
-
-
-}
-      
-
-    }
+          } 
+          .list-of-filter-col{
+              display: flex;
+              flex-direction: row-reverse;
+              .item-list-of-filter-col{
+                  background-color: $graydd;
+                 margin: 5px;
+                 border-radius: 10px;
+  
+                  h6{
+                      padding: 5px;
+  font-size:14px ;
+  color: rgba($black,0.5);
+                  }
+              }
+          }
+          }
+          .box-col-brand-filter{
+              background-color: $whiteff;
+              border-radius: 10px; 
+              margin-top: 25px;
+              .title-list-of-brand-filter-col{
+                  border-bottom-style:solid ;
+                  border-width: 1px;
+                  border-color: $graydd;
+              text-align: right;
+                  
+             
+  
+  h6{
+     font-size: 11px;
+     padding: 5px;
+     font-weight: normal;
+    
   }
+         } 
+         .list-of-brand-filter-col{
+             .sub-list-of-brand-filter-col{
+                 display: flex;
+                 flex-direction: row;
+            justify-content: center;
+            align-items: center;
+                 i{
+  flex: 1;
+                 }
+                 h1{
+  font-size: 10px;
+  color: $gray;
+                 }
+                 h6{
+                  font-size: 10px;
+                  font-weight: normal;
+                 }
+                 .check-classs{
+  color: $perpel;
+                 }
+             }
+         }
+          }
+          .box-col-available-filter{
+              background-color: $whiteff;
+              border-radius: 10px; 
+              margin-top: 25px;
+              .available-filter-col{
+             
+              text-align: right;
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: center;
+                  align-items: center;
+             
+  
+  h6{
+     font-size: 11px;
+     padding: 5px;
+    
+    
+  }  
+  .swich-class{
+      color: $perpel;
+  }
+  } 
+       
+          }
+          .box-col-price-filter{
+              background-color: $whiteff;
+              border-radius: 10px; 
+              margin-top: 25px;
+              .title-price-filter-col{
+                  border-bottom-style:solid ;
+                  border-width: 1px;
+                  border-color: $graydd;
+              text-align: right;
+                  
+             
+  
+  h6{
+     font-size: 12px;
+     padding: 5px;
+     font-weight: normal;
+    
+  }
+         } 
+         .price-filter-col{
+           
+       text-align: right;
+              
+             h6{
+  padding: 5px;
+  font-size:12px ;
+  font-weight: normal;
+             }
+             .div-input{
+                 display: flex;
+                 flex-direction: row;
+                 margin-top: 5px;
+                 input{
+                     width: 100%;
+                     border-color: transparent;
+                     background-color: $graydd;
+                     border-radius: 5px;
+                 }
+             }
+             .div-btn{
+                       display: flex;
+             justify-content: center;
+             align-items: center;
+             margin-bottom: 15px;
+          button{
+              width: 50%;
+              font-size: 12px;
+              background-color: $perpel;
+              border-color: transparent;
+              color:$white;
+              height: 30px;
+              font-weight: bold;
+              border-radius: 5px;
+          }
+             }
+         }
+       
+          }
+      }
+  
 
-}
