@@ -56,6 +56,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            .discounttxt{
+              position: absolute;
+              top:0;
+              left:-5px;
+              transform: rotate(-35deg);
+              background-color: $danger;
+              width: 40px;
+              text-align: center;
+              border-radius: 5px;
+              color:$blue6A
+            }
                img{
             width: 75%;
             height: 50%;
@@ -65,7 +76,8 @@
        
           h1{
             padding-top: 10px;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: bold;
             color: $gray66;
           }
           h6{
@@ -101,7 +113,15 @@ background-color: $whiteff;
     color: $perpel;
     // font-weight: bold;
   }
-  
+
+}
+.amountafterdiscount{
+  text-decoration: line-through;
+}
+h3{
+  padding-top: 10px;
+      padding-right: 10px;
+  font-size: 15px;
 }
 }
 .show-more-sub-item-bazarche-box-main{
@@ -164,20 +184,42 @@ box-shadow: 5px 5px 5px 5px $graydd;
 .div-img-new{
   display: flex;
   justify-content: center;
+  position: relative;
   align-items: center;
   img{
   width: 60%;
 
 }
+.discounttxt{
+  position: absolute;
+  top:0;
+  left:-5px;
+  transform: rotate(-35deg);
+  background-color: $danger;
+  width: 40px;
+  text-align: center;
+  border-radius: 5px;
+  color:$blue6A
+}
 }
 
 h1{
 text-align: center;
-  font-weight: normal;
-  font-size: 12px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
 }
 h2{
 padding: 20px;
+}
+.amountafterdiscount{
+  text-decoration: line-through;
+}
+h3{
+  padding-top: 5px;
+      padding-right: 10px;
+  font-size: 15px;
+  padding-bottom: 10px;
 }
   }
   .subitem-newproduct-more{
