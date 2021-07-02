@@ -15,9 +15,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        height: 100%;
        img{
     width: 100%;
-    height: 90%;
+    height: 350px;
 } 
     }
 
@@ -40,6 +42,7 @@
                   font-weight: normal;
                   font-size: 15px;
                   text-align: center;
+                  padding:10px
                                   }
               .div-price-subitem-box-result{
                   display: flex;
@@ -67,6 +70,18 @@
   font-size: 14px;
   color: $white;
   }
+  h6{
+    font-size: 14px;
+    color: $white;  
+  }
+              }
+              .amountafterdiscount{
+                text-decoration: line-through;
+              }
+              h3{
+                padding-top: 10px;
+                    padding-right: 10px;
+                font-size: 15px;
               }
               }
              

@@ -211,13 +211,12 @@ const [sixtBannerid, setsixthBannerid] = useState('')
                                           <div className='sub-item-bazarche-box-main col-3'>
                                 <div className='div-img'>
                                    
-                                {index.discount !== 0 ? (
-                                                <h6 className='discounttxt'>{index.discount}%</h6>
-                                            ) : null}
+                            
                                <img src={index.imageUrl} alt=''></img>
                                     </div>
                                     <h1>{index.name}</h1>
-                           <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+                                    <div className='div-price-sub-item-bazarche-box-main'>
+                                    <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
 
 {index.discount !== 0 ? (
     <>
@@ -231,6 +230,16 @@ const [sixtBannerid, setsixthBannerid] = useState('')
 
 <h3>تومان</h3>
 </div>
+<i></i>
+{index.discount !== 0 ? (
+<div className='discount-sub-item-bazarche-box-main'>
+
+                                                <h6 className='discounttxt'>{index.discount}%</h6>
+                                          
+</div>
+  ) : null}
+      </div> 
+
                                     <div className='card-box'>
                             
                                         <h6>مشاهده بیشتر</h6>
@@ -259,13 +268,12 @@ const [sixtBannerid, setsixthBannerid] = useState('')
                             <div className='subitem-newproduct'>
                    
                            <div className='div-img-new'>
-                           {index.discount !== 0 ? (
-                                                <h6 className='discounttxt'>{index.discount}%</h6>
-                                            ) : null}
+    
                                <img src={index.imageUrl} alt=''></img>
                            </div>
                            <h1>{index.name}</h1>
-                           <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+                           <div className='div-price-subitem-newproduct'>
+                                    <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
 
 {index.discount !== 0 ? (
     <>
@@ -279,6 +287,15 @@ const [sixtBannerid, setsixthBannerid] = useState('')
 
 <h3>تومان</h3>
 </div>
+<i></i>
+{index.discount !== 0 ? (
+<div className='discount-subitem-newproduct'>
+
+                                                <h6 className='discounttxt'>{index.discount}%</h6>
+                                      
+</div>
+      ) : null}
+      </div> 
                             </div>
                         </div>  
                         ))}

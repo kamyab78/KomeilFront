@@ -56,17 +56,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            .discounttxt{
-              position: absolute;
-              top:0;
-              left:-5px;
-              transform: rotate(-35deg);
-              background-color: $danger;
-              width: 40px;
-              text-align: center;
-              border-radius: 5px;
-              color:$blue6A
-            }
+    
                img{
             width: 75%;
             height: 50%;
@@ -115,6 +105,33 @@ background-color: $whiteff;
   }
 
 }
+.div-price-sub-item-bazarche-box-main{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  h5{
+font-weight: normal;
+font-size: 15px;
+  }
+  i{
+flex: 1;
+  }
+.discount-sub-item-bazarche-box-main{
+width: 30px;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: $perpel;
+border-top-left-radius: 10px;
+border-top-right-radius:10px ;
+h6{
+  color:$white
+}
+}
 .amountafterdiscount{
   text-decoration: line-through;
 }
@@ -123,6 +140,8 @@ h3{
       padding-right: 10px;
   font-size: 15px;
 }
+}
+
 }
 .show-more-sub-item-bazarche-box-main{
   margin: 10px;
@@ -220,6 +239,43 @@ h3{
       padding-right: 10px;
   font-size: 15px;
   padding-bottom: 10px;
+}
+.div-price-subitem-newproduct{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  h5{
+font-weight: normal;
+font-size: 15px;
+  }
+  i{
+flex: 1;
+  }
+.discount-subitem-newproduct{
+width: 30px;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: $perpel;
+border-top-left-radius: 10px;
+border-top-right-radius:10px ;
+h6{
+  color:$white;
+  font-size: 12px;
+}
+}
+.amountafterdiscount{
+  text-decoration: line-through;
+}
+h3{
+  padding-top: 10px;
+      padding-right: 10px;
+  font-size: 15px;
+}
 }
   }
   .subitem-newproduct-more{
