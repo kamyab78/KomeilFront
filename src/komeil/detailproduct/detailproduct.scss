@@ -1,157 +1,192 @@
 @import "src/utilities/references/index";
 .topnoor-detailproduct-page{
-    background-color: $white;
-    .row-item-center{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-     
-        .small-img-row{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            img{
-                width: 100%;
-                height: 100%;
-                margin-top: 15px;
-            }
-        }
-  
-    }
-    .row-item-right{
-        display: flex;
-  flex-direction: row-reverse;
-        .big-img-row{
-  
-            height: 100%;
-            width: 100%;
-              img{
-                  width: 100%;
-                  height: 100%;
-                  padding-top: 15px;
-              }
-          }
-    }
-.overviewtxt{
+    background-color: $whitef5;
+.col-desc{
     margin-top: 50px;
-    text-align: right;
     display: flex;
     flex-direction: column;
-    h1{
-color: rgba($gray,0.5);
-font-size: 20px;
-    }
-    h2{
-padding-top: 30px;
-font-size: 17px;
-direction: rtl;
-    }
-}
-    .detail-txt-row{
-        padding-top: 15px;
-        text-align: right;
-     h6{
-font-size: 20px;
-font-weight: normal;
-     }       
-     h5{
-        font-size: 19px;
-        font-weight: normal;
-        color: $gray;
-             }    
-             h1{
-                font-size: 40px;
-                font-weight: normal;
-                padding-top: 30px;
-               
-             }
-    }
-    .detail-star-row{
-        margin-top: 50px;
-        text-align: right;
-        .detail-star-active-row{
-       
-               
-            padding: 5px;
-      color:$danger
-            
-        }
-        .detail-star-none-row{
-       
-            padding: 5px;
-      color:$danger
-        
-    }
-    }
-    .detail-color-row{
-        margin-top: 10px;
-        text-align: right;
+    align-items: center;
+        .firstRow-col-desc{
+    width: 90%;
 display: flex;
 flex-direction: row-reverse;
+span{
+    flex: 1;
+}
+h6{
+padding: 10px;
+font-size: 15px;
+}
+h1{
+padding: 10px;
+font-size: 20px;
+}
+i{
+    color:$danger;
+    padding-left: 10px;
+    padding-top: 5px    ;
+}
+}
+.secondRow-col-desc{
+    margin-top: 30px;
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+    h6{
+    font-size: 20px;
+    }
+}
+.thirdRow-col-desc{
+    margin-top: 30px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+.col-price-and-add{
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px $graydd;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 280px;
+.item-col-price-and-add-title{
+    width: 100%;
+    h5{
+        text-align: right;
+        padding:10px;
+        font-size:20px;
+            }
+}
+    .item-col-price-and-add{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+.discount-item-col-price-and-add{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $perpel;
+    border-top-left-radius: 10px;
+    border-top-right-radius:10px ;
+    margin:10px;
+h3{
+font-size: 14px;
+color: $white;
+}
+}
+h2{
+margin: 10px;
+margin-top: 15px;
+font-size: 20px;
+color:$gray;
+text-decoration: line-through;
+}
+h3{
+    margin: 10px;
+    font-size: 20px;
+}
+h4{
+font-weight: normal;
+margin: 10px;
+}
+
+
     }
     .detail-number-row{
+        width: 90%;
         display: flex;
-    flex-direction: row-reverse;
-    margin-top: 30px;
-        .plusicon{
-            background-color: $gray63;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 30px;
-            cursor: pointer;
-
-        }
-        .minusicon{
-            background-color: $graye0;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 30px;
-            cursor: pointer;
-
-        }
-        input{
-            width: 20%;
-            height: 30px;
-         text-align: center;
-            
-            border-color: rgba($black,0.3);
-            border-width: 1px;
-    
-        }
-    }
-    .detail-btn-row{
-        display: flex;
-        flex-direction: row-reverse;  
+        flex-direction: row-reverse;
         margin-top: 30px;
-        .card-box{
-            margin-top: 20px;
-            border-style: solid;
-            border-color: $danger;
-            border-width: 1px;
-            display: flex;
-            width: 50%;
-            text-align: right;
-            justify-content: center;
-            align-items: center;
-            height: 40px;
-            flex-direction: row-reverse;
-            padding-bottom: 10px;
-            h6{
-              color: $danger;
-              font-weight: bold;
+        justify-content: center;
+        align-items: center;
+            .plusicon{
+                background-color: $gray63;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                cursor: pointer;
+    
             }
-            i{
-              color: $danger;
-              // font-weight: bold;
+            .minusicon{
+                background-color: $graye0;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                cursor: pointer;
+    
             }
-            
-          }
+            input{
+            width: 90%;
+                height: 30px;
+             text-align: center;
+                
+                border-color: rgba($black,0.3);
+                border-width: 1px;
+        
+            }
     }
+    .card-box{
+        border-radius: 5px;
+        border-color: transparent;
+    margin-top: 20px;
+        background-color: $perpel;
+    
+        display: flex;
+        width: 90%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+   
+   
+ 
+  
+          color: $white;
+          font-weight: bold;
+   
+   
+    }
+}
+i{
+flex: 1;
+}
+h6{
+    text-align: right;
+    direction: rtl;
+    width: 70%;
+    font-weight: normal;
+}
+}
+}
+
+.col-img{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 340px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px 5px $graydd;
+    }
+    .additional-img{
+display: flex;
+flex-direction: row;
+img{
+    width: 100px;
+    margin:10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px $graydd;
+}
+    }
+}
 .txt-col-related{
     text-align: right;
     h6{
@@ -173,6 +208,7 @@ flex-direction: row-reverse;
         justify-content: center;
         width: 100%;
          img{
+            object-fit: cover;
       width: 50%;
       height: 50%;
       padding-top: 15px;
@@ -196,30 +232,35 @@ padding-right: 10px;
         padding-right: 10px;
       font-size: 26px;
     }
-background-color: $whiteff;
+background-color: $white;
+border-radius: 10px;
+box-shadow: 5px 5px 5px 5px $graydd;
+.btn-show-more{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 .card-box{
-margin-top: 20px;
-border-style: solid;
-border-color: $danger;
-border-width: 1px;
-display: flex;
-width: 100%;
-text-align: right;
-justify-content: center;
-align-items: center;
-height: 40px;
-flex-direction: row-reverse;
-padding-bottom: 10px;
-h6{
-color: $danger;
-font-weight: bold;
-}
-i{
-color: $danger;
-// font-weight: bold;
-}
+    border-radius: 5px;
+        border-color: transparent;
+    margin-top: 20px;
+        background-color: $perpel;
+    
+        display: flex;
+        width: 90%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+   
+   
+ 
+  
+          color: $white;
+          font-weight: bold;
 
 }
 }
 
+}
 }
