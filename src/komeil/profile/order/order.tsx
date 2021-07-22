@@ -15,139 +15,76 @@ const order = () => {
                 <div className='row'>
                     <div className='col-md-1'></div>
                     <div className='col-md-8 col-xs-10 order-box'>
-                        <div className='row box-order-box'>
-                            <div className='col-6 date-box'>
-                                <h6>تاریخ ارسال : نیبنبسنیب </h6>
+                    <div className='row box-order-box'>
+                        <div className='col-md-12 col-xs-12 box-order-box'>
+                            <div className='row'>
+                              <div className='col-12 col-box-order-box'>
+   <h1>سفارشات</h1>
+        </div>  
                             </div>
-                            <div className='col-6 code-box'>
-                                <h6>کد ارسال : ۱۲۱۲۳</h6>
-                            </div>
-                            <div className='col-12 product-box'>
-                                <div className='row'>
-                                    <div className='col-2 item-price-product-box'>
-                                        <h6> 200$</h6>
-                                    </div>
+ 
+                            <div className='row'>
+                              <div className='col-12 box-order-box'>
+                                  <div className='item-box-order'>
+<div className='firstRow-item-box-order'>
+<h6> :تاریخ خرید</h6>
+<h5>۲۵ اردیبهشت</h5>
+<h6>:شماره سفارش</h6>
+<h5>2342342</h5>
+<i></i>
+<h5>:وضعیت</h5>
+<h6>تحویل شده</h6>
+</div>
+<div className='secondRow-item-box-order'>
+<div className='item-secondRow-item-box-order'>
+    <img src={Mask1}></img>
+<h2>سرویس کارد چنگال</h2>
+</div>
+</div>
+<div className='thirdRow-item-box-order'>
+    <h6>تومان</h6>
+   <h5>۶۰۰ </h5> 
+<h6>مبلغ کل</h6>
 
-                                    <div className='col-8 item-name-product-box'>
-                                        <h6>لامپ دیواری</h6>
-                                        <h6>رنگ : سفید</h6>
-                                    </div>
-                                    <div className='col-2 item-img-product-box'>
-                                        <img src={Mask1} alt=''></img>
-                                    </div>
-                                </div>
-                                <div className='row'>
-                                    <div className='col-2 item-price-product-box'>
-                                        <h6> 200$</h6>
-                                    </div>
+</div>
+                                  </div>
+                                  <div className='item-box-order'>
+<div className='firstRow-item-box-order'>
+<h6> :تاریخ خرید</h6>
+<h5>۲۵ اردیبهشت</h5>
+<h6>:شماره سفارش</h6>
+<h5>2342342</h5>
+<i></i>
+<h5>:وضعیت</h5>
+<h6>تحویل شده</h6>
+</div>
+<div className='secondRow-item-box-order'>
+<div className='item-secondRow-item-box-order'>
+    <img src={Mask1}></img>
+<h2>سرویس کارد چنگال</h2>
+</div>
+</div>
+<div className='thirdRow-item-box-order'>
+    <h6>تومان</h6>
+   <h5>۶۰۰ </h5> 
+<h6>مبلغ کل</h6>
 
-                                    <div className='col-8 item-name-product-box'>
-                                        <h6>لامپ دیواری</h6>
-                                        <h6>رنگ : سفید</h6>
-                                    </div>
-                                    <div className='col-2 item-img-product-box'>
-                                        <img src={Mask1} alt=''></img>
-                                    </div>
-                                </div>
+</div>
+                                  </div>
+  
+        </div>  
                             </div>
-                            <div className='col-2 sum-box'>
-                                <h6> 200$</h6>
-                            </div>
-                            <div className='col-8 '>
-
-                            </div>
-                            <div className='col-2 sum-box'>
-                                <h6>مجموع</h6>
-                            </div>
-                            <div className='col-2 sum-box'>
-                                <h6> 200$</h6>
-                            </div>
-                            <div className='col-8 '>
-
-                            </div>
-                            <div className='col-2 sum-box'>
-                                <h6>هزینه ارسال</h6>
-                            </div>
-                            <div className='col-2 price-total-sum-box'>
-                                <h6> 200$</h6>
-                            </div>
-                            <div className='col-8 '>
-
-                            </div>
-                            <div className='col-2 txt-total-sum-box'>
-                                <h6>مجموع کل</h6>
-                            </div>
-
                         </div>
-                        <div className='row box-order-box'>
-                            <div className='col-6 date-box'>
-                                <h6>تاریخ ارسال : نیبنبسنیب </h6>
-                            </div>
-                            <div className='col-6 code-box'>
-                                <h6>کد ارسال : ۱۲۱۲۳</h6>
-                            </div>
-                            <div className='col-12 product-box'>
-                                <div className='row'>
-                                    <div className='col-2 item-price-product-box'>
-                                        <h6> 200$</h6>
-                                    </div>
-
-                                    <div className='col-8 item-name-product-box'>
-                                        <h6>لامپ دیواری</h6>
-                                        <h6>رنگ : سفید</h6>
-                                    </div>
-                                    <div className='col-2 item-img-product-box'>
-                                        <img src={Mask1} alt=''></img>
-                                    </div>
-                                </div>
-                                <div className='row'>
-                                    <div className='col-2 item-price-product-box'>
-                                        <h6> 200$</h6>
-                                    </div>
-
-                                    <div className='col-8 item-name-product-box'>
-                                        <h6>لامپ دیواری</h6>
-                                        <h6>رنگ : سفید</h6>
-                                    </div>
-                                    <div className='col-2 item-img-product-box'>
-                                        <img src={Mask1} alt=''></img>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='col-2 sum-box'>
-                                <h6> 200$</h6>
-                            </div>
-                            <div className='col-8 '>
-
-                            </div>
-                            <div className='col-2 sum-box'>
-                                <h6>مجموع</h6>
-                            </div>
-                            <div className='col-2 sum-box'>
-                                <h6> 200$</h6>
-                            </div>
-                            <div className='col-8 '>
-
-                            </div>
-                            <div className='col-2 sum-box'>
-                                <h6>هزینه ارسال</h6>
-                            </div>
-                            <div className='col-2 price-total-sum-box'>
-                                <h6> 200$</h6>
-                            </div>
-                            <div className='col-8 '>
-
-                            </div>
-                            <div className='col-2 txt-total-sum-box'>
-                                <h6>مجموع کل</h6>
-                            </div>
-
-                        </div>
+       
+     
+      
+    </div>
+                   
                     </div>
-                    <div className='col-md-2 col-xs-2'>
+                    <div className='col-md-3 col-xs-2'>
                         <Menuprofile />
                     </div>
-                    <div className='col-md-1'></div>
+             
 
                 </div>
 

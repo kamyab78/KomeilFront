@@ -7,11 +7,18 @@ const menuprofile = () => {
 return(
     <div className='row topnoor-menuprofile-page'>
         <div className='col-12'>
-            <h1>پروفایل</h1>
+            <div className='box-info'>
+            <i className="material-icons">account_circle</i>
+            <div className='info'>
+ <h1>علی حسینی</h1>
+ <h6>09010000000</h6>
+            </div>
+            </div>
+           
             <div className='box-link'>
             <Link to='/profile/personal' className=" item-box-link" >اطلاعات شخصی</Link>
             <Link to='/profile/order' className=" item-box-link" >سفارشات</Link>
-            <Link to='/profile/history' className=" item-box-link" >تاریخچه خرید</Link>
+       
             <Link to='/profile/ticket' className=" item-box-link" >تیکت</Link>
 
             </div>

@@ -6,19 +6,43 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    h1{
-        font-size: 30px;
-        font-weight: normal;
-        border-bottom-style: solid;
-        border-color: $danger;
-        border-width: 2px;
-        padding: 12px;
-    }
-    .box-link{
-        border-style: solid;
+    margin: 20px;
+
+    box-shadow: 5px 5px 5px 5px $graydd;
+    border-radius: 10px;
+    width: 95%;
+    .box-info{
+        display: flex;
+        flex-direction: row-reverse;
+        margin:30px;
+        border-bottom-style:solid ;
         border-color: $graydd;
-        border-width: 2px;
-        margin-top: 25px;
+        border-width: 1px;
+        i{
+font-size: 60px;
+color:$gray;
+        }
+        .info{
+            display: flex;
+            flex-direction: column;
+  
+            margin:10px;
+                   h1{
+  font-size: 18px;
+    }
+    h6{
+padding-top: 5px;
+color: rgba($gray, 0.7);
+font-weight: normal;
+font-size: 15px;
+    }
+        }
+   
+    }
+  
+    .box-link{
+
+   
         display: flex;
         flex-direction: column;
         .item-box-link{
