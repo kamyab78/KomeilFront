@@ -198,7 +198,10 @@ const Headers = () => {
                             <i className="material-icons-outlined">
                                 shopping_bag
                             </i>
-                            <h6>{cartitemcount}</h6>
+                            {cartitemcount>=1?(
+   <h6>{cartitemcount}</h6>
+                            ):null}
+                         
                         </div>
 
                        
