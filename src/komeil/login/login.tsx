@@ -1,10 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from 'assets/images/Logo.png';
 import './login.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import { Config } from 'topnoor/config/config';
 import { toast } from 'react-toastify';
 import { Link, useHistory } from 'react-router-dom';
+import { Config } from 'komeil/config/config';
 const Login = () => {
     const[step,setstep]=useState(0)
     const [phone,setphone]=useState('')
@@ -12,34 +13,38 @@ const Login = () => {
     const [oldpassword,setoldpassword]=useState('')
     const [password,setpassword]=useState('')
     const history = useHistory();
-    function checkmobile(){
-        // const body={
-        //     "mobile": phone
-        // }
-        // var requestOptions = {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Accept': '*/*',
-        //         // "Authorization": "Basic " + window.localStorage.getItem('basic')
-        //     },
-        //     body:JSON.stringify(body)
-        // };
+//     useEffect(() => {
+// localStorage.clear()
 
-        // fetch(Config()['webapi'] + "/user/mobile", requestOptions)
-        //     .then(response => {
-        //         response.json().then(rep => {
-        //             console.log(rep)
-        //             if(rep.registered)
-        //             setstep(1)
-        //             else{
-        //                setstep(2)  
-        //                getotp()
-        //             }
+//     }, []);
+    function checkmobile(){
+        const body={
+            "mobile": phone
+        }
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+            },
+            body:JSON.stringify(body)
+        };
+
+        fetch(Config()['webapi'] + "/user/mobile", requestOptions)
+            .then(response => {
+                response.json().then(rep => {
+                    console.log(rep)
+                    if(rep.registered)
+                    setstep(1)
+                    else{
+                       setstep(2)  
+                       getotp()
+                    }
                    
-        //         })
-        //     })
-        //     .catch(error => console.log('error', error));
+                })
+            })
+            .catch(error => console.log('error', error));
     }
     function getotp(){
         // const body={
@@ -65,38 +70,42 @@ const Login = () => {
     }
 
     function confirmpass(){
-        // const body={
-        //     "mobile": phone,
-        //     "password":oldpassword
-        // }
-        // var requestOptions = {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Accept': '*/*',
-        //         // "Authorization": "Basic " + window.localStorage.getItem('basic')
-        //     },
-        //     body:JSON.stringify(body)
-        // };
+        const body={
+            "mobile": phone,
+            "password":oldpassword
+        }
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+            },
+            body:JSON.stringify(body)
+        };
 
-        // fetch(Config()['webapi'] + "/user/confirmpass", requestOptions)
-        //     .then(response => {
-        //         response.json().then(rep => {
-        //             console.log(rep)
-        //      if(rep.code===200){
-        //       window.localStorage.setItem('phone',phone)  
-        //              history.push('/home')
+        fetch(Config()['webapi'] + "/user/confirmpass", requestOptions)
+            .then(response => {
+                response.json().then(rep => {
+                    console.log(rep)
+             if(rep.code===200){
+              window.localStorage.setItem('phone',phone)  
+              window.location.replace('/home')
              
-        //      }
+             }
          
-        //            else{
-        //             toast.error(rep.message);
-        //            }
-        //         })
-        //     })
-        //     .catch(error => console.log('error', error));
+                   else{
+                    toast.error(rep.message);
+                   }
+                })
+            })
+            .catch(error => console.log('error', error));
     }
     function confirmotp(){
+        if(otp==='12345')
+        setstep(3)
+        else
+        toast.error("کد اشتباه است")
         // const body={
         //     "mobile": phone,
         //     "code":otp
@@ -129,32 +138,35 @@ const Login = () => {
         getotp()
     }
     function setpass(){
-        // const body={
-        //     "mobile": phone,
-        //     "password":password
-        // }
-        // var requestOptions = {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Accept': '*/*',
-        //         // "Authorization": "Basic " + window.localStorage.getItem('basic')
-        //     },
-        //     body:JSON.stringify(body)
-        // };
+        const body={
+            "mobile": phone,
+            "password":password
+        }
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+            },
+            body:JSON.stringify(body)
+        };
 
-        // fetch(Config()['webapi'] + "/user/setpass", requestOptions)
-        //     .then(response => {
-        //         response.json().then(rep => {
-        //             console.log(rep)
-        //      if(rep.code===200)
-        //      history.push('/home')
-        //            else{
-        //             toast.error(rep.message);
-        //            }
-        //         })
-        //     })
-        //     .catch(error => console.log('error', error));
+        fetch(Config()['webapi'] + "/user/setpass", requestOptions)
+            .then(response => {
+                response.json().then(rep => {
+                    console.log(rep)
+             if(rep.code===200){
+                window.localStorage.setItem('phone',phone)  
+                 window.location.replace('/home')  
+             }
+           
+                   else{
+                    toast.error(rep.message);
+                   }
+                })
+            })
+            .catch(error => console.log('error', error));
     }
     return (
         <div className='row komeil-login-page'>

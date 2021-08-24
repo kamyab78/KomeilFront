@@ -1,7 +1,7 @@
 @import '../../../utilities/references/index';
 
 .main-div-header {
- 
+ position: relative;
   background-color: $white;
 
 
@@ -67,6 +67,33 @@ top:5px;
     
   
     }
+    .box-result{
+      position: absolute;
+      background-color: $white;
+      width: 100%;
+      
+      display: flex;
+      text-align: right;
+      flex-direction: column;
+      z-index: 100;
+      justify-content: flex-end;
+      align-items: flex-end;
+      .item-box-result{
+        margin-right: 10px;
+      display: flex;
+      flex-direction: row-reverse;
+      cursor: pointer;
+      h6{
+     font-weight: normal;
+      }
+     h1{
+       padding-right: 15px;
+       padding-left: 15px;
+       color: $perpel;
+     }
+        text-align: right;
+      }
+    }
     }
  
   }
@@ -76,16 +103,37 @@ top:5px;
     justify-content: center;
     align-items: center;
     .shoping-div{
+      position: relative;
+      cursor: pointer;
 i{
   padding-right: 20px;
+}
+h6{
+  position: absolute;
+  top: 0;
+  right: 15px;
+  background-color: $perpel;
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  color: $white;
+  font-size: 10px;
+  padding-top: 3px;
 }
     }
     .profile-div{
       border-left-style:solid ;
       border-color: $graydd;
       border-width: 1px;
+      display: flex;
+      flex-direction: row-reverse;
+      cursor: pointer;
       i{
-     padding-left: 20px;   
+     padding-left: 10px;   
+      }
+      h6{
+        padding-left: 10px; 
       }
 
     }
@@ -165,5 +213,44 @@ h6{
   h6 {
     margin-left: 10px;
     margin-top: 5px;
+  }
+}
+.div-show-category{
+  position: absolute;
+  right: 0;
+ 
+ 
+  z-index: 100;
+  text-align: right;
+  .row-result-category{
+    display: flex;
+    flex-direction: row-reverse;
+   
+     width: 100%;
+     .col-row-result-category{
+         background-color: white;
+           .col-item-category{
+      
+      display: flex;
+    
+      flex-direction: row-reverse;
+      img{
+        width: 25px;
+        height: 25px;
+      }
+      h6{
+        padding-top: 5px;
+        font-size: 13px;
+        cursor: pointer;
+        font-weight: bold;
+      padding-right: 7px;
+        &:hover {
+          color: $danger;
+        }
+       
+      }
+    }
+     }
+
   }
 }

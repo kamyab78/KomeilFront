@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { ReduxState } from 'interface';
 import { connect, ConnectedProps } from 'react-redux';
-import './shop.scss';
+import './shopsearch.scss';
 // import Slider from 'react-slick';
 import { Link, useHistory } from 'react-router-dom';
 import { navigationAnim, RoutePath } from '../../data';
@@ -12,12 +12,12 @@ import { Checkbox ,Switch,Slider } from '@material-ui/core';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Config } from 'komeil/config/config';
-const Shop: React.FC<ConnectedProps<typeof connector>> = function () {
+const ShopSearch: React.FC<ConnectedProps<typeof connector>> = function () {
     const [productlist,setproductlist]=useState<any>([])
     useEffect(() => {
-getlist()
+        getlist(window.localStorage.getItem('searchkeyword'))
     }, [window.localStorage.getItem('categoryid')]);
-    function getlist(){
+    function getlist(keyword:any){
         var requestOptions = {
             method: 'GET',
             headers: {
@@ -30,7 +30,7 @@ getlist()
     
         };
     
-        fetch(Config()['webapi'] + "/landing/listproductwithcategory?categoryid="+window.localStorage.getItem('categoryid'), requestOptions)
+        fetch(Config()['webapi'] + "/landing/search-enter/"+keyword+"?page=0&size=10000", requestOptions)
             .then(response => {
     
     
@@ -57,7 +57,7 @@ getlist()
         variableWidth: true,
     };
     return (
-        <div className="komeil-shop-page row">
+        <div className="komeil-shopsearch-page row">
             <div className='col'>
 
 <div className='row row-result'>
@@ -88,7 +88,7 @@ reorder
     </div>
     
 </div>
-<div className='row'>
+<div className='row' style={{minHeight:'600px'}}>
    {productlist.map((index:any)=>(
    <div className='col-md-3 col-xs-6 subitem-box-result'>
    <div className='div-img-subitem-box-result'  onClick={()=>history.push('/detailproduct?hash='+index.hash+'?category='+index.categoryname)}>
@@ -233,4 +233,4 @@ const mapStateToProps = (state: ReduxState) => ({
 });
 
 const connector = connect(mapStateToProps);
-export default connector(Shop);
+export default connector(ShopSearch);

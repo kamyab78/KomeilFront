@@ -31,9 +31,15 @@ i{
     margin-top: 30px;
     width: 90%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     h6{
     font-size: 20px;
+    text-align: right;
+    }
+    .box-colors{
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 10px;
     }
 }
 .thirdRow-col-desc{
@@ -41,6 +47,46 @@ i{
     width: 90%;
     display: flex;
     flex-direction: row;
+    .box-description{
+        display: flex;
+        flex-direction: column;
+        direction: rtl;
+        text-align: right;
+        h1{
+            color: rgba($gray,0.5);
+        }
+    }
+    .col-not-enough{
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px 5px $graydd;
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        .card-box{
+            border-radius: 5px;
+            border-color: $perpel;
+        margin: 40px;
+            background-color:transparent ;
+        
+            display: flex;
+            width: 90%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+       
+       
+     
+      
+              color: $perpel;
+              font-weight: bold;
+       border-style: solid;
+       border-width: 1px;
+       
+        }
+    }
 .col-price-and-add{
     border-radius: 10px;
     box-shadow: 5px 5px 5px 5px $graydd;
@@ -48,7 +94,7 @@ i{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 280px;
+ 
 .item-col-price-and-add-title{
     width: 100%;
     h5{
@@ -149,8 +195,21 @@ margin: 10px;
   
           color: $white;
           font-weight: bold;
+          margin-bottom: 20px;
    
    
+    }
+    .alarm-box{
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 20px;
+       
+        h6{
+            padding-right: 5px;
+            color: $perpel;
+        }
+        i{color: $perpel;
+        }
     }
 }
 i{

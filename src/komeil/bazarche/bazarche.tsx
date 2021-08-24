@@ -15,6 +15,7 @@ const Bazarche = () => {
     const [firstBanner, setfirstBanner] = useState('')
     const [firstBannername, setfirstBannername] = useState('')
     const [firstBannerid, setfirstBannerid] = useState('')
+    const history = useHistory();
     useEffect(() => {
         getAmazingoffer()
        
@@ -104,7 +105,7 @@ return(
                         <div className='row'>
    {amazingofferlist.map((index:any)=>(
         <div className='col-md-3 col-xs-6 '>
-       <div className='subitem-box-result'>
+       <div className='subitem-box-result' onClick={()=>history.push('/detailproduct?hash='+index.hash+'?category='+index.categoryname)}>
             <div className='div-img-subitem-box-result'>
           <img src={index.imageUrl} alt=''></img>
       </div>

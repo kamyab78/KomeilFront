@@ -1,13 +1,94 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Logo from '../../../assets/images/logowithbg.jpg';
+import Logo from '../../../assets/images/Logo.png';
 import './ticket.scss';
 import { Dropdown } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import Menuprofile from '../../Component/menuprofile/menuprofile'
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { Config } from 'komeil/config/config';
+import { toast } from 'react-toastify';
+
+const Ticket = () => {
+    const [ticketlist,setticketlist]=useState<any>([])
+    const [messsage,setmessage]=useState("")
+    useEffect(() => {
+        getticket()
+    }, []);
+    function sendticket(){
+        if(messsage!==""){
+    const body = {
+            "ticketContext":messsage
+        }
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            },
+            body:JSON.stringify(body)
 
 
-const ticket = () => {
+        };
+
+        fetch(Config()['webapi'] + "/user/ticket/?mobile="+window.localStorage.getItem('phone'), requestOptions)
+            .then(response => {
+
+
+
+                response.json().then(rep => {
+                    if(rep.code===200){
+                        setmessage("")
+                        toast.success(rep.message)
+                        getticket()
+                    }
+                    console.log(rep)
+               
+                })
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));
+        }
+    
+    }
+    function getticket() {
+
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            }
+
+
+        };
+
+        fetch(Config()['webapi'] + "/user/ticket/?mobile="+window.localStorage.getItem('phone'), requestOptions)
+            .then(response => {
+
+
+
+                response.json().then(rep => {
+                    console.log(rep)
+                    setticketlist(rep)
+                })
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));
+    }
 return(
     <div className='row topnoor-ticket-page' >
        <div className='col-12'>
@@ -16,25 +97,32 @@ return(
         <div className='col-md-8 col-xs-10 ticket-box'>
         <div className='row box-ticket-box'>
 <div className='col-12'>
-    <div className='row'> 
+
+
+    <div className='row row-ticket'> 
+{ticketlist.map((index:any)=>(
+    index.ticketStatus==="Question"?(
 <div className='col-12 question-box'>
 <i className="material-icons">account_circle</i>
-<h6>سلام سوال داشتم</h6>
+<h6>{index.content}</h6>
 </div>
+    ):(
 <div className='col-12 answer-box'>
 <img src={Logo}></img>
-<h6>سلام سوال بگو</h6>
+<h6>{index.content}</h6>
 </div>
+    )
+))}
     </div>
 </div>
 <div className='col-12 type-ticket-box'>
     <div className='row'> 
     <div className='col-2 col-type-ticket-box'>
-<button>ارسال</button>
+<button onClick={()=>sendticket()}>ارسال</button>
 </div>
   
 <div className='col-8 col-type-ticket-box'>
-<input></input>
+<input value={messsage} onChange={(e)=>setmessage(e.target.value)}></input>
 </div>
 <div className='col-2 col-type-ticket-box'>
     <i className="material-icons">account_circle</i>
@@ -108,4 +196,4 @@ return(
     </div>
 )
 }
-export default ticket
+export default Ticket

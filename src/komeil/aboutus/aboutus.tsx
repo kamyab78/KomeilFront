@@ -6,17 +6,112 @@ import { Link, useHistory } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import BannerImg from '../../assets/images/aboutus/bannerimg.png'
 import GoogleMap from '../../assets/images/aboutus/googlemaps.png'
+import { useState,useEffect } from 'react';
+import { Config } from 'komeil/config/config';
 const Aboutus = () => {
+  
+    const [firstbanner,setfirstbanner]=useState('')
+    const [secondBanner,setsecondBanner]=useState('')
+    const [thirdbanner,setthirdbanner]=useState('')
+    const [fourthbanner,setfourthbanner]=useState('')
+    const [fifthbanner,setfifthbanner]=useState('')
+    const [sixthbanner,setsixthbanner]=useState('')
+    const [seventhbanner,setseventhbanner]=useState('')
+    const [configitem,setconfigitem]=useState<any>({})
+
+    useEffect(() => {
+        getBanner()
+        getConfig()
+    }, []);
+    function getBanner(){
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            }
+
+
+        };
+
+        fetch(Config()['webapi'] + "/landing/banners", requestOptions)
+            .then(response => {
+
+
+
+                response.json().then(rep => {
+                    for(var i=0;i<rep.length;i++){
+                        if(rep[i].bannerType==='fisrtbanner_aboutus')
+                            setfirstbanner(rep[i].imageUrl)   
+                            if(rep[i].bannerType==='secondbanner_aboutus')
+                            setsecondBanner(rep[i].imageUrl)  
+                            if(rep[i].bannerType==='thirdbanner_aboutus')
+                            setthirdbanner(rep[i].imageUrl)  
+                            if(rep[i].bannerType==='fourthbanner_aboutus')
+                            setfourthbanner(rep[i].imageUrl)  
+                            if(rep[i].bannerType==='fifthbanner_aboutus')
+                            setfifthbanner(rep[i].imageUrl)  
+                            if(rep[i].bannerType==='sixthbanner_aboutus')
+                            setsixthbanner(rep[i].imageUrl)      
+                            if(rep[i].bannerType==='seventhbanner_aboutus')
+                            setseventhbanner(rep[i].imageUrl)  
+
+                    }
+
+
+                })
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));
+    }
+    function getConfig(){
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            }
+
+
+        };
+
+        fetch(Config()['webapi'] + "/landing/config", requestOptions)
+            .then(response => {
+
+
+
+                response.json().then(rep => {
+                    console.log(rep)
+            setconfigitem(rep)
+
+
+                })
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));
+    }
 return(
  <div className='komeil-aboutus-page row'>
 <div className='col'>
     <div className='row row-description'>
         <div className='col-md-6 col-xs-12 col-img-description'>
-<img src={BannerImg}></img>
+<img src={firstbanner}></img>
         </div>
         <div className='col-md-6 col-xs-12 col-txt-description'>
-<h1>کمیل شاپ را بیشتر بشناسید</h1>
-<h6>کمیل شاپ در سال 1400 شروع به فعالیت کرد کمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کردکمیل شاپ در سال 1400 شروع به فعالیت کرد</h6>
+<h1>{configitem.aboutUsPartOne}</h1>
+<h6>{configitem.aboutUsPartTwo}</h6>
 </div>
     </div>
     <div className='row row-img'>
@@ -24,22 +119,22 @@ return(
 <h1>فروشگاه ما را تماشا کنید</h1>
         </div>
         <div className='col-md-2 col-xs-12 col-img-img'>
-<img src={BannerImg}></img>
+<img src={secondBanner}></img>
 </div>
 <div className='col-md-2 col-xs-12 col-img-img'>
-<img src={BannerImg}></img>
+<img src={thirdbanner}></img>
 </div>
 <div className='col-md-2 col-xs-12 col-img-img'>
-<img src={BannerImg}></img>
+<img src={fourthbanner}></img>
 </div>
 <div className='col-md-2 col-xs-12 col-img-img'>
-<img src={BannerImg}></img>
+<img src={fifthbanner}></img>
 </div>
 <div className='col-md-2 col-xs-12 col-img-img'>
-<img src={BannerImg}></img>
+<img src={sixthbanner}></img>
 </div>
 <div className='col-md-2 col-xs-12 col-img-img'>
-<img src={BannerImg}></img>
+<img src={seventhbanner}></img>
 </div>
     </div>
 <div className='row row-contact'>

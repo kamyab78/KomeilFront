@@ -3,15 +3,60 @@ import Logo from '../../../assets/images/Logo.png';
 import './menuprofile.scss';
 import { Dropdown } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-const menuprofile = () => {
+import React, { useState,useEffect } from 'react';
+import { Config } from 'komeil/config/config';
+const Menuprofile = () => {
+    const [userdata,setuserdata]=useState<any>({})
+    const [firstName,setfirstName]=useState('')
+    const [lastName,setlastName]=useState('')
+    useEffect(() => {
+        getuserdata()
+
+
+
+    }, []);
+    function getuserdata(){
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+    
+            }
+    
+    
+        };
+    
+        fetch(Config()['webapi'] + "/user/detail?mobile="+window.localStorage.getItem('phone'), requestOptions)
+            .then(response => {
+    
+    
+    
+                response.json().then(rep => {
+
+    setfirstName(rep.firstName)
+    setlastName(rep.lastName)
+ 
+   
+                    setuserdata(rep)
+                })
+    
+    
+    
+    
+    
+            })
+            .catch(error => console.log('error', error));
+    }
 return(
     <div className='row topnoor-menuprofile-page'>
         <div className='col-12'>
             <div className='box-info'>
             <i className="material-icons">account_circle</i>
             <div className='info'>
- <h1>علی حسینی</h1>
- <h6>09010000000</h6>
+ <h1>{firstName} {lastName}</h1>
+ <h6>{userdata.mobile}</h6>
             </div>
             </div>
            
@@ -20,11 +65,11 @@ return(
             <Link to='/profile/order' className=" item-box-link" >سفارشات</Link>
        
             <Link to='/profile/ticket' className=" item-box-link" >تیکت</Link>
-
+            <Link to='/' className=" item-box-link" onClick={()=>localStorage.clear()} >خروج</Link>
             </div>
         </div>
        
     </div>
 )
 }
-export default menuprofile
+export default Menuprofile

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useCallback } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from '../../../assets/images/Logo.png';
 import './detailproduct.scss';
@@ -6,54 +6,215 @@ import { Dropdown } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import Mask1 from '../../assets/images/landing/mask.png'
-
-
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { Config } from 'komeil/config/config';
+import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 const Detailproduct = () => {
+    const [detailproduct, setdetailproduct] = useState<any>({})
+    const [colorid, setcolorid] = useState<any>(0)
+    const [isZoomed, setIsZoomed] = useState(false)
+    useEffect(() => {
+        var location = window.location.href;
+        var splitloc = location.split('?')
+        var secondarray = splitloc[1]
+        var hash = secondarray.split('hash=')
+        console.log(hash[1])
+        getdetailproduct(hash[1])
+    }, []);
+    
     const [number, setnumber] = useState<any>(1);
     function clickonremove(){
-        if(number!==0){
+        if(number!==1){
             setnumber(number-1)
         }
     }
+    function getdetailproduct(hash: any) {
+
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            }
+
+
+        };
+
+        fetch(Config()['webapi'] + "/landing/detailproducts?hash=" + hash, requestOptions)
+            .then(response => {
+
+
+
+                response.json().then(rep => {
+                    console.log(rep)
+                    setdetailproduct(rep)
+                })
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));
+    }
+    function Addtocard() {
+        if(number<=detailproduct.stock){
+              const body = {
+            "colorId": colorid,
+            "number": number,
+            "pid": detailproduct.id,
+         
+        }
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            },
+            body: JSON.stringify(body)
+
+
+        };
+
+        fetch(Config()['webapi'] + "/order/submit/" + window.localStorage.getItem('phone'), requestOptions)
+            .then(response => {
+
+
+                console.log(response)
+
+                if (response.status === 200) {
+                
+                    if (localStorage.getItem('phone') === null) {
+                        toast.error('ابتدا وارد حساب کاربری خود شوید')
+                    }
+                    else {
+                        response.json().then(rep => {
+                        
+                            if (rep.code === 200) {
+                                toast.success(rep.message)
+                                setTimeout(function(){ window.location.reload() }, 1300);
+                            }
+
+                            console.log(rep)
+                            // setdetailproduct(rep)
+                        })
+                    }
+                }
+
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));  
+        }
+        else{
+            toast.error("تعداد درخواست بیشتر از موجودی می باشد. حداکثر "+detailproduct.stock+"تعداد موجود است")
+        }
+    
+    }
+    function clickoncolor(id: any) {
+        if (colorid !== 0) {
+            if (document.getElementById('divcolor' + id)!.style.display === 'none') {
+                document.getElementById('divcolor' + colorid)!.style.display = 'none'
+                document.getElementById('divcolor' + id)!.style.display = 'block'
+            }
+            else
+                document.getElementById('divcolor' + id)!.style.display = 'none'
+        }
+        else {
+            document.getElementById('divcolor' + id)!.style.display = 'block'
+        }
+
+        setcolorid(id)
+
+
+    }
+    const handleImgLoad = useCallback(() => {
+        setIsZoomed(true)
+      }, [])
+    
+      const handleZoomChange = useCallback(shouldZoom => {
+        setIsZoomed(shouldZoom)
+      }, [])
 return(
     <div className='row topnoor-detailproduct-page' >
        <div className='col-12'>
            <div className='row row-base'>
 <div className='col-md-9 col-xs-12 col-desc'>
 <div className='firstRow-col-desc'>
-    <h1>سرویس قاشق چنگال ۱۲ پارچه مدل بزرگ</h1>
+    <h1>{detailproduct.name}</h1>
     <span></span>
 
-<h6>3.2</h6>
+<h6>{detailproduct.rate}</h6>
 <i className="material-icons-outlined detail-star-active-row">
 star
 </i>
 </div>
-<div className='secondRow-col-desc'>
+{detailproduct.stock!==0?(
+   <div className='secondRow-col-desc'>
     <h6>رنگ</h6>
-    <div style={{width:'35px',height:'35px',backgroundColor:'black',borderRadius:'100%', marginRight:'10px'}}> </div>   
-    <div style={{width:'35px',height:'35px',backgroundColor:'blue',borderRadius:'100%', marginRight:'10px'}}> </div>   
-    <div style={{width:'35px',height:'35px',backgroundColor:'pink',borderRadius:'100%', marginRight:'10px'}}> </div>   
-    <div style={{width:'35px',height:'35px',backgroundColor:'red',borderRadius:'100%', marginRight:'10px'}}> </div>   
-</div>
-<div className='thirdRow-col-desc'>
-    <div className='col-price-and-add'>
+    <div className="box-colors">
 
-    <div className='item-col-price-and-add-title'>
+              {detailproduct.colorsList !== undefined ? (
+                                    detailproduct.colorsList.map((index: any) => (
+                                        <div style={{ position: 'relative', cursor: 'pointer' }} onClick={() => clickoncolor(index.id)} >
+                                            <div style={{ width: '35px', height: '35px', backgroundColor: index.hex, borderRadius: '100%', marginRight: '10px' }}> </div>
+                                            <div id={'divcolor' + index.id} style={{ position: 'absolute', width: '35px', height: '35px', borderRadius: '100%', backgroundColor: 'rgb(365,365,365,0.5)', top: '0', display: 'none' }}>
+                                                <span className="material-icons-outlined" style={{ margin: '5px' }}>
+                                                    done
+                                                </span>
+                                            </div>
+                                        </div>
+                                    ))
+                                ) : null} 
+    </div>
+    
+</div> 
+):null}
+
+<div className='thirdRow-col-desc'>
+{detailproduct.stock!==0?(
+  <div className='col-price-and-add'>
+
+   
+     <div className='item-col-price-and-add-title'>
           <h5>قیمت کالا</h5>
     </div>
-      
+        {detailproduct.discount!==0?(
         <div className='item-col-price-and-add'>
-        <div className='discount-item-col-price-and-add'>
-    <h3>60%</h3>
+          
+                      <div className='discount-item-col-price-and-add'>
+    <h3>{detailproduct.discount}%</h3>
 </div>
-<h2>600/000</h2>
+          
+  
+<h2>{detailproduct.netPrice}</h2>
         </div>
-        <div className='item-col-price-and-add'>
+          ):null}
+           {detailproduct.discount!==0?(
+  <div className='item-col-price-and-add'>
            
             <h4>تومان</h4>
-            <h3>355/000</h3>
+            <h3>{detailproduct.netPrice * ((100 - detailproduct.discount) / 100)}</h3>
         </div>
+           ):(
+            <div className='item-col-price-and-add'>
+           
+            <h4>تومان</h4>
+            <h3>{detailproduct.netPrice}</h3>
+        </div>
+           )}
+
+   
+      
      
      
      
@@ -68,7 +229,18 @@ remove
 </i>
 
         </div>
-        <button className='card-box' >
+        {detailproduct.stock<=10 && detailproduct.stock>0?(
+                           
+                            <div className='alarm-box'>
+                                
+                            <i className="material-icons-outlined">
+info
+</i>
+<h6>از این محصول {detailproduct.stock} عدد باقی مانده</h6>
+                            </div>
+                      
+                         ):null} 
+        <button className='card-box' onClick={Addtocard} >
 
 افزودن به سبد خرید
 
@@ -77,16 +249,44 @@ remove
        
   
     </div>
+  
+):(
+    <div className='col-not-enough'>
+
+<button disabled={true} className='card-box' >
+
+محصول ناموجود
+
+                                    </button>
+      
+ 
+   </div>
+ 
+)}
+  
     <i></i>
-    <h6>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</h6>
+    <div className="box-description">
+        <h1>خلاصه محصول</h1>
+    <div style={{direction:"rtl",paddingTop:"10px"}} dangerouslySetInnerHTML={{ __html: detailproduct.description }}></div>  
+    </div>
+  
 </div>
 </div>
 <div className='col-md-3 col-xs-12 col-img'>
-<img src={Mask1}></img>
+<ControlledZoom isZoomed={isZoomed} onZoomChange={handleZoomChange}>
+                            <img alt='' src={detailproduct.imageUrl}></img>
+                            </ControlledZoom>
 <div className='additional-img'>
-<img src={Mask1}></img>
-<img src={Mask1}></img>
-<img src={Mask1}></img>
+{detailproduct.productAdditionalImages !== undefined ? (
+                                detailproduct.productAdditionalImages.map((index: any) => (
+                                 
+                                         <ControlledZoom isZoomed={isZoomed} onZoomChange={handleZoomChange}>
+                                        <img alt='' src={index.imageUrl}></img>
+                                        </ControlledZoom>
+                                  
+                                ))
+                            ) : null}
+
 </div>
 </div>
                </div>

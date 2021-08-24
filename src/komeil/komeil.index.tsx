@@ -18,7 +18,7 @@ import Card from './card/card'
 import Purchase from './purchase/purchase'
 import Blog from './blog/blog'
 import Login from './login/login';
-
+import ShopSearch from './shopsearch/shopsearch'
 import Shop from './shop/shop'
 const Komeil: React.FC<ConnectedProps<typeof connector>> = function (props: ConnectedProps<typeof connector>) {
 
@@ -37,7 +37,7 @@ const Komeil: React.FC<ConnectedProps<typeof connector>> = function (props: Conn
                <Route path='/cart' component={Card}></Route>
                <Route path='/purchase' component={Purchase}></Route>
                <Route path='/blog' component={Blog}></Route>
-
+<Route path='/shopsearch' component={ShopSearch}></Route>
                <Route path='/shop' component={Shop}></Route>
                <Route path='/login' component={Login}></Route>
                         <Route path="*">

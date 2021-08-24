@@ -99,7 +99,7 @@ const [sixtBannerid, setsixthBannerid] = useState('')
 
         };
 
-        fetch(Config()['webapi'] + "/landing/products?page=0&size=3", requestOptions)
+        fetch(Config()['webapi'] + "/landing/products?page=0&size=4", requestOptions)
             .then(response => {
 
 
@@ -170,7 +170,7 @@ const [sixtBannerid, setsixthBannerid] = useState('')
                     setfifthBannername(rep[i].categoryName)
                     setfifthBannerid(rep[i].categoryId)
                }
-               if (rep[i].bannerType === 'sixthdbanner_landing'){
+               if (rep[i].bannerType === 'sixthbanner_landing'){
                 setsixthBanner(rep[i].imageUrl)
                 setsixthBannername(rep[i].categoryName)
                 setsixthBannerid(rep[i].categoryId)
@@ -192,7 +192,10 @@ const [sixtBannerid, setsixthBannerid] = useState('')
                 <div className='row banner-row'>
                   
                     <div className='col-12 banner-big-box'>
-                        <img src={firstBanner}></img>
+                        <img src={firstBanner} onClick={  ()=>{
+                               window.localStorage.setItem('categoryid', firstBannerid)
+                               history.push('/shop')
+                        }}></img>
                     </div>
                     
                 </div>
@@ -204,7 +207,7 @@ const [sixtBannerid, setsixthBannerid] = useState('')
                         <div className='bazarche-box-main '>
                             <div className='col-10 item-bazarche-box-main'>
                                 <div className='col-1'></div>
-                                <div className='show-more-sub-item-bazarche-box-main col-3'>
+                                <div className='show-more-sub-item-bazarche-box-main col-3' onClick={()=>history.push('/bazarche')}>
                      <h1>نمایش همه کالای شگفت انگیز</h1>
                                 </div>
                                 {amazingofferlist.map((index:any)=>(
@@ -265,7 +268,7 @@ const [sixtBannerid, setsixthBannerid] = useState('')
                     <div className='row'>
                         {productlist.map((index:any)=>(
                                     <div className='col-md-6 col-xs-12'>
-                            <div className='subitem-newproduct'>
+                            <div className='subitem-newproduct' onClick={()=>history.push('/detailproduct?hash='+index.hash+'?category='+index.categoryname)}>
                    
                            <div className='div-img-new'>
     
@@ -300,12 +303,7 @@ const [sixtBannerid, setsixthBannerid] = useState('')
                         </div>  
                         ))}
      
-                        <div className='col-md-6 col-xs-12'>
-                            <div className='subitem-newproduct-more'>
-                   
-                         <h6>نمایش همه محصولات جدید</h6>
-                            </div>
-                        </div>
+                    
                   
                     </div>
                     </div>
@@ -316,13 +314,13 @@ const [sixtBannerid, setsixthBannerid] = useState('')
                 </div>
                 <div className='row bannerads-row'>
             <div className='col-md-4 col-xs-12'>
-                <img src={Banner1} alt=''></img>
+                <img src={thirdBanner} alt=''></img>
             </div>
             <div className='col-md-4 col-xs-12'>
-            <img src={Banner2} alt=''></img>
+            <img src={fourhtBanner} alt=''></img>
             </div>
             <div className='col-md-4 col-xs-12'>
-            <img src={Banner3} alt=''></img>
+            <img src={fifthBanner} alt=''></img>
             </div>
                 </div>
 <div className='row row-service'>
@@ -379,10 +377,10 @@ const [sixtBannerid, setsixthBannerid] = useState('')
 
 <div className='row bannerads-row'>
             <div className='col-md-6 col-xs-12'>
-                <img src={Banner4} alt=''></img>
+                <img src={sixtBanner} alt=''></img>
             </div>
             <div className='col-md-6 col-xs-12'>
-            <img src={Banner4} alt=''></img>
+            <img src={seventBanner} alt=''></img>
             </div>
        
                 </div>
