@@ -110,18 +110,27 @@ return(
           <img src={index.imageUrl} alt=''></img>
       </div>
       <h6>{index.name}</h6>
+      {index.stock === 0 ? (
 
-      <div className='div-price-subitem-box-result'>
-      <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+
+<h6 className='simpletxt'>به زودی</h6>
+
+
+) : (
+index.have === true ? (
+
+
+    <div className='div-price-subitem-box-result'>
+    <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
 
 {index.discount !== 0 ? (
-    <>
-        <h3 className='amountafterdiscount'>{index.netPrice}</h3>
+  <>
+      <h3 className='amountafterdiscount'>{index.netPrice}</h3>
 
-        <h3 >{index.netPrice * ((100 - index.discount) / 100)}</h3>
-    </>
+      <h3 >{index.netPrice * ((100 - index.discount) / 100)}</h3>
+  </>
 ) : (
-    <h3 >{index.netPrice}</h3>
+  <h3 >{index.netPrice}</h3>
 )}
 
 <h3>تومان</h3>
@@ -129,14 +138,25 @@ return(
 
 <i></i>
 {index.discount !== 0 ? (
-                                              <div className='discount-subitem-box-result'>
+                                            <div className='discount-subitem-box-result'>
 
-                                              <h6 className='discounttxt'>{index.discount}%</h6>
-                                          
+                                            <h6 className='discounttxt'>{index.discount}%</h6>
+                                        
 </div>
-                                            ) : null}
+                                          ) : null}
 
-      </div> 
+    </div> 
+   
+
+) : (
+
+
+    <h6 className='simpletxt'>محصول ناموجود</h6>
+
+
+)
+)}
+ 
        </div>
 
     

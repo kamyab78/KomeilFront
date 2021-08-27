@@ -56,6 +56,7 @@ i{
             color: rgba($gray,0.5);
         }
     }
+  
     .col-not-enough{
         border-radius: 10px;
         box-shadow: 5px 5px 5px 5px $graydd;
@@ -321,5 +322,33 @@ box-shadow: 5px 5px 5px 5px $graydd;
 }
 }
 
+}
+.txt-col-features{
+    text-align: right;
+    h6{
+       padding-top:50px ;
+       font-size: 30px;
+       font-weight: normal;
+    }
+}
+.sometxtfeature{
+    margin-top: 50px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    .eachrow{
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 10px;
+        h1{
+color: $gray;
+font-size: 1rem;
+min-width: 170px;
+        }
+        h2{
+padding-right: 14px;
+font-size: 1rem;
+        }
+    }
 }
 }

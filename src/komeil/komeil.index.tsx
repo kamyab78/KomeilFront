@@ -20,6 +20,7 @@ import Blog from './blog/blog'
 import Login from './login/login';
 import ShopSearch from './shopsearch/shopsearch'
 import Shop from './shop/shop'
+import Brand from './brand/brand';
 const Komeil: React.FC<ConnectedProps<typeof connector>> = function (props: ConnectedProps<typeof connector>) {
 
     return (
@@ -40,6 +41,7 @@ const Komeil: React.FC<ConnectedProps<typeof connector>> = function (props: Conn
 <Route path='/shopsearch' component={ShopSearch}></Route>
                <Route path='/shop' component={Shop}></Route>
                <Route path='/login' component={Login}></Route>
+               <Route path='/brand' component={Brand}></Route>
                         <Route path="*">
                             <Redirect to="#" />
                             <Landing />

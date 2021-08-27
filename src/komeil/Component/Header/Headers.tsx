@@ -313,7 +313,7 @@ const Headers = () => {
                         {categorylist.map((result: any, i) => (
 
                             <div className='col-item-category'>
-                                   <img src={result.imageurl}></img>
+                                   <img src={result.imageUrl}></img>
                                 <h6 onClick={() => gotopage(result.id)}>
                                 {result.name}
                             </h6>
@@ -334,7 +334,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(0, 23).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -348,7 +348,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(23).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                              <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -365,7 +365,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(0, 23).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -379,7 +379,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(23, 47).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -393,7 +393,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(47).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -410,7 +410,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(0, 23).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -424,7 +424,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(23, 47).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -438,7 +438,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(47, 81).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -452,7 +452,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(81).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -469,7 +469,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(0, 23).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -483,7 +483,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(23, 47).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -497,7 +497,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(47, 81).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -511,7 +511,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(81, 105).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -525,7 +525,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(105).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -543,7 +543,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(0, 23).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -557,7 +557,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(23, 47).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -571,7 +571,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(47, 81).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -585,7 +585,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(81, 105).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -599,7 +599,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(105, 129).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -613,7 +613,7 @@ const Headers = () => {
                 }}>
                                 {categorylist.slice(129).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
+                                             <img src={result.imageUrl}></img>
                                         <h6 onClick={() => gotopage(result.id)}>
                                         {result.name}
                                     </h6></div>
@@ -632,7 +632,7 @@ const Headers = () => {
                 }}>
                                     {categorylist.slice(0, 23).map((result: any) => (
                                         <div className=' col-item-category'>
-                                                 <img src={result.imageurl}></img>
+                                                 <img src={result.imageUrl}></img>
                                             <h6 onClick={() => gotopage(result.id)}>
                                             {result.name}
                                         </h6></div>
@@ -646,7 +646,7 @@ const Headers = () => {
                 }}>
                                     {categorylist.slice(23, 47).map((result: any) => (
                                         <div className=' col-item-category'>
-                                                 <img src={result.imageurl}></img>
+                                                 <img src={result.imageUrl}></img>
                                             <h6 onClick={() => gotopage(result.id)}>
                                             {result.name}
                                         </h6></div>
@@ -660,7 +660,7 @@ const Headers = () => {
                 }}>
                                     {categorylist.slice(47, 81).map((result: any) => (
                                         <div className=' col-item-category'>
-                                                 <img src={result.imageurl}></img>
+                                                 <img src={result.imageUrl}></img>
                                             <h6 onClick={() => gotopage(result.id)}>
                                             {result.name}
                                         </h6></div>
@@ -674,7 +674,7 @@ const Headers = () => {
                 }}>
                                     {categorylist.slice(81, 105).map((result: any) => (
                                         <div className=' col-item-category'>
-                                                 <img src={result.imageurl}></img>
+                                                 <img src={result.imageUrl}></img>
                                             <h6 onClick={() => gotopage(result.id)}>
                                             {result.name}
                                         </h6></div>
@@ -688,7 +688,7 @@ const Headers = () => {
                 }}>
                                     {categorylist.slice(105, 129).map((result: any) => (
                                         <div className=' col-item-category'>
-                                                 <img src={result.imageurl}></img>
+                                                 <img src={result.imageUrl}></img>
                                             <h6 onClick={() => gotopage(result.id)}>
                                             {result.name}
                                         </h6></div>
@@ -702,7 +702,7 @@ const Headers = () => {
                 }}>
                                     {categorylist.slice(129, 143).map((result: any) => (
                                         <div className=' col-item-category'>
-                                                 <img src={result.imageurl}></img>
+                                                 <img src={result.imageUrl}></img>
                                             <h6 onClick={() => gotopage(result.id)}>
                                             {result.name}
                                         </h6></div>
@@ -716,7 +716,7 @@ const Headers = () => {
                 }}>
                                     {categorylist.slice(143).map((result: any) => (
                                         <div className=' col-item-category'>
-                                                 <img src={result.imageurl}></img>
+                                                 <img src={result.imageUrl}></img>
                                             <h6 onClick={() => gotopage(result.id)}>
                                             {result.name}
                                         </h6></div>

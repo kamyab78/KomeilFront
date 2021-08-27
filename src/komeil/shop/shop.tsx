@@ -95,31 +95,52 @@ reorder
        <img src={index.imageUrl} alt=''></img>
    </div>
    <h6>{index.name}</h6>
-   <div className='div-price-subitem-box-result'>
-       <div className="div-price-subitem-box-result-price-amount">
-    {index.discount!==0?(
-           <>
-         <h5 className="firstprice">
-         {index.netPrice}
-         </h5>
-   <h5>{index.netPrice * ((100 - index.discount) / 100)} </h5>  
-   <h5>تومان</h5>
-           </>
-          
-       ):(
-         <h5>{index.netPrice} تومان</h5>  
-       )}
-       </div>
-   
+   {index.stock === 0 ? (
+
+
+<h6 className='simpletxt'>به زودی</h6>
+
+
+) : (
+index.have === true ? (
+
+
+    <div className='div-price-subitem-box-result'>
+    <div className="div-price-subitem-box-result-price-amount">
+ {index.discount!==0?(
+        <>
+      <h5 className="firstprice">
+      {index.netPrice}
+      </h5>
+<h5>{index.netPrice * ((100 - index.discount) / 100)} </h5>  
+<h5>تومان</h5>
+        </>
+       
+    ):(
+      <h5>{index.netPrice} تومان</h5>  
+    )}
+    </div>
+
 
 <i></i>
 {index.discount!==0?(
- <div className='discount-subitem-box-result'>
- <h3>{index.discount}%</h3>
+<div className='discount-subitem-box-result'>
+<h3>{index.discount}%</h3>
 </div>   
 ):null}
 
-   </div>
+</div>
+
+
+
+) : (
+
+
+<h6 className='simpletxt'>محصول ناموجود</h6>
+
+
+)
+)}
 </div>
 
    ))}

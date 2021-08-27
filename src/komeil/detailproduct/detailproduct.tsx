@@ -182,6 +182,7 @@ star
 
 <div className='thirdRow-col-desc'>
 {detailproduct.stock!==0?(
+    detailproduct.have===true?(
   <div className='col-price-and-add'>
 
    
@@ -240,6 +241,8 @@ info
                             </div>
                       
                          ):null} 
+
+
         <button className='card-box' onClick={Addtocard} >
 
 افزودن به سبد خرید
@@ -250,12 +253,22 @@ info
   
     </div>
   
+    ):(
+        <div className='col-not-enough'>
+        <button disabled={true} className='card-box' >
+
+ناموجود
+
+                                    </button>
+                                    </div>
+    )
+
 ):(
     <div className='col-not-enough'>
 
 <button disabled={true} className='card-box' >
 
-محصول ناموجود
+به زودی
 
                                     </button>
       
@@ -292,11 +305,68 @@ info
                </div>
                <div className='row'>
                    <div className='col-1'></div>
+                   <div className='col-10 txt-col-features'>
+                       <h6>مشخصات</h6></div>
+                   <div className='col-1'></div>
+                   <div className='col-md-1'></div>
+                        <div className='col-md-10 col-xs-12 sometxtfeature'>
+                            {detailproduct.productHeight!==null?(
+                               <div className="eachrow">
+                                <h1>:ارتفاع محصول</h1>
+                                <h2>{detailproduct.productHeight}</h2> 
+                            </div>   
+                            ):null}
+                                     {detailproduct.productLength!==null?(
+                               <div className="eachrow">
+                                <h1>:طول محصول</h1>
+                                <h2>{detailproduct.productLength}</h2> 
+                            </div>   
+                            ):null}
+                                     {detailproduct.productWidth!==null?(
+                               <div className="eachrow">
+                                <h1>:عرض محصول</h1>
+                                <h2>{detailproduct.productWidth}</h2> 
+                            </div>   
+                            ):null}
+                                     {detailproduct.boxHeight!==null?(
+                               <div className="eachrow">
+                                <h1>:ارتفاع بسته</h1>
+                                <h2>{detailproduct.boxHeight}</h2> 
+                            </div>   
+                            ):null}
+                                     {detailproduct.boxLength!==null?(
+                               <div className="eachrow">
+                                <h1>:طول بسته</h1>
+                                <h2>{detailproduct.boxLength}</h2> 
+                            </div>   
+                            ):null}
+
+{detailproduct.boxWidth!==null?(
+                               <div className="eachrow">
+                                <h1>:عرض بسته</h1>
+                                <h2>{detailproduct.boxWidth}</h2> 
+                            </div>   
+                            ):null}
+                                     {detailproduct.brandname!==null?(
+                               <div className="eachrow">
+                                <h1>:برند</h1>
+                                <h2>{detailproduct.brandname}</h2> 
+                            </div>   
+                            ):null}
+                                    
+                           
+                        </div>
+                        <div className='col-md-1'></div>
+                   
+               </div>
+             
+               <div className='row'>
+                   <div className='col-1'></div>
                    <div className='col-10 txt-col-related'>
                        <h6>محصولات مشابه</h6></div>
                    <div className='col-1'></div>
 <div className='col-2'></div>
-<div className='col-8 '>
+{/* <div className='col-8 '>
 <div className='row ' style={{marginBottom:'20px'}} >
         <div className='col-md-4 col-xs-12 row-item-center '>
             <div className='item-related'>
@@ -360,7 +430,7 @@ info
 
 
 </div>
-
+ */}
 
 <div className='col-2'></div>
                </div>
