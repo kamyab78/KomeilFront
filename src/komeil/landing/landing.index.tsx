@@ -20,9 +20,12 @@ import { useState } from 'react';
 const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
     const [amazingofferlist, setamazingofferlist] = useState<any>([])
     const [productlist, setproductlist] = useState<any>([])
-    const [firstBanner, setfirstBanner] = useState('')
-    const [firstBannername, setfirstBannername] = useState('')
-    const [firstBannerid, setfirstBannerid] = useState('')
+    const [firstBannerfirst, setfirstBannerfirst] = useState('')
+    const [firstBannernamefirst, setfirstBannernamefirst] = useState('')
+    const [firstBanneridfirst, setfirstBanneridfirst] = useState('')
+    const [firstBannersecond, setfirstBannersecond] = useState('')
+    const [firstBannernamesecond, setfirstBannernamesecond] = useState('')
+    const [firstBanneridsecond, setfirstBanneridsecond] = useState('')
     const [secondBanner, setsecondBanner] = useState('')
     const [secondBannername, setsecondBannername] = useState('')
     const [secondBannerid, setsecondBannerid] = useState('')
@@ -140,12 +143,16 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
                 response.json().then(rep => {
                     console.log(rep)
                     for (var i = 0; i < rep.length; i++) {
-                        if (rep[i].bannerType === 'firstbanner_landing') {
-                            setfirstBanner(rep[i].imageUrl)
-                            setfirstBannername(rep[i].categoryName)
-                            setfirstBannerid(rep[i].categoryId)
+                        if (rep[i].bannerType === 'firstbanner_landing_first') {
+                            setfirstBannerfirst(rep[i].imageUrl)
+                            setfirstBannernamefirst(rep[i].categoryName)
+                            setfirstBanneridfirst(rep[i].categoryId)
                         }
-
+                        if (rep[i].bannerType === 'firstbanner_landing_second') {
+                            setfirstBannersecond(rep[i].imageUrl)
+                            setfirstBannernamesecond(rep[i].categoryName)
+                            setfirstBanneridsecond(rep[i].categoryId)
+                        }
                         if (rep[i].bannerType === 'secondbanner_landing') {
                             setsecondBanner(rep[i].imageUrl)
                             setsecondBannername(rep[i].categoryName)
@@ -223,13 +230,18 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
             <div className='col'>
                 <div className='row banner-row'>
 
-                    <div className='col-12 banner-big-box'>
-                        <img src={firstBanner} onClick={() => {
-                            window.localStorage.setItem('categoryid', firstBannerid)
+                    <div className='col-6 banner-big-box'>
+                        <img src={firstBannerfirst} onClick={() => {
+                            window.localStorage.setItem('categoryid', firstBanneridfirst)
                             history.push('/shop')
                         }}></img>
                     </div>
-
+                    <div className='col-6 banner-big-box'>
+                        <img src={firstBannersecond} onClick={() => {
+                            window.localStorage.setItem('categoryid', firstBanneridsecond)
+                            history.push('/shop')
+                        }}></img>
+                    </div>
                 </div>
 
                 <div className='row bazarche-row'>
