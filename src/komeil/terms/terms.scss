@@ -1,0 +1,23 @@
+@import "src/utilities/references/index";
+.KOEMIL-terms-page{
+    background-color: $white;
+   h1{
+text-align: center;
+padding: 50px;
+font-size: 30px;
+font-weight: bold;
+color: $blue6A;
+   }
+   h2{
+text-align: right;
+padding: 10px;
+font-size: 15px;
+line-height: 30px;
+   }
+   h3{
+    text-align: right;
+    padding: 10px;
+    font-size: 15px;
+    line-height: 30px;
+   }
+}
