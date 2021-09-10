@@ -229,10 +229,7 @@ const Headers = () => {
                         </div>
 
                  
-                    <Link to='/' className=" col-4 logo-div" >
-                        <img alt="" src={Logo} />
-
-                    </Link>
+                 <div className='col-2'></div>
                     <div className="col-4 search-div ">
                         <div className='box'>
                             <input placeholder='جستجوی محصولات در کمیل شاپ' onKeyUp={pressenter} value={searchtxt} onChange={(e) => searchsome(e.target.value)}></input>
@@ -257,6 +254,10 @@ const Headers = () => {
 
 
                     </div>
+                    <Link to='/' className=" col-2 logo-div" >
+                        <img alt="" src={Logo} />
+
+                    </Link>
                     <div className="col-1">
 
 
@@ -267,7 +268,7 @@ const Headers = () => {
                     <div className='col-4 prof-box'>
                         <h6>کمترین قیمت، بهترین کیفیت</h6>
                     </div>
-                    <div className='col-2'></div>
+                    <div className='col-1'></div>
                     <Link to='/aboutus' className="col-1 item-box" ><h5>درباره ما</h5></Link>
                     <Link to='/bazarche' className="col-2 item-box" >
                         <div className='promotion-box'>
@@ -281,8 +282,13 @@ const Headers = () => {
                         </div>
 
                     </Link>
-
-                    <Link to='/' className="col-2 category-box" onMouseEnter={e => {
+                    <Link to='/' className='col-1 item-box'>
+                        <h5>خانه</h5>
+                        <i className="material-icons-outlined">
+home
+</i>
+                    </Link>
+                    <div  className="col-2 category-box" onMouseEnter={e => {
                         setstylecategory({ display: 'block' });
                     }}
                         onMouseLeave={e => {
@@ -293,7 +299,7 @@ const Headers = () => {
                         <i className="material-icons-outlined">
                             reorder
                         </i>
-                    </Link>
+                    </div>
 
 
 
