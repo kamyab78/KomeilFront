@@ -164,10 +164,10 @@ return(
 </div>
 <div className='col-md-6 col-xs-12 col-contact-txt'>
     <img src={GoogleMap}></img>
-    <h6>آدرس : میدان شوش خ صابونیان پاساژ شهرداری طبقه منفی ۲ پلاک ۶۰</h6>
-    <h6>تلفن تماس : ۲۳۲۳۲۳۲۳</h6>
+    <h6 style={{direction:'rtl'}}>آدرس : تهران میدان شوش خیابان صابونیان مجتمع پرنسا طبقه همکف پلاک G8</h6>
+    <h6>تلفن تماس : 02155322525</h6>
     <h6>ساعات کاری فروشگاه: 8 الی 23 هر روز هفته</h6>
-    <h6>info@komeilshop.com :ایمیل فروشگاه </h6>
+    <h6>pasargadshop681@yahoo.com :ایمیل فروشگاه </h6>
 </div>
 </div>
 </div>

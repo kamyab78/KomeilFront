@@ -26,10 +26,10 @@ return(
             
                 </div>
                 <div className='col-4 community-box'>
-                <h1>تهران - تهران - تهران - تهران</h1>
+                <h1 style={{direction:'rtl'}}>آدرس : تهران میدان شوش خیابان صابونیان مجتمع پرنسا طبقه همکف پلاک G8</h1>
               
-                               <h6>021-1212123  -  021-23123123</h6>
-                    <h6>kodmd@jfjfjf.kdkd</h6>
+                               <h6>021-55322525  -  021-23123123</h6>
+                    <h6>pasargadshop681@yahoo.com</h6>
                
             
                 </div>
