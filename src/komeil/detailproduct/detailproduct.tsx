@@ -11,10 +11,15 @@ import { toast } from 'react-toastify';
 import { Config } from 'komeil/config/config';
 import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
+import ReactImageMagnify from 'react-image-magnify';
+import Modal from 'react-bootstrap/Modal'
+
 const Detailproduct = () => {
     const [detailproduct, setdetailproduct] = useState<any>({})
     const [colorid, setcolorid] = useState<any>(0)
     const [isZoomed, setIsZoomed] = useState(false)
+    const [isModalOpen,setIsModalOpen]=useState(false)
+    const [imgurl,setimgurl]=useState('')
     useEffect(() => {
         var location = window.location.href;
         var splitloc = location.split('?')
@@ -146,8 +151,18 @@ const Detailproduct = () => {
       }, [])
 return(
     <div className='row topnoor-detailproduct-page' >
+
        <div className='col-12'>
            <div className='row row-base'>
+           <Modal show={isModalOpen} onHide={()=>setIsModalOpen(false)}>
+        <Modal.Header closeButton>
+          
+        </Modal.Header>
+        <Modal.Body>
+            <img style={{width:'100%'}} src={imgurl}></img>
+        </Modal.Body>
+   
+      </Modal>
 <div className='col-md-9 col-xs-12 col-desc'>
 <div className='firstRow-col-desc'>
     <h1>{detailproduct.name}</h1>
@@ -286,16 +301,16 @@ info
 </div>
 </div>
 <div className='col-md-3 col-xs-12 col-img'>
-<ControlledZoom isZoomed={isZoomed} onZoomChange={handleZoomChange}>
-                            <img alt='' src={detailproduct.imageUrl}></img>
-                            </ControlledZoom>
+<img alt='' src={ detailproduct.imageUrl} onClick={()=>{setimgurl( detailproduct.imageUrl);setIsModalOpen(true)}}></img>
+
 <div className='additional-img'>
 {detailproduct.productAdditionalImages !== undefined ? (
-                                detailproduct.productAdditionalImages.map((index: any) => (
-                                 
-                                         <ControlledZoom isZoomed={isZoomed} onZoomChange={handleZoomChange}>
-                                        <img alt='' src={index.imageUrl}></img>
-                                        </ControlledZoom>
+                                detailproduct.productAdditionalImages.map((index: any,i:any) => (
+                                 i<=2?(
+                                    <img alt='' src={index.imageUrl} onClick={()=>{setimgurl(index.imageUrl);setIsModalOpen(true)}}></img>
+                
+                                 ):null
+                                        
                                   
                                 ))
                             ) : null}
@@ -304,12 +319,12 @@ info
 </div>
                </div>
                <div className='row'>
-                   <div className='col-1'></div>
-                   <div className='col-10 txt-col-features'>
-                       <h6>مشخصات</h6></div>
-                   <div className='col-1'></div>
+       
                    <div className='col-md-1'></div>
                         <div className='col-md-10 col-xs-12 sometxtfeature'>
+                        <div className='title-table'>
+                                 <h6>مشخصات محصول</h6> 
+                            </div>
                             {detailproduct.productHeight!==null?(
                                <div className="eachrow">
                                 <h1>:ارتفاع محصول</h1>

@@ -90,8 +90,10 @@ reorder
 </div>
 <div className='row'>
    {productlist.map((index:any)=>(
-   <div className='col-md-3 col-xs-6 subitem-box-result'>
-   <div className='div-img-subitem-box-result'  onClick={()=>history.push('/detailproduct?hash='+index.hash+'?category='+index.categoryname)}>
+   <div className='col-md-3 col-xs-6 '>
+       <div className='subitem-box-result' onClick={()=>history.push('/detailproduct?hash='+index.hash+'?category='+index.categoryname)}>
+           <Link to={'/detailproduct?hash='+index.hash+'?category='+index.categoryname}>
+                  <div className='div-img-subitem-box-result' >
        <img src={index.imageUrl} alt=''></img>
    </div>
    <h6>{index.name}</h6>
@@ -141,6 +143,10 @@ index.have === true ? (
 
 )
 )}
+           </Link>
+           
+            </div>
+
 </div>
 
    ))}
