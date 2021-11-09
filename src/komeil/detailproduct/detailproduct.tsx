@@ -219,13 +219,13 @@ star
   <div className='item-col-price-and-add'>
            
             <h4>تومان</h4>
-            <h3>{detailproduct.netPrice * ((100 - detailproduct.discount) / 100)}</h3>
+            <h3>{(detailproduct.netPrice * ((100 - detailproduct.discount) / 100)).toLocaleString()}</h3>
         </div>
            ):(
             <div className='item-col-price-and-add'>
            
             <h4>تومان</h4>
-            <h3>{detailproduct.netPrice}</h3>
+            <h3>{detailproduct.netPrice.toLocaleString()}</h3>
         </div>
            )}
 
@@ -362,6 +362,13 @@ info
                                 <h2>{detailproduct.boxWidth}</h2> 
                             </div>   
                             ):null}
+                            {detailproduct.weight!==null?(
+                               <div className="eachrow">
+                                <h1>:وزن</h1>
+                                <h2>{detailproduct.weight}</h2> 
+                            </div>   
+                            ):null}
+                            
                                      {detailproduct.brandname!==null?(
                                <div className="eachrow">
                                 <h1>:برند</h1>

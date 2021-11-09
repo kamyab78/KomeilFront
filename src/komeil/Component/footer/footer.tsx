@@ -13,9 +13,8 @@ return(
             <div className='row '>
                
             <div className='col-4 logo-enamad-box'>
-        <img src={Log1} alt=''></img>
-        <img src={Log2} alt='' style={{position:'absolute',right:'0'}}></img>   
-            
+<img src={Log2} alt="" style={{cursor:"pointer"}} onClick={()=>window.location.replace('https://trustseal.enamad.ir/?id=240900&code=RrAWJv6lLOywkvHWQLL6')} />
+
                 </div>
                 <div className='col-4 community-box'>
                 <h6 onClick={()=>window.location.replace('/terms')}>قوانین مقررات</h6>

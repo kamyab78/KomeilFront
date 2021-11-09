@@ -305,17 +305,17 @@ home
 
                 </div>
             </div>
-            <div className='col-12 div-show-category' style={stylecategory} onMouseEnter={e => {
-                                    setstylecategory({ display: 'block' });
-                                }}
-                                    onMouseLeave={e => {
-                                        setstylecategory({ display: 'none' })
-                                    }} >
+            <div className='col-12 div-show-category' style={stylecategory} >
                 <div className='row row-result-category'>
                     {/* <div className=''>  */}
                     
                         {flag === 0 ? (
-                                <div className="col-md-2 col-row-result-category" >
+                                <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                         {categorylist.map((result: any, i) => (
 
                             <div className='col-item-category'>
@@ -332,7 +332,12 @@ home
                         </div>
                     ) : flag === 1 ? (
                         <>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(0, 23).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -341,7 +346,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(23).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -353,7 +363,12 @@ home
                         </>
                     ) : flag === 2 ? (
                         <>
-                            <div className="col-md-2 col-row-result-category">
+                            <div className="col-md-2 col-row-result-category"onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(0, 23).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -362,7 +377,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(23, 47).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -371,7 +391,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(47).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -383,7 +408,12 @@ home
                         </>
                     ) : flag === 3 ? (
                         <>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category"onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }} >
                                 {categorylist.slice(0, 23).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -392,7 +422,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(23, 47).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -401,7 +436,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(47, 81).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -410,7 +450,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(81).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -422,7 +467,12 @@ home
                         </>
                     ) : flag === 4 ? (
                         <>
-                            <div className="col-md-2 col-row-result-category">
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(0, 23).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -431,7 +481,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(23, 47).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -440,7 +495,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(47, 81).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -449,7 +509,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(81, 105).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -458,7 +523,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category" >
+                            <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(105).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -471,7 +541,12 @@ home
                         </>
                     ) : flag === 5 ? (
                         <>
-                            <div className="col-md-2 col-row-result-category"  >
+                            <div className="col-md-2 col-row-result-category"  onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(0, 23).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -480,7 +555,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category"  >
+                            <div className="col-md-2 col-row-result-category"  onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(23, 47).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -489,7 +569,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category"  >
+                            <div className="col-md-2 col-row-result-category"  onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(47, 81).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -498,7 +583,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category"  >
+                            <div className="col-md-2 col-row-result-category"  onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(81, 105).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -507,7 +597,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category"  >
+                            <div className="col-md-2 col-row-result-category"  onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(105, 129).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -516,7 +611,12 @@ home
                                     </h6></div>
                                 ))}
                             </div>
-                            <div className="col-md-2 col-row-result-category"  >
+                            <div className="col-md-2 col-row-result-category"  onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                 {categorylist.slice(129).map((result: any) => (
                                     <div className=' col-item-category'>
                                              <img src={result.imageUrl}></img>
@@ -530,7 +630,12 @@ home
                     ) : flag === 6 ? (
                         <>
                         
-                                <div className="col-md-2 col-row-result-category" >
+                                <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                     {categorylist.slice(0, 23).map((result: any) => (
                                         <div className=' col-item-category'>
                                                  <img src={result.imageUrl}></img>
@@ -539,7 +644,12 @@ home
                                         </h6></div>
                                     ))}
                                 </div>
-                                <div className="col-md-2 col-row-result-category" >
+                                <div className="col-md-2 col-row-result-category"onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }} >
                                     {categorylist.slice(23, 47).map((result: any) => (
                                         <div className=' col-item-category'>
                                                  <img src={result.imageUrl}></img>
@@ -548,7 +658,12 @@ home
                                         </h6></div>
                                     ))}
                                 </div>
-                                <div className="col-md-2 col-row-result-category">
+                                <div className="col-md-2 col-row-result-category"onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                     {categorylist.slice(47, 81).map((result: any) => (
                                         <div className=' col-item-category'>
                                                  <img src={result.imageUrl}></img>
@@ -557,7 +672,12 @@ home
                                         </h6></div>
                                     ))}
                                 </div>
-                                <div className="col-md-2 col-row-result-category" >
+                                <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                     {categorylist.slice(81, 105).map((result: any) => (
                                         <div className=' col-item-category'>
                                                  <img src={result.imageUrl}></img>
@@ -566,7 +686,12 @@ home
                                         </h6></div>
                                     ))}
                                 </div>
-                                <div className="col-md-2 col-row-result-category" >
+                                <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                     {categorylist.slice(105, 129).map((result: any) => (
                                         <div className=' col-item-category'>
                                                  <img src={result.imageUrl}></img>
@@ -575,7 +700,12 @@ home
                                         </h6></div>
                                     ))}
                                 </div>
-                                <div className="col-md-2 col-row-result-category" >
+                                <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                     {categorylist.slice(129, 143).map((result: any) => (
                                         <div className=' col-item-category'>
                                                  <img src={result.imageUrl}></img>
@@ -584,7 +714,12 @@ home
                                         </h6></div>
                                     ))}
                                 </div>
-                                <div className="col-md-2 col-row-result-category" >
+                                <div className="col-md-2 col-row-result-category" onMouseEnter={e => {
+                                    setstylecategory({ display: 'block' });
+                                }}
+                                    onMouseLeave={e => {
+                                        setstylecategory({ display: 'none' })
+                                    }}>
                                     {categorylist.slice(143).map((result: any) => (
                                         <div className=' col-item-category'>
                                                  <img src={result.imageUrl}></img>

@@ -112,14 +112,14 @@ index.have === true ? (
  {index.discount!==0?(
         <>
       <h5 className="firstprice">
-      {index.netPrice}
+      {index.netPrice.toLocaleString()}
       </h5>
-<h5>{index.netPrice * ((100 - index.discount) / 100)} </h5>  
+<h5>{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()} </h5>  
 <h5>تومان</h5>
         </>
        
     ):(
-      <h5>{index.netPrice} تومان</h5>  
+      <h5>{index.netPrice.toLocaleString()} تومان</h5>  
     )}
     </div>
 

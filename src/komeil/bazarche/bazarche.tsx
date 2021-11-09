@@ -125,12 +125,12 @@ index.have === true ? (
 
 {index.discount !== 0 ? (
   <>
-      <h3 className='amountafterdiscount'>{index.netPrice}</h3>
+      <h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
 
-      <h3 >{index.netPrice * ((100 - index.discount) / 100)}</h3>
+      <h3 >{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()}</h3>
   </>
 ) : (
-  <h3 >{index.netPrice}</h3>
+  <h3 >{index.netPrice.toLocaleString()}</h3>
 )}
 
 <h3>تومان</h3>
