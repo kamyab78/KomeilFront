@@ -20,6 +20,7 @@ const Detailproduct = () => {
     const [isZoomed, setIsZoomed] = useState(false)
     const [isModalOpen,setIsModalOpen]=useState(false)
     const [imgurl,setimgurl]=useState('')
+    const [addphoto,setaddphoto]=useState<any>([])
     useEffect(() => {
         var location = window.location.href;
         var splitloc = location.split('?')
@@ -56,6 +57,10 @@ const Detailproduct = () => {
 
                 response.json().then(rep => {
                     console.log(rep)
+                    var arradd= rep.productAdditionalImages
+                    arradd.sort((firstItem, secondItem) => firstItem.createdAt - secondItem.createdAt);
+                    console.log(arradd.reverse())
+                    setaddphoto(arradd.reverse())
                     setdetailproduct(rep)
                 })
 
@@ -305,7 +310,7 @@ info
 
 <div className='additional-img'>
 {detailproduct.productAdditionalImages !== undefined ? (
-                                detailproduct.productAdditionalImages.map((index: any,i:any) => (
+                               addphoto.map((index: any,i:any) => (
                                  i<=2?(
                                     <img alt='' src={index.imageUrl} onClick={()=>{setimgurl(index.imageUrl);setIsModalOpen(true)}}></img>
                 

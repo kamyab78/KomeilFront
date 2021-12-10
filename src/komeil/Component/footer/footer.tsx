@@ -13,7 +13,7 @@ return(
             <div className='row '>
                
             <div className='col-4 logo-enamad-box'>
-<img src={Log2} alt="" style={{cursor:"pointer"}} onClick={()=>window.location.replace('https://trustseal.enamad.ir/?id=240900&code=RrAWJv6lLOywkvHWQLL6')} />
+            <div dangerouslySetInnerHTML={{ __html:`<a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=240900&amp;Code=RrAWJv6lLOywkvHWQLL6"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=240900&amp;Code=RrAWJv6lLOywkvHWQLL6" alt="" style="cursor:pointer;width: 100px; margin: 25px;" id="RrAWJv6lLOywkvHWQLL6"></a>` }}></div>
 
                 </div>
                 <div className='col-4 community-box'>
