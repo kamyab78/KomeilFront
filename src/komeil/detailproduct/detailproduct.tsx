@@ -59,8 +59,8 @@ const Detailproduct = () => {
                     console.log(rep)
                     var arradd= rep.productAdditionalImages
                     arradd.sort((firstItem, secondItem) => firstItem.createdAt - secondItem.createdAt);
-                    console.log(arradd.reverse())
-                    setaddphoto(arradd.reverse())
+                  
+                    setaddphoto(arradd)
                     setdetailproduct(rep)
                 })
 
