@@ -15,8 +15,13 @@ import { Config } from 'komeil/config/config';
 const ShopSearch: React.FC<ConnectedProps<typeof connector>> = function () {
     const [productlist,setproductlist]=useState<any>([])
     useEffect(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+
         getlist(window.localStorage.getItem('searchkeyword'))
     }, [window.localStorage.getItem('categoryid')]);
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
     function getlist(keyword:any){
         var requestOptions = {
             method: 'GET',

@@ -25,11 +25,15 @@ const Brand: React.FC<ConnectedProps<typeof connector>> = function () {
         variableWidth: true,
     };
     useEffect(() => {
-      
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+
         getproductbrand()
         getdetailbrand()
    
     }, []);
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
     function getdetailbrand() {
         var requestOptions = {
             method: 'GET',

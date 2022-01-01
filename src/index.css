@@ -60,7 +60,8 @@
 }
 body{
     font-family: IRANSans !important;
-	background-color: #F5F5F5;
+	/* background-color: #F5F5F5; */
+	background-color: #9439EF;
 }
 code {
 	font-family: IRANSans !important;

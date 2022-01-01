@@ -15,9 +15,19 @@ import { Config } from 'komeil/config/config';
 const Shop: React.FC<ConnectedProps<typeof connector>> = function () {
     const [productlist,setproductlist]=useState<any>([])
     useEffect(() => {
-getlist()
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        var location = window.location.href;
+        var splitloc = location.split('?')
+        var secondarray = splitloc[1]
+        var catid = secondarray.split('catid=')
+        console.log(catid[1])
+   
+getlist(catid[1])
     }, [window.localStorage.getItem('categoryid')]);
-    function getlist(){
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
+    function getlist(id){
         var requestOptions = {
             method: 'GET',
             headers: {
@@ -30,7 +40,7 @@ getlist()
     
         };
     
-        fetch(Config()['webapi'] + "/landing/listproductwithcategory?categoryid="+window.localStorage.getItem('categoryid'), requestOptions)
+        fetch(Config()['webapi'] + "/landing/listproductwithcategory?categoryid="+id, requestOptions)
             .then(response => {
     
     
@@ -59,10 +69,19 @@ getlist()
     return (
         <div className="komeil-shop-page row">
             <div className='col'>
-
+            <div className='row'>
+    <div className='col-12 col-catname'>
+        <div className='boxcatname'>
+            <h6 style={{cursor:'pointer'}} onClick={()=>window.location.replace('/')}>خانه/</h6>
+        <h6>{window.localStorage.getItem('categoryname')}</h6>
+        </div>
+      
+        
+    </div>
+</div>
 <div className='row row-result'>
     <div className='col-md-9 col-xs-12 box-result'>
-<div className='row'>
+{/* <div className='row'>
    
     <div className='col-2 sortitem-box-result'>
         <h6>پربازدیدترین</h6>
@@ -87,7 +106,7 @@ reorder
 </i>
     </div>
     
-</div>
+</div> */}
 <div className='row'>
    {productlist.map((index:any)=>(
    <div className='col-md-3 col-xs-6 '>

@@ -13,9 +13,12 @@ import Emptybas from '../../assets/images/emptybascket.png'
 const Terms = () => {
   const [Orderlist,setOrderlist]=useState<any>([])
   useEffect(() => {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 
 }, []);
-
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 return(
     <div style={{direction:'rtl'}} className="KOEMIL-terms-page" >
         <h1>قوانین و مقررات کمیل </h1>

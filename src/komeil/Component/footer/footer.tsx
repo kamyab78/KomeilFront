@@ -17,7 +17,7 @@ return(
 
                 </div>
                 <div className='col-4 community-box'>
-                <h6 onClick={()=>window.location.replace('/terms')}>قوانین مقررات</h6>
+                <Link to={'/terms'} >قوانین مقررات</Link>
                 <h6>تماس با ما</h6>
                 <h6>تماس با ما</h6>
                 <h6>تماس با ما</h6>

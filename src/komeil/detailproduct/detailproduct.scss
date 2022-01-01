@@ -1,6 +1,30 @@
 @import "src/utilities/references/index";
-.topnoor-detailproduct-page{
+.komeil-detailproduct-page{
     background-color: $whitef5;
+    .row-item-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     
+        .small-img-row{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+       
+            img{
+                object-fit: cover;
+                width: 150px;
+                height: 150px;
+                margin-top: 15px;
+                border-style: solid;
+                border-color: $gray;
+                border-width: 1px;
+                cursor: pointer;
+            }
+        }
+  
+    }
     // .product-preview-modal {
     //     display: flex;
     //     flex-direction: column;
@@ -303,6 +327,7 @@ img{
     border-radius: 10px;
     height: 100%;
     width: 80%;
+    box-shadow: 5px 5px 5px 5px $graydd;
     .div-img{
         display: flex;
         align-items: center;
@@ -310,12 +335,19 @@ img{
         width: 100%;
          img{
             object-fit: cover;
-      width: 50%;
-      height: 50%;
+      width: 150px;
+      height: 150px;
       padding-top: 15px;
     }  
     }
- 
+    h3{
+        padding-top: 10px;
+            padding-right: 10px;
+        font-size: 15px;
+      }
+      .amountafterdiscount{
+        text-decoration: line-through;
+      }
     h1{
       padding-top: 20px;
       padding-right: 10px;
@@ -328,39 +360,55 @@ color: $gray99;
 padding-top: 20px;
 padding-right: 10px;
     }
-    h3{
-        padding-top: 20px;
-        padding-right: 10px;
-      font-size: 26px;
-    }
-background-color: $white;
-border-radius: 10px;
-box-shadow: 5px 5px 5px 5px $graydd;
-.btn-show-more{
-    width: 100%;
+
+background-color: $whiteff;
+.div-btn{
     display: flex;
     justify-content: center;
     align-items: center;
-.card-box{
-    border-radius: 5px;
-        border-color: transparent;
-    margin-top: 20px;
-        background-color: $perpel;
-    
+    .card-box{
+        margin-top: 20px;
+        border-style: solid;
+        border-color: $perpel;
+        border-width: 1px;
         display: flex;
         width: 90%;
-        text-align: center;
+        text-align: right;
         justify-content: center;
         align-items: center;
         height: 40px;
-   
-   
- 
-  
-          color: $white;
-          font-weight: bold;
-
-}
+        flex-direction: row-reverse;
+        padding-bottom: 10px;
+        cursor: pointer;
+        h6{
+        color: $perpel;
+        font-weight: bold;
+        }
+        i{
+        color: $danger;
+        // font-weight: bold;
+        }
+        
+        }
+        .cardbox-finish{
+            margin-top: 20px;
+            border-style: solid;
+          border-color: $danger;
+            border-width: 1px;
+            display: flex;
+            width: 90%;
+            text-align: right;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            flex-direction: row-reverse;
+            padding-bottom: 10px;
+            h6{
+              font-size: 12px;
+              font-weight: bold;
+              color:$danger
+            }
+        }
 }
 
 }

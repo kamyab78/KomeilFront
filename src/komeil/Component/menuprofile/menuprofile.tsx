@@ -65,7 +65,7 @@ return(
             <Link to='/profile/order' className=" item-box-link" >سفارشات</Link>
        
             <Link to='/profile/ticket' className=" item-box-link" >تیکت</Link>
-            <Link to='/' className=" item-box-link" onClick={()=>localStorage.clear()} >خروج</Link>
+            <h6 className=" item-box-link" onClick={()=>{localStorage.clear();window.location.replace('/')}} >خروج</h6>
             </div>
         </div>
        

@@ -1,5 +1,5 @@
 @import "src/utilities/references/index";
-.topnoor-card-page{
+.komeil-card-page{
     background-color: $white;
     .title-box{
         text-align: right;
@@ -10,6 +10,16 @@
         h1{
             padding: 20px;
             font-size: 25px;
+        }
+    }
+    .row-titles{
+        margin-top:20px ;
+        .col-titles{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $graydd;
+            height: 60px;
         }
     }
     .row-empty{
@@ -35,6 +45,127 @@ color:$bluef2;
 cursor: pointer;
 text-decoration: underline;
 }
+        }
+    }
+    .col-items-card{
+        max-height: 400px;
+        overflow-y: auto;
+        .row-items{
+        .col-items{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-style: solid;
+            border-color: $graydd;
+            border-width: 1px;
+            flex-direction: row;
+            h1{
+                font-weight: normal;
+            }
+            i{
+                color: $danger;
+                cursor: pointer;
+            }
+            .sub-description-col-items{
+                flex: 1;
+text-align: right;
+h1{
+ font-weight: normal;
+font-size: 18px;
+color: $black;
+padding: 10px;
+}
+h2{
+    font-weight: normal;
+font-size: 14px;
+color: rgba($black,0.6);   
+padding: 10px; 
+}
+
+            }
+            .sub-img-col-items{
+            
+img{width: 150px;
+height: 150px;
+// object-fit: cover;
+
+}
+            }
+            h6{
+                padding-right: 5px;
+                font-weight: normal;
+                font-size: 12px;
+            }
+        }
+    }  
+    }
+  
+    .row-amount{
+        background-color: $perpel;
+
+        .col-amount{
+       display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right-style: solid;
+        border-color: $graydd;
+        border-width: 1px;
+        height:60px ;
+        h1{
+            color: $white;
+            font-size: 18px;
+         
+        }
+        h6{
+            padding-right: 5px;
+            font-weight: normal;
+            font-size: 12px;
+            color: $white;
+        }
+        }
+        .total-col-amount{
+            display: flex;
+            align-items: center;
+            h1{
+                color: $white;
+                font-size: 18px;
+                font-weight: normal;
+            }
+        }
+    }
+    .row-btn{
+        .col-btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            .continuebtn{
+background-color: $white;
+border-color: $black;
+border-style: solid;
+border-width: 2px;
+width: 100%;
+height: 55px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: normal;
+font-size: 18px;
+color: $black;
+            } 
+            .checkoutbtn{
+                background-color: $blue6A;
+         
+                width: 100%;
+                height: 55px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: normal;
+                font-size: 18px;
+                color: $white;
+            }
         }
     }
 }

@@ -56,11 +56,16 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
         variableWidth: true,
     };
     useEffect(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+
         getAmazingoffer()
         getproduct()
         getBanner()
         getbrand()
     }, []);
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
     function getAmazingoffer() {
         var requestOptions = {
             method: 'GET',
@@ -230,18 +235,18 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
             <div className='col'>
                 <div className='row banner-row'>
 
-                    <div className='col-6 banner-big-box'>
-                        <img src={firstBannerfirst} onClick={() => {
-                            window.localStorage.setItem('categoryid', firstBanneridfirst)
-                            history.push('/shop')
-                        }}></img>
-                    </div>
-                    <div className='col-6 banner-big-box'>
-                        <img src={firstBannersecond} onClick={() => {
-                            window.localStorage.setItem('categoryid', firstBanneridsecond)
-                            history.push('/shop')
-                        }}></img>
-                    </div>
+                    <Link className='col-6 banner-big-box' to={'/shop?catid='+firstBanneridfirst} onClick={() => {
+                        window.localStorage.setItem('categoryid', firstBanneridfirst)
+               
+                    }}>
+                        <img src={firstBannerfirst} ></img>
+                    </Link>
+                    <Link className='col-6 banner-big-box'  to={'/shop?catid='+firstBanneridsecond} onClick={() => {
+                        window.localStorage.setItem('categoryid', firstBanneridsecond)
+               
+                    }}>
+                        <img src={firstBannersecond} ></img>
+                    </Link>
                 </div>
 
                 <div className='row bazarche-row'>
@@ -257,6 +262,7 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
                                 {amazingofferlist.map((index: any, i: any) => (
                                     i <= 1 ? (
                                         <div className='sub-item-bazarche-box-main col-3'>
+                                             <Link  to={'/detailproduct?hash=' + index.hash + '?category=' + index.categoryname}>
                                             <div className='div-img'>
 
 
@@ -288,7 +294,7 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
                                                 ) : null}
                                             </div>
 
-                                            <div className='card-box' onClick={() => history.push('/detailproduct?hash=' + index.hash + '?category=' + index.categoryname)}>
+                                            <div className='card-box' >
                                                 {index.stock === 0 ? (
 
 
@@ -311,7 +317,9 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
                                                     )
                                                 )}
                                             </div>
-                                        </div>) : null
+                                        </Link>
+                                        </div>
+                                       ) : null
 
                                 ))}
 
@@ -330,17 +338,19 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
 
                     <div className='col-md-6 col-xs-12 '>
                         <div className='row'>
-                            {productlist.map((index: any) => (
+                            {productlist.map((index: any,i) => (
                                 <div className='col-md-6 col-xs-12'>
-                                    <div className='subitem-newproduct' onClick={() => history.push('/detailproduct?hash=' + index.hash + '?category=' + index.categoryname)}>
+                                    {i<=1?(
+                                        <div className='subitem-newproduct-one-two'>
+                                                                          <Link to={'/detailproduct?hash=' + index.hash + '?category=' + index.categoryname}  >
 
-                                        <div className='div-img-new'>
+<div className='div-img-new'>
 
-                                            <img src={index.imageUrl} alt=''></img>
-                                        </div>
-                                        <h1>{index.name}</h1>
+    <img src={index.imageUrl} alt=''></img>
+</div>
+<h1>{index.name}</h1>
 
-                                        {index.stock === 0 ? (
+{index.stock === 0 ? (
 
 
 <h6 className='simpletxt'>به زودی</h6>
@@ -350,46 +360,111 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
 index.have === true ? (
 
 
-    <div className='div-price-subitem-newproduct'>
-    <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+<div className='div-price-subitem-newproduct'>
+<div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
 
-        {index.discount !== 0 ? (
-            <>
-                <h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
+{index.discount !== 0 ? (
+<>
+<h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
 
-                <h3 >{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()}</h3>
-            </>
-        ) : (
-            <h3 >{index.netPrice.toLocaleString()}</h3>
-        )}
+<h3 >{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()}</h3>
+</>
+) : (
+<h3 >{index.netPrice.toLocaleString()}</h3>
+)}
 
-        <h3>تومان</h3>
-    </div>
-    <i></i>
-    {index.discount !== 0 ? (
-        <div className='discount-subitem-newproduct'>
+<h3>تومان</h3>
+</div>
+<i></i>
+{index.discount !== 0 ? (
+<div className='discount-subitem-newproduct'>
 
-            <h6 className='discounttxt'>{index.discount}%</h6>
+<h6 className='discounttxt'>{index.discount}%</h6>
 
-        </div>
-    ) : null}
-   
+</div>
+) : null}
 
-    </div>
+
+</div>
 
 
 
 ) : (
 
 
-    <h6 className='simpletxt'>محصول ناموجود</h6>
+<h6 className='simpletxt'>محصول ناموجود</h6>
 
 
 )
 )}
 
-                                     
+
+</Link>
                                         </div>
+               
+                                    ):(
+                                       <div className='subitem-newproduct-three'>
+                                            <Link  to={'/detailproduct?hash=' + index.hash + '?category=' + index.categoryname} >
+
+<div className='div-img-new'>
+
+    <img src={index.imageUrl} alt=''></img>
+</div>
+<h1>{index.name}</h1>
+
+{index.stock === 0 ? (
+
+
+<h6 className='simpletxt'>به زودی</h6>
+
+
+) : (
+index.have === true ? (
+
+
+<div className='div-price-subitem-newproduct'>
+<div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+
+{index.discount !== 0 ? (
+<>
+<h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
+
+<h3 >{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()}</h3>
+</>
+) : (
+<h3 >{index.netPrice.toLocaleString()}</h3>
+)}
+
+<h3>تومان</h3>
+</div>
+<i></i>
+{index.discount !== 0 ? (
+<div className='discount-subitem-newproduct'>
+
+<h6 className='discounttxt'>{index.discount}%</h6>
+
+</div>
+) : null}
+
+
+</div>
+
+
+
+) : (
+
+
+<h6 className='simpletxt'>محصول ناموجود</h6>
+
+
+)
+)}
+
+
+</Link>
+                                       </div>
+                                    )}
+                               
                                     </div>
                              
                             ))}
@@ -398,33 +473,33 @@ index.have === true ? (
 
                         </div>
                     </div>
-                    <div className='col-md-6 col-xs-12 imagebox-newproduct'>
-                        <img src={secondBanner} style={{ cursor: "pointer" }} alt='' onClick={() => {
-                            window.localStorage.setItem('categoryid', secondBannerid)
-                            history.push('/shop')
-                        }}></img>
+                    <Link className='col-md-6 col-xs-12 imagebox-newproduct' to={'/shop?catid='+secondBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', secondBannerid)
+               
+                    }}>
+                        <img src={secondBanner} style={{ cursor: "pointer" }} alt='' ></img>
                         <h6>محصولات جدید کمیل</h6>
-                    </div>
+                    </Link>
                 </div>
                 <div className='row bannerads-row'>
-                    <div className='col-md-4 col-xs-12'>
-                        <img src={thirdBanner} style={{ cursor: "pointer" }} alt='' onClick={() => {
-                            window.localStorage.setItem('categoryid', thirdBannerid)
-                            history.push('/shop')
-                        }}></img>
-                    </div>
-                    <div className='col-md-4 col-xs-12'>
-                        <img src={fourhtBanner} style={{ cursor: "pointer" }} alt='' onClick={() => {
-                            window.localStorage.setItem('categoryid', fourthBannerid)
-                            history.push('/shop')
-                        }}></img>
-                    </div>
-                    <div className='col-md-4 col-xs-12'>
-                        <img src={fifthBanner} alt='' style={{ cursor: "pointer" }} onClick={() => {
-                            window.localStorage.setItem('categoryid', fifthBannerid)
-                            history.push('/shop')
-                        }}></img>
-                    </div>
+                    <Link className='col-md-4 col-xs-12' to={'/shop?catid='+thirdBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', thirdBannerid)
+               
+                    }}>
+                        <img src={thirdBanner} style={{ cursor: "pointer" }} alt=''></img>
+                    </Link>
+                    <Link className='col-md-4 col-xs-12' to={'/shop?catid='+fourthBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', fourthBannerid)
+               
+                    }}>
+                        <img src={fourhtBanner} style={{ cursor: "pointer" }} alt=''></img>
+                    </Link>
+                    <Link className='col-md-4 col-xs-12' to={'/shop?catid='+fifthBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', fifthBannerid)
+               
+                    }}>
+                        <img src={fifthBanner} alt='' style={{ cursor: "pointer" }} ></img>
+                    </Link>
                 </div>
                 <div className='row row-service'>
                     <div className='col-12 box-service'>
@@ -456,18 +531,18 @@ index.have === true ? (
                 </div>
 
                 <div className='row bannerads-row'>
-                    <div className='col-md-6 col-xs-12'>
-                        <img src={sixtBanner} style={{ cursor: "pointer" }} alt='' onClick={() => {
-                            window.localStorage.setItem('categoryid', sixtBannerid)
-                            history.push('/shop')
-                        }}></img>
-                    </div>
-                    <div className='col-md-6 col-xs-12'>
-                        <img src={seventBanner} style={{ cursor: "pointer" }} alt='' onClick={() => {
-                            window.localStorage.setItem('categoryid', seventBannerid)
-                            history.push('/shop')
-                        }}></img>
-                    </div>
+                    <Link className='col-md-6 col-xs-12'  to={'/shop?catid='+sixtBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', sixtBannerid)
+               
+                    }}>
+                        <img src={sixtBanner} style={{ cursor: "pointer" }} alt='' ></img>
+                    </Link>
+                    <Link className='col-md-6 col-xs-12'  to={'/shop?catid='+seventBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', seventBannerid)
+               
+                    }}>
+                        <img src={seventBanner} style={{ cursor: "pointer" }} alt='' ></img>
+                    </Link>
 
                 </div>
 

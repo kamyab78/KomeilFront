@@ -21,15 +21,20 @@ const Detailproduct = () => {
     const [isModalOpen,setIsModalOpen]=useState(false)
     const [imgurl,setimgurl]=useState('')
     const [addphoto,setaddphoto]=useState<any>([])
+    const [relatedlist,setrelatedlist]=useState([])
     useEffect(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
         var location = window.location.href;
         var splitloc = location.split('?')
         var secondarray = splitloc[1]
         var hash = secondarray.split('hash=')
         console.log(hash[1])
         getdetailproduct(hash[1])
+        related(hash[1])
     }, []);
-    
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
     const [number, setnumber] = useState<any>(1);
     function clickonremove(){
         if(number!==1){
@@ -60,8 +65,38 @@ const Detailproduct = () => {
                     var arradd= rep.productAdditionalImages
                     arradd.sort((firstItem, secondItem) => firstItem.createdAt - secondItem.createdAt);
                   
-                    setaddphoto(arradd)
+                    setaddphoto(arradd.reverse())
                     setdetailproduct(rep)
+                })
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));
+    }
+    function related(hash:any){
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            }
+
+
+        };
+
+        fetch(Config()['webapi'] + "/landing/related?hash=" + hash, requestOptions)
+            .then(response => {
+
+
+
+                response.json().then(rep => {
+                    console.log(rep)
+                    setrelatedlist(rep)
                 })
 
 
@@ -73,8 +108,12 @@ const Detailproduct = () => {
     }
     function Addtocard() {
         if(number<=detailproduct.stock){
+            console.log(colorid)
+            var idcolor=null
+            if(colorid!==0)
+            idcolor=colorid
               const body = {
-            "colorId": colorid,
+            "colorId": idcolor,
             "number": number,
             "pid": detailproduct.id,
          
@@ -155,7 +194,7 @@ const Detailproduct = () => {
         setIsZoomed(shouldZoom)
       }, [])
 return(
-    <div className='row topnoor-detailproduct-page' >
+    <div className='row komeil-detailproduct-page' >
 
        <div className='col-12'>
            <div className='row row-base'>
@@ -393,71 +432,63 @@ info
                        <h6>محصولات مشابه</h6></div>
                    <div className='col-1'></div>
 <div className='col-2'></div>
-{/* <div className='col-8 '>
-<div className='row ' style={{marginBottom:'20px'}} >
-        <div className='col-md-4 col-xs-12 row-item-center '>
-            <div className='item-related'>
-                <div className='div-img'>
-                          <img src={Mask1} alt=''></img>
-                    </div> 
-           
-                                    <h1>چراغ پذیرایی حرفه ای</h1>
-                                    <h5>خیلی خوبه خیلی خوبه خیلی خوبه</h5>
-                                    <h3>100T</h3>
-<div className='btn-show-more'>
-                                      <button className='card-box'>
+<div className='col-8 '>
+                        <div className='row ' style={{ marginBottom: '20px' }} >
+                            {relatedlist.map((index:any)=>(
+   <Link className='col-md-4 col-xs-12 row-item-center ' to={'/detailproduct?hash=' + index.hash+'?category='+index.categoryname} onClick={() => window.location.replace('/detailproduct?hash=' + index.hash+'?category='+index.categoryname)}>
+   <div className='item-related'>
+       <div className='div-img'>
+           <img src={index.imageUrl} alt=''></img>
+       </div>
 
-<h6>مشاهده بیشتر</h6>
-
-</button>
-</div>
+       <h1>{index.name}</h1>
   
-        </div>   
-            </div>
-    
-            <div className='col-md-4 col-xs-12 row-item-center'>
-            <div className='item-related'>
-                <div className='div-img'>
-                          <img src={Mask1} alt=''></img>
-                    </div> 
-           
-                                    <h1>چراغ پذیرایی حرفه ای</h1>
-                                    <h5>خیلی خوبه خیلی خوبه خیلی خوبه</h5>
-                                    <h3>100T</h3>
 
-                                    <div className='btn-show-more'>
-                                      <button className='card-box'>
+<div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
 
-<h6>مشاهده بیشتر</h6>
+{index.discount !== 0 ? (
+    <>
+        <h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
 
-</button>
+        <h3 >{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()}</h3>
+    </>
+) : (
+    <h3 >{index.netPrice.toLocaleString()}</h3>
+)}
+
+<h3>تومان</h3>
 </div>
-        </div>   
-            </div>
-            <div className='col-md-4 col-xs-12 row-item-center'>
-            <div className='item-related'>
-                <div className='div-img'>
-                          <img src={Mask1} alt=''></img>
-                    </div> 
-           
-                                    <h1>چراغ پذیرایی حرفه ای</h1>
-                                    <h5>خیلی خوبه خیلی خوبه خیلی خوبه</h5>
-                                    <h3>100T</h3>
 
-                                    <div className='btn-show-more'>
-                                      <button className='card-box'>
 
-<h6>مشاهده بیشتر</h6>
+<div className='div-btn'>
 
-</button>
-</div>
-        </div>   
-            </div>
+{index.stock === 0 ? (
+    <div className='cardbox-finish'>
+
+        <h6>ناموجود</h6>
+    </div>
+) : (
+    <div className='card-box'>
+
+        <h6>جزيیات بیشتر</h6>
     </div>
 
 
+
+
+
+)}
 </div>
- */}
+
+   </div>
+</Link>
+
+                            ))}
+                         
+                      </div>
+
+
+                    </div>
 
 <div className='col-2'></div>
                </div>

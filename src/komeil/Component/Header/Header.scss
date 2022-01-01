@@ -2,8 +2,8 @@
 
 .main-div-header {
  position: relative;
-  background-color: $white;
-height: 200px;
+  background-color: $perpel;
+
 
 
  
@@ -112,12 +112,12 @@ h6{
   position: absolute;
   top: 0;
   right: 15px;
-  background-color: $perpel;
+  background-color: $green;
   border-radius: 100%;
   width: 15px;
   height: 15px;
   text-align: center;
-  color: $white;
+  color: $black;
   font-size: 10px;
   padding-top: 3px;
 }
@@ -165,14 +165,15 @@ align-items: center;
   flex-direction: row;
   h6{
   font-size: 13.3px;
-  color: $perpel;
+  color: $green;
   padding-top: 10px;
+  font-weight: bold;
   padding-right: 2px;
 }
 i{
   padding-top: 10px;
   font-size:18px ;
-  color: $perpel;
+  color: $green;
 }
 }
 
@@ -195,31 +196,11 @@ h6{
 }
 }
 }
-}
-.dropdowm-item {
-  display: flex;
-  flex-direction: row-reverse;
-
-  text-decoration: none;
-  color: unset;
-
-  align-items: center;
-
-  i {
-    color: $black !important;
-    cursor: pointer;
-  }
-
-  h6 {
-    margin-left: 10px;
-    margin-top: 5px;
-  }
-}
 .div-show-category{
   position: absolute;
   right: 0;
-  top:200px;
-
+  top:190px;
+ background-color: white;
   z-index: 100;
   text-align: right;
   .row-result-category{
@@ -239,18 +220,48 @@ h6{
         height: 25px;
       }
       h6{
-        padding-top: 5px;
-        font-size: 13px;
+        direction: rtl;
+        padding-top: 10px;
+        font-size: 15px;
         cursor: pointer;
         font-weight: bold;
       padding-right: 7px;
         &:hover {
-          color: $danger;
+          color: $perpel;
         }
        
       }
+      h6:before {
+        content:"• ";
+      
+    }
     }
      }
+.img-category{
+  img{
+    width: 400px;
+    height: 400px;
+  }
+}
+  }
+}
+}
+.dropdowm-item {
+  display: flex;
+  flex-direction: row-reverse;
 
+  text-decoration: none;
+  color: unset;
+
+  align-items: center;
+
+  i {
+    color: $black !important;
+    cursor: pointer;
+  }
+
+  h6 {
+    margin-left: 10px;
+    margin-top: 5px;
   }
 }

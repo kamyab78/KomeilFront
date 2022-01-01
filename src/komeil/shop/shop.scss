@@ -316,4 +316,19 @@ font-weight: normal;
         }
     }
 }
+.col-catname{
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    .boxcatname{
+        display: flex;
+        flex-direction: row;
+        direction: rtl;  
+        margin-right:30px;
+        margin-top: 20px;
+        h6{
+            font-size: 12px;
+        }
+    }
+}
 }

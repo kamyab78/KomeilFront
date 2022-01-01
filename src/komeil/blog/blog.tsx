@@ -7,8 +7,15 @@ import SearchIcon from '@material-ui/icons/Search';
 import Bigbanner from '../../assets/images/blog/firstB.png'
 import SecondBanner from '../../assets/images/blog/secondB.png'
 import Image2 from '../../assets/images/blog/Mask.png'
+import { useEffect } from 'react';
 
-const blog = () => {
+const Blog = () => {
+    useEffect(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }, []);
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
 return(
     <div className='row topnoor-blog-page'>
        <div className='col-12'>
@@ -116,4 +123,4 @@ return(
     </div>
 )
 }
-export default blog
+export default Blog

@@ -5,9 +5,62 @@ import { Dropdown } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import Mask from '../../assets/images/landing/mask.png'
+import React, { useEffect,useState ,useCallback} from 'react';
+import { Config } from 'komeil/config/config';
 
 
-const purchase = () => {
+const Purchase = () => {
+    const [Orderlist,setOrderlist]=useState<any>([])
+    const [cost,setcost]=useState<any>(0)
+    useEffect(() => {
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+  getorderlist()
+  }, []);
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+    function getorderlist(){
+      var requestOptions = {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': '*/*',
+              // "Authorization": "Basic " + window.localStorage.getItem('basic')
+  
+          }
+  
+  
+      };
+  
+      fetch(Config()['webapi'] + "/order/log/"+window.localStorage.getItem('phone')+"/NOT_PAID", requestOptions)
+          .then(response => {
+            if(response.status===200){
+                response.json().then(rep => {
+  
+                 console.log(rep)
+                 var total=0
+                 for(var i=0;i<rep.length;i++){
+  if(rep[i].productItemResponseDTO.discount===0){
+  total+=(rep[i].productItemResponseDTO.netPrice)*rep[i].count
+  }
+  else{
+  total+=(rep[i].productItemResponseDTO.netPrice * ((100 - rep[i].productItemResponseDTO.discount) / 100))*rep[i].count
+  }
+                 }
+                 setcost(total)
+                 setOrderlist(rep)
+              })
+            }
+            
+  
+  
+  
+  
+  
+          })
+          .catch(error => console.log('error', error));
+  
+  }
     return (
         <div className='row topnoor-purchase-page'>
             <div className='col-12 col-title'>
@@ -16,30 +69,40 @@ const purchase = () => {
             <div className='col-1'></div>
 
             <div className='col-5 ' style={{marginTop:'40px',display:'flex',flexDirection:'column'}}>
-<div className='row col-items'>
+                {Orderlist.map((index:any)=>(
+                    <div className='row col-items'>
 <div className='sub-img-col-items'>
-<img alt='' src={Mask}></img>
+<img alt='' src={index.productItemResponseDTO.imageUrl}></img>
         </div>
 <div className='sub-description-col-items'>
-<h1>محصول حرفه</h1>
-<h1>رنگ : بنفش</h1>
-<i ></i>
-<h6>100T</h6>
-        </div>
+<h1>{index.productItemResponseDTO.name}</h1>
+{index.colorname!=="0"?(
+  <h2>رنگ :{index.colorname}</h2>
+):null}
+
+<h2>تعداد: {index.count}</h2>
+
+
+
+{index.productItemResponseDTO.discount===0?(
+     <div className=' col-items'>
+      
+       <h1>{((index.productItemResponseDTO.netPrice)*index.count).toLocaleString()}</h1>
+   <h6>تومان</h6>
+     </div>
+  ):(
+    <div className=' col-items'>
+       
+      <h1>{((index.productItemResponseDTO.netPrice * ((100 - index.productItemResponseDTO.discount) / 100))*index.count).toLocaleString()}  </h1>
+  <h6>تومان</h6>
+      </div>
+  )}
+</div>
+     
   
 </div>
-<div className='row col-items'>
-<div className='sub-img-col-items'>
-<img alt='' src={Mask}></img>
-        </div>
-<div className='sub-description-col-items'>
-<h1>محصول حرفه</h1>
-<h1>رنگ : بنفش</h1>
-<i ></i>
-<h6>100T</h6>
-        </div>
-  
-</div>
+                ))}
+
 
 <div style={{flex:'1'}}>
 
@@ -51,18 +114,21 @@ const purchase = () => {
     <div className='itemtotal-box-price'>
         <h1>جمع محصولات</h1>
         <i></i>
-        <h6>100T</h6>
+        
+    <h1> {cost.toLocaleString()} </h1>
+    <h6>تومان</h6>
     </div>
 <div className='shiping-box-price'>
 <h1>هزینه ارسال</h1>
         <i></i>
-        <h6>100T</h6>
+        <h6>0</h6>
 </div>
 
 <div className='total-box-price'>
 <h1>مجموع</h1>
         <i></i>
-        <h6>100T</h6>
+        <h2> {cost.toLocaleString()} </h2>
+    <h6>تومان</h6>
 </div>
   
 </div>
@@ -127,4 +193,4 @@ const purchase = () => {
         </div>
     )
 }
-export default purchase
+export default Purchase

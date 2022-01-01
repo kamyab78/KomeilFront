@@ -17,10 +17,15 @@ const Bazarche = () => {
     const [firstBannerid, setfirstBannerid] = useState('')
     const history = useHistory();
     useEffect(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+
         getAmazingoffer()
        
         getBanner()
     }, []);
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
     function getAmazingoffer() {
         var requestOptions = {
             method: 'GET',

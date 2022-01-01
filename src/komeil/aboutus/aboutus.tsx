@@ -20,9 +20,14 @@ const Aboutus = () => {
     const [configitem,setconfigitem]=useState<any>({})
 
     useEffect(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+
         getBanner()
         getConfig()
     }, []);
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
     function getBanner(){
         var requestOptions = {
             method: 'GET',
