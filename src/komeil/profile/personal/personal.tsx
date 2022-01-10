@@ -17,7 +17,7 @@ const Personal = () => {
     const [codeposti,setcodeposti]=useState('')
     useEffect(() => {
         getuserdata()
-
+getUserAddress()
 
 
     }, []);
@@ -84,13 +84,22 @@ const Personal = () => {
 
 console.log(response)
 if(response.status===200){
-const bodyaddress = {
-   
+    toast.success('با موفقیت ثبت شد')
+
+
+}
+
+        })
+        .catch(error => console.log('error', error));
+
+   }
+   function getUserAddress(){
+
+   }
+   function createAddress(){
+    const bodyaddress = {
         "des":address,
-     
         "codeposti": codeposti
-    
-   
   }
   var requestOptions = {
     method: 'POST',
@@ -120,18 +129,8 @@ if(response.status===200){
 
     })
     .catch(error => console.log('error', error));
-
-}
-       
-
-
-
-
-        })
-        .catch(error => console.log('error', error));
-
    }
-return(
+   return(
     <div className='row topnoor-personal-page' >
        
        <div className='col-md-1'></div>
@@ -154,25 +153,27 @@ return(
         <h6>نام</h6>
         <input value={firstName} onChange={(e)=>setfirstName(e.target.value)}></input>
     </div>
+    <div className='col-md-6 col-xs-12 item-box-personal-box'>
+      
+      </div>
     <div className='col-md-6  col-xs-12 item-box-personal-box'>
         <h6>شماره تلفن</h6>
         <input value={userdata.mobile} disabled={true}></input>
     </div>
-    <div className='col-md-6 col-xs-12 item-box-personal-box'>
+    {/* <div className='col-md-6 col-xs-12 item-box-personal-box'>
         <h6>ایمیل</h6>
         <input value={email} onChange={(e)=>setemail(e.target.value)}></input>
-    </div>
-    <div className='col-md-6 col-xs-12 item-box-personal-box'>
-      
-    </div>
-    <div className='col-md-6 col-xs-12 item-box-personal-box'>
+    </div> */}
+   
+
+    {/* <div className='col-md-6 col-xs-12 item-box-personal-box'>
         <h6>کد پستی</h6>
         <input value={codeposti} onChange={(e)=>setcodeposti(e.target.value)}></input>
     </div>
     <div className='col-md-12 col-xs-12 item-box-personal-box'>
         <h6>آدرس</h6>
         <input value={address} onChange={(e)=>setaddress(e.target.value)}></input>
-    </div>
+    </div> */}
     <div className='col-md-12 col-xs-12 item-box-personal-box'>
        <button onClick={editdata}>ثبت</button>
     </div>

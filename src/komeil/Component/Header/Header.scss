@@ -22,14 +22,20 @@
   .logo-div {
     display: flex;
     flex-direction: row-reverse;
-float: right;
+// float: right;
 
     img {
       width: 60px;
    
     }
-
-    h1 {
+.box-txt-name{
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: center;
+  margin-right: 30px;
+  // align-items: center;
+     h1 {
       color: $black;
       font-size: 20px;
       font-weight: bold;
@@ -37,6 +43,8 @@ float: right;
    margin-top: 35px;
  
     }
+}
+ 
   }
 
   .search-div{
@@ -112,7 +120,7 @@ h6{
   position: absolute;
   top: 0;
   right: 15px;
-  background-color: $green;
+  background-color: $danger;
   border-radius: 100%;
   width: 15px;
   height: 15px;
@@ -144,11 +152,11 @@ h6{
  
 
 .category-box{
-  border-left-style: solid;
-  border-right-style: solid;
-  border-width: .5px;
+  // border-left-style: solid;
+  // border-right-style: solid;
+  // border-width: .5px;
   font-size: 13.3px;
-border-color: rgba($black,0.3);
+// border-color: rgba($black,0.3);
 display: flex;
 justify-content: center;
 align-items: center;
@@ -165,7 +173,7 @@ align-items: center;
   flex-direction: row;
   h6{
   font-size: 13.3px;
-  color: $green;
+  color: $danger;
   padding-top: 10px;
   font-weight: bold;
   padding-right: 2px;
@@ -173,7 +181,7 @@ align-items: center;
 i{
   padding-top: 10px;
   font-size:18px ;
-  color: $green;
+  color: $danger;
 }
 }
 
@@ -189,7 +197,7 @@ h5{
   justify-content: center;
   align-items: center;
 h6{
-  color:$perpel;
+  color:$danger;
   font-weight: bold;
   font-size: 15px;
   margin-top: 10px;

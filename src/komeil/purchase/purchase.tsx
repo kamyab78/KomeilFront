@@ -12,6 +12,8 @@ import { Config } from 'komeil/config/config';
 const Purchase = () => {
     const [Orderlist,setOrderlist]=useState<any>([])
     const [cost,setcost]=useState<any>(0)
+    const [accesstoken,setaccesstoken]=useState("")
+    const [orderlistid,setorderlistid]=useState('')
     useEffect(() => {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
   getorderlist()
@@ -47,12 +49,15 @@ const Purchase = () => {
   total+=(rep[i].productItemResponseDTO.netPrice * ((100 - rep[i].productItemResponseDTO.discount) / 100))*rep[i].count
   }
                  }
+    
                  setcost(total)
+                 setorderlistid(rep[0].orderListId)
                  setOrderlist(rep)
+                   console.log(rep[0].orderListId)
               })
             }
             
-  
+ 
   
   
   
@@ -61,6 +66,55 @@ const Purchase = () => {
           .catch(error => console.log('error', error));
   
   }
+  function complete(){
+     
+    const body = {
+        "orderListId": orderlistid,
+        "addressId": 0,
+        "totalprice": 1000,
+        "transporstId":0
+          }
+        var requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+            // "Authorization": "Basic " + window.localStorage.getItem('basic')
+        
+        },
+        body: JSON.stringify(body)
+        
+        
+        };
+        
+        fetch(Config()['webapi'] + "/order/complete/" + window.localStorage.getItem('phone'), requestOptions)
+        .then(response => {
+        
+        
+            console.log(response)
+        
+            if (response.status === 200) {
+
+                response.json().then(rep => {
+                    console.log(rep)
+                    setaccesstoken(rep.accesstoken)
+                     document.getElementById("formpurchase")?.click()
+                                })
+
+            
+            }
+         
+        
+        
+        
+        
+        
+        
+        })
+        .catch(error => console.log('error', error));  
+     
+  }
+  
     return (
         <div className='row topnoor-purchase-page'>
             <div className='col-12 col-title'>
@@ -182,7 +236,7 @@ const Purchase = () => {
             <div className='col-5 col-btn'>
                 <div className='row'>
                 <div className='col-6 item-col-btn'>
-                    <button className='buybutton'>خرید</button>
+                    <button className='buybutton' onClick={complete}>خرید</button>
                 </div>
                 <div className='col-6 item-col-btn'>
                 <button className='cancelbutton'>لغو</button>
@@ -190,6 +244,13 @@ const Purchase = () => {
                 </div>
             </div>
             <div className='col-1'></div>
+            <form  method="post" action=" https://sepehr.shaparak.ir:8080/Pay ">
+ <div>
+ <input type="text" name="TerminalID" value="61001954" style={{display:'none'}}/>
+ <input type="text" name="token" value={accesstoken} style={{display:'none'}}/>
+ <input type="submit" id='formpurchase' value="پرداخت "className="submit" style={{display:'none'}}/>
+ </div>
+</form>
         </div>
     )
 }

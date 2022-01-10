@@ -369,56 +369,100 @@ info
                         <div className='title-table'>
                                  <h6>مشخصات محصول</h6> 
                             </div>
-                            {detailproduct.productHeight!==null?(
-                               <div className="eachrow">
-                                <h1>:ارتفاع محصول</h1>
-                                <h2>{detailproduct.productHeight}</h2> 
-                            </div>   
-                            ):null}
-                                     {detailproduct.productLength!==null?(
-                               <div className="eachrow">
-                                <h1>:طول محصول</h1>
-                                <h2>{detailproduct.productLength}</h2> 
-                            </div>   
-                            ):null}
-                                     {detailproduct.productWidth!==null?(
-                               <div className="eachrow">
-                                <h1>:عرض محصول</h1>
-                                <h2>{detailproduct.productWidth}</h2> 
-                            </div>   
-                            ):null}
-                                     {detailproduct.boxHeight!==null?(
-                               <div className="eachrow">
-                                <h1>:ارتفاع بسته</h1>
-                                <h2>{detailproduct.boxHeight}</h2> 
-                            </div>   
-                            ):null}
-                                     {detailproduct.boxLength!==null?(
-                               <div className="eachrow">
-                                <h1>:طول بسته</h1>
-                                <h2>{detailproduct.boxLength}</h2> 
-                            </div>   
+                            <table>
+              {detailproduct.productHeight!==""&& detailproduct.productHeight!="تنظیم نشده است"?(
+                                  <tr>
+                                  <td className='td-title'>ارتفاع محصول</td>
+                                  <td>{detailproduct.productHeight}</td>
+                                
+                                </tr>
                             ):null}
 
-{detailproduct.boxWidth!==null?(
-                               <div className="eachrow">
-                                <h1>:عرض بسته</h1>
-                                <h2>{detailproduct.boxWidth}</h2> 
-                            </div>   
+
+                                                 {detailproduct.productLength!=="" && detailproduct.productLength!="تنظیم نشده است"?(
+                                                              <tr>
+                                                              <td className='td-title'>طول محصول</td>
+                                                              <td>{detailproduct.productLength}</td>
+                                                            
+                                                            </tr>
+                
                             ):null}
-                            {detailproduct.weight!==null?(
-                               <div className="eachrow">
-                                <h1>:وزن</h1>
-                                <h2>{detailproduct.weight}</h2> 
-                            </div>   
+                    
+                                     {detailproduct.productWidth!==""&& detailproduct.productWidth!="تنظیم نشده است"?(
+                                                 <tr>
+                                                 <td className='td-title'>عرض محصول</td>
+                                                 <td>{detailproduct.productWidth}</td>
+                                               
+                                               </tr>
+                   
                             ):null}
-                            
-                                     {detailproduct.brandname!==null?(
-                               <div className="eachrow">
-                                <h1>:برند</h1>
-                                <h2>{detailproduct.brandname}</h2> 
-                            </div>   
+                                     {detailproduct.boxHeight!==""&& detailproduct.boxHeight!="تنظیم نشده است"?(
+                                                 <tr>
+                                                 <td className='td-title'>ارتفاع بسته</td>
+                                                 <td>{detailproduct.boxHeight}</td>
+                                               
+                                               </tr>
+                     
                             ):null}
+
+{detailproduct.boxLength!==""&& detailproduct.boxLength!="تنظیم نشده است"?(
+            <tr>
+            <td className='td-title'>طول بسته</td>
+            <td>{detailproduct.boxLength}</td>
+          
+          </tr>
+                           
+                            ):null}
+                                     {detailproduct.boxWidth!==""&& detailproduct.boxWidth!="تنظیم نشده است"?(
+                                                 <tr>
+                                                 <td className='td-title'>عرض بسته</td>
+                                                 <td>{detailproduct.boxWidth}</td>
+                                               
+                                               </tr>
+                      
+                            ):null}
+                                    {detailproduct.weight!==""&& detailproduct.weight!="تنظیم نشده است"?(
+                                                <tr>
+                                                <td className='td-title'>وزن</td>
+                                                <td>{detailproduct.weight}</td>
+                                              
+                                              </tr>
+                           
+                            ):null}
+                             
+                                      {detailproduct.brandname!==""&& detailproduct.brandname!="تنظیم نشده است"?(
+                                                  <tr>
+                                                  <td className='td-title'>برند</td>
+                                                  <td>{detailproduct.brandname}</td>
+                                                
+                                                </tr>
+                        
+                            ):null}
+                                          {detailproduct.material!==""&& detailproduct.material!="تنظیم نشده است"&&detailproduct.material!=null?(
+                                                  <tr>
+                                                  <td className='td-title'>جنس محصول</td>
+                                                  <td>{detailproduct.material}</td>
+                                                
+                                                </tr>
+                        
+                            ):null}
+                                          {detailproduct.count!==""&& detailproduct.count!="تنظیم نشده است"&&detailproduct.count!=null?(
+                                                  <tr>
+                                                  <td className='td-title'>پارچه</td>
+                                                  <td>{detailproduct.count}</td>
+                                                
+                                                </tr>
+                        
+                            ):null}
+</table>
+
+                    
+                           
+                        
+                        
+                          
+
+
                                     
                            
                         </div>

@@ -3,7 +3,8 @@
     background-color: $white;
     .bigbanner{
         position: relative;
-        img{width: 100%;}
+        img{width: 100%;
+        height: 500px;}
         .box-txt-blog-bigbanner{
             width: 100%;
             background-color: rgba($black,0.7);
@@ -33,10 +34,11 @@ h6{
         height: 100%;}
     } 
     }
-       .row3{
+    .row3{
         margin-top: 100px;
        
         img{width: 100%;
+         
         height: 100%;}
     .txt-box-row3{
         display: flex;
@@ -62,6 +64,60 @@ font-size: 30px;
             color: rgba($black,0.4);
         }
     }
+    .row-news{
+
+        direction: rtl;
+   .item-news{
+         margin: 20px;
+         text-align: right;
+         direction: rtl;
+         border-style: solid;
+         border-color: $graydd;
+         border-width: 1px;
+         border-radius: 10px;
+         height: 300px;
+         h1{
+          
+            padding:10px;
+          
+            font-size: 25px;
+         }
+         h6{
+color: $perpel;
+padding:10px;
+font-weight: normal;
+font-size: 16px;
+padding-top: 20px;
+         }
+         h5{
+            color: rgba($black,0.7);
+            padding:10px;
+            font-weight: normal;
+            font-size: 16px;
+         }
+       .img-item-news{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+img{
+    width: 200px;
+    height: 150px;
+ margin: 10px;
+}
+       }
+       .btn-more-box{
+        padding:10px;
+        text-align: left;
+        button{
+            width: 150px;
+            height: 40px;
+            background-color: $black26;
+            color: $white;
+            border-color: transparent;
+        }
+       }
+   }
+}
     }
     .row4{
         margin-top: 10px;

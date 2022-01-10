@@ -84,7 +84,7 @@ font-size: 20px;
 direction: rtl;
 }
 i{
-    color:$danger;
+    color:$perpel;
     padding-left: 10px;
     padding-top: 5px    ;
 }
@@ -385,7 +385,7 @@ background-color: $whiteff;
         font-weight: bold;
         }
         i{
-        color: $danger;
+        color: $perpel;
         // font-weight: bold;
         }
         
@@ -393,7 +393,7 @@ background-color: $whiteff;
         .cardbox-finish{
             margin-top: 20px;
             border-style: solid;
-          border-color: $danger;
+          border-color: $perpel;
             border-width: 1px;
             display: flex;
             width: 90%;
@@ -406,7 +406,7 @@ background-color: $whiteff;
             h6{
               font-size: 12px;
               font-weight: bold;
-              color:$danger
+              color:$perpel
             }
         }
 }
@@ -479,4 +479,17 @@ font-size: 1rem;
         }
     }
 }
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    direction: rtl;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: right;
+    padding: 8px;
+    direction: rtl;
+  }
 }

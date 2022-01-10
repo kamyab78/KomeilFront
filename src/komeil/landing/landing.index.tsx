@@ -293,7 +293,7 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
                                                     </div>
                                                 ) : null}
                                             </div>
-
+<i style={{flex:1,color:'transparent'}}>5</i>
                                             <div className='card-box' >
                                                 {index.stock === 0 ? (
 
@@ -530,7 +530,7 @@ index.have === true ? (
                     </div>
                 </div>
 
-                <div className='row bannerads-row'>
+                {/* <div className='row bannerads-row'>
                     <Link className='col-md-6 col-xs-12'  to={'/shop?catid='+sixtBannerid} onClick={() => {
                         window.localStorage.setItem('categoryid', sixtBannerid)
                
@@ -544,7 +544,7 @@ index.have === true ? (
                         <img src={seventBanner} style={{ cursor: "pointer" }} alt='' ></img>
                     </Link>
 
-                </div>
+                </div> */}
 
 
             </div>

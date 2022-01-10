@@ -42,7 +42,7 @@
       align-items: center;
       justify-content: center;
       height: 100%;
-      background-color: $green;
+      background-color: $danger;
      
       width: 100%;
       .item-bazarche-box-main{
@@ -114,6 +114,8 @@ background-color: $whiteff;
   justify-content: center;
   align-items: center;
   margin: 15px;
+  flex: 1;
+  
   h5{
 font-weight: normal;
 font-size: 15px;
@@ -143,7 +145,7 @@ h3{
   font-size: 15px;
 }
 }
-
+i{flex: 1;}
 }
 .show-more-sub-item-bazarche-box-main{
   margin: 10px;

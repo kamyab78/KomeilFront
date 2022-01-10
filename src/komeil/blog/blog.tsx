@@ -7,114 +7,134 @@ import SearchIcon from '@material-ui/icons/Search';
 import Bigbanner from '../../assets/images/blog/firstB.png'
 import SecondBanner from '../../assets/images/blog/secondB.png'
 import Image2 from '../../assets/images/blog/Mask.png'
-import { useEffect } from 'react';
-
+import { useEffect,useState } from 'react';
+import { Config } from '../config/config'
 const Blog = () => {
+    const [firstBannerBlog,setfirstBannerBlog]=useState('')
+    const [blog,setblog]=useState([])
     useEffect(() => {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
+        getBanner()
+        getblog()
     }, []);
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
       }
+      function getBanner() {
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            }
+
+
+        };
+
+        fetch(Config()['webapi'] + "/landing/banners", requestOptions)
+            .then(response => {
+
+
+
+                response.json().then(rep => {
+                    console.log(rep)
+                    for (var i = 0; i < rep.length; i++) {
+                        if (rep[i].bannerType === 'firstbanner_blog') {
+                            setfirstBannerBlog(rep[i].imageUrl)
+                     
+                        }
+
+                    }
+
+                })
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));
+    }
+function getblog(){
+    var requestOptions = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+            // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+        }
+
+
+    };
+
+    fetch(Config()['webapi'] + "/landing/blogs", requestOptions)
+        .then(response => {
+
+
+       
+            response.json().then(rep => {
+                console.log(rep)
+setblog(rep)
+            })
+
+
+
+
+
+        })
+        .catch(error => console.log('error', error));
+}
 return(
     <div className='row topnoor-blog-page'>
        <div className='col-12'>
 <div className='row'>
     <div className='col-12 bigbanner'>
-        <img src={Bigbanner} alt=''></img>
+        <img src={firstBannerBlog} alt=''></img>
         <div className='box-txt-blog-bigbanner'>
             <h1>اخبار</h1>
-            <h6>سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد</h6>
+            
         
         </div>
     </div>
 </div>
-<div className='row row2'>
-    <div className='col-md-1'></div>
-    <div className='col-md-10  col-xs -12 scondbanner'>
-        <img src={SecondBanner} alt=''></img>
-  
-    </div>
-    <div className='col-md-1'></div>
-</div>
+
 <div className='row row3'>
     <div className='col-md-1'></div>
     <div className='col-md-10  col-xs-12 '>
-        <div className='row'>
-            <div className='col-md-6 col-xs-12 '>
-                <img src={Image2} alt=''></img>
-            </div>
-            <div className='col-md-6 col-xs-12 txt-box-row3'>
-<h1>تایتل۱</h1>
-<h2>تایتل2</h2>
-<h6>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،.</h6>
-            </div>
+        <div className='row row-news'>
+        {blog.map((item:any)=>(
+   <div className='col-md-4 col-xs-12 '>
+       <div className="item-news">
+              <div className='img-item-news'>
+       <img alt='' src={item.imageurl}></img>
+   </div>
+
+   <h6>{item.topic}</h6>
+ 
+   <h5>
+     
+     </h5>
+  
+         
+        <div className='btn-more-box'>
+   <button onClick={()=>{window.localStorage.setItem('blogid',item.id)}}>
+       <Link to='/detailblog'>
+       خواندن بیشتر
+   </Link>
+   </button>
+   </div> 
+  
+       </div>
+
+   
+               </div>
+            ))}
             </div>
   
     </div>
-    <div className='col-md-1'></div>
-</div>
-
-<div className='row row5'>
-    <div className='col-md-1'></div>
-    <div className='col-md-10  col-xs-12 box-txt-row5 '>
-        <div className='row row-news'>
-            <div className='col-4 item-news'>
-<div className='img-item-news'>
-    <img alt='' src={Image2}></img>
-</div>
-<h6>تایتل اول</h6>
-<h1>موضوع</h1>
-<h5>
-لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،.
-</h5>
-<div className='btn-more-box'>
-<button>خواندن بیشتر</button>
-</div>
-            </div>
-            <div className='col-4 item-news'>
-<div className='img-item-news'>
-    <img alt='' src={Image2}></img>
-</div>
-<h6>تایتل اول</h6>
-<h1>موضوع</h1>
-<h5>
-لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،.
-</h5>
-<div className='btn-more-box'>
-<button>خواندن بیشتر</button>
-</div>
-            </div>
-      
-            <div className='col-4 item-news'>
-<div className='img-item-news'>
-    <img alt='' src={Image2}></img>
-</div>
-<h6>تایتل اول</h6>
-<h1>موضوع</h1>
-<h5>
-لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،.
-</h5>
-<div className='btn-more-box'>
-<button>خواندن بیشتر</button>
-</div>
-            </div>
-            <div className='col-4 item-news'>
-<div className='img-item-news'>
-    <img alt='' src={Image2}></img>
-</div>
-<h6>تایتل اول</h6>
-<h1>موضوع</h1>
-<h5>
-لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،.
-</h5>
-<div className='btn-more-box'>
-<button>خواندن بیشتر</button>
-</div>
-            </div>
-      
-        </div>
-  </div>
     <div className='col-md-1'></div>
 </div>
    

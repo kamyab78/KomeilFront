@@ -197,7 +197,51 @@ const Headers = () => {
                 <div className='row'>
 
 
-                    <div className='col-3 profile-card-div'>
+                  
+
+                 
+                <div className='col-3'></div>
+                    <div className="col-4 search-div ">
+                        <div className='box'>
+                            <input placeholder='جستجوی محصولات در کمیل شاپ' onKeyUp={pressenter} value={searchtxt} onChange={(e) => searchsome(e.target.value)}></input>
+                            <SearchIcon className='seachIcon' />
+                            <div className='box-result' style={resSearch}>
+                                {resultsearchlist.map((result: any) => (
+                                    <div className=' item-box-result' onClick={() => clickonsearchres(result.productHash,result.categoryname)}>
+                                        <h6 >
+                                            {result.productName}
+                                        </h6>
+                                        <h1>
+                                            در دسته بندی
+                                        </h1>
+                                        <h6>
+                                            {result.categoryName}
+                                        </h6>
+
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div className='col-2'></div>
+                    <div className=" col-3">
+     <Link to='/'  className='logo-div'>
+                        <img alt="" src={Logo} />
+                        <div className='box-txt-name'>
+                               <h1>کمیل شاپ</h1>
+                               <h2>کمترین قیمت، بهترین کیفیت</h2>
+                        </div>
+                     
+                    </Link>
+                    </div>
+               
+               
+                </div>
+                <div className='row bottom-box'>
+
+                <div className='col-3 profile-card-div'>
                         <div className='shoping-div' onClick={()=>history.push('/cart')}>
                             <i className="material-icons-outlined">
                                 shopping_bag
@@ -231,56 +275,11 @@ const Headers = () => {
                             )}
                          
                         </div>
-
-                 
-                 <div className='col-2'></div>
-                    <div className="col-4 search-div ">
-                        <div className='box'>
-                            <input placeholder='جستجوی محصولات در کمیل شاپ' onKeyUp={pressenter} value={searchtxt} onChange={(e) => searchsome(e.target.value)}></input>
-                            <SearchIcon className='seachIcon' />
-                            <div className='box-result' style={resSearch}>
-                                {resultsearchlist.map((result: any) => (
-                                    <div className=' item-box-result' onClick={() => clickonsearchres(result.productHash,result.categoryname)}>
-                                        <h6 >
-                                            {result.productName}
-                                        </h6>
-                                        <h1>
-                                            در دسته بندی
-                                        </h1>
-                                        <h6>
-                                            {result.categoryName}
-                                        </h6>
-
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div className=" col-2 logo-div">
-     <Link to='/'  >
-                        <img alt="" src={Logo} />
-
-                    </Link>
-                    </div>
-               
-                    <div className="col-1">
-
-
-                    </div>
-                </div>
-                <div className='row bottom-box'>
-
-                    <div className='col-4 prof-box'>
-                        <h6>کمترین قیمت، بهترین کیفیت</h6>
-                    </div>
-                    <div className='col-1'></div>
-                    <Link to='/aboutus' className="col-1 item-box" ><h5>درباره ما</h5></Link>
+                    <div className='col-2'></div>
                     <Link to='/bazarche' className="col-2 item-box" >
                         <div className='promotion-box'>
                             <h6>
-                                کالاهای تخفیف دار
+                               پیشنهاد ویژه
 
                             </h6>
                             <i className="material-icons-outlined">
@@ -289,6 +288,11 @@ const Headers = () => {
                         </div>
 
                     </Link>
+                    <Link to='/blog' className='col-1 item-box'>
+                        <h5>اخبار</h5>
+                    </Link>
+                    <Link to='/aboutus' className="col-1 item-box" ><h5>درباره ما</h5></Link>
+                  
                     <Link to='/' className='col-1 item-box'>
                         <h5>خانه</h5>
                         <i className="material-icons-outlined">
@@ -330,8 +334,8 @@ home
                         {categorylist.map((result: any, i) => (
 
                             <div className='col-item-category'>
-                                   <img src={result.imageurl}></img>
-                                <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageurl)}>
+                              
+                                <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageUrl)}>
                                 {result.name}
                             </h6>
                          
@@ -359,7 +363,7 @@ home
                                 {categorylist.slice(0, 10).map((result: any) => (
                                     <div className=' col-item-category'>
                                             
-                                        <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageurl)}>
+                                        <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageUrl)}>
                                         {result.name}
                                     </h6></div>
                                 ))}
@@ -373,7 +377,7 @@ home
                                 {categorylist.slice(10).map((result: any) => (
                                     <div className=' col-item-category'>
                                             
-                                             <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageurl)}>
+                                             <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageUrl)}>
                                         {result.name}
                                     </h6></div>
                                 ))}
@@ -393,8 +397,8 @@ home
                 }}>
                                 {categorylist.slice(0, 10).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
-                                        <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageurl)}>
+                                         
+                                        <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageUrl)}>
                                         {result.name}
                                     </h6></div>
                                 ))}
@@ -407,8 +411,8 @@ home
                 }}>
                                 {categorylist.slice(10, 21).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
-                                        <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageurl)}>
+                                          
+                                        <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageUrl)}>
                                         {result.name}
                                     </h6></div>
                                 ))}
@@ -421,8 +425,8 @@ home
                 }}>
                                 {categorylist.slice(21).map((result: any) => (
                                     <div className=' col-item-category'>
-                                             <img src={result.imageurl}></img>
-                                        <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageurl)}>
+                                      
+                                        <h6 onClick={() => gotopage(result.id,result.name)} onMouseEnter={()=>setwichPhoto(result.imageUrl)}>
                                         {result.name}
                                     </h6></div>
                                 ))}

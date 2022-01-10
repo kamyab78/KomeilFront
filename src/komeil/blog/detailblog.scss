@@ -1,0 +1,41 @@
+@import "src/utilities/references/index";
+.komeil-Detailblog-page{
+    background-color: $white;
+    .bigbanner{
+        position: relative;
+        img{width: 100%;
+           
+        height: 320px;}
+
+    }
+.row2{
+    .titlecol{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+h6{
+    margin: 40px;
+    font-size: 30px;
+    color: $perpel;
+}
+    }
+}
+    .row3{
+      margin-bottom: 40px;
+        .smallbanner{
+            display: flex;
+            flex-direction: column;
+        img{width: 100%;
+          
+        height: 300px;
+    
+    }
+    .imgmargin{
+        margin-top: 20px;
+    }
+    } 
+    }
+  
+
+
+}

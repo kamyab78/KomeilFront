@@ -18,9 +18,9 @@ return(
                 </div>
                 <div className='col-4 community-box'>
                 <Link to={'/terms'} >قوانین مقررات</Link>
+                {/* <h6>تماس با ما</h6>
                 <h6>تماس با ما</h6>
-                <h6>تماس با ما</h6>
-                <h6>تماس با ما</h6>
+                <h6>تماس با ما</h6> */}
                
             
                 </div>
