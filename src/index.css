@@ -60,9 +60,15 @@
 }
 body{
     font-family: IRANSans !important;
-	/* background-color: #F5F5F5; */
-	background-color: #9439EF;
-}
+	overflow-x: hidden;
+	margin: 0px 0px 0px 0px; 
+	padding: 0px 0px 0px 0px;}
+	html{
+		font-family: IRANSans !important;
+		overflow-x: hidden;
+		margin: 0px 0px 0px 0px; 
+		padding: 0px 0px 0px 0px;
+	}
 code {
 	font-family: IRANSans !important;
    

@@ -45,6 +45,7 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
     const [sixtBannername, setsixthBannername] = useState('')
     const [sixtBannerid, setsixthBannerid] = useState('')
     const [brandlist, setbrandlist] = useState([])
+    const [firstpageproduct,setfirstpageproduct]=useState([])
     const sliderRef = useRef<Slider | null>(null);
     const history = useHistory();
     const settings = {
@@ -62,6 +63,7 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
         getproduct()
         getBanner()
         getbrand()
+        firstpage()
     }, []);
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
@@ -230,18 +232,49 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
             })
             .catch(error => console.log('error', error));
     }
+    function firstpage(){
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            }
+
+
+        };
+
+        fetch(Config()['webapi'] + "/landing/firstpageproduct", requestOptions)
+            .then(response => {
+
+
+
+                response.json().then(rep => {
+                    console.log(rep)
+                    setfirstpageproduct(rep)
+
+                })
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));
+    }
     return (
         <div className="komeil-landing-page row">
             <div className='col'>
                 <div className='row banner-row'>
 
-                    <Link className='col-6 banner-big-box' to={'/shop?catid='+firstBanneridfirst} onClick={() => {
+                    <Link className='col-md-6 col-xs-12 banner-big-box' to={'/shop?catid='+firstBanneridfirst} onClick={() => {
                         window.localStorage.setItem('categoryid', firstBanneridfirst)
                
                     }}>
                         <img src={firstBannerfirst} ></img>
                     </Link>
-                    <Link className='col-6 banner-big-box'  to={'/shop?catid='+firstBanneridsecond} onClick={() => {
+                    <Link className='col-md-6 col-xs-12 banner-big-box'  to={'/shop?catid='+firstBanneridsecond} onClick={() => {
                         window.localStorage.setItem('categoryid', firstBanneridsecond)
                
                     }}>
@@ -253,15 +286,15 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
 
 
                     <div className='col-12 bazarche-box'>
-                        <div className='bazarche-box-main '>
+                        <div className='row bazarche-box-main '>
                             <div className='col-10 item-bazarche-box-main'>
-                                <div className='col-1'></div>
-                                <div className='show-more-sub-item-bazarche-box-main col-3' onClick={() => history.push('/bazarche')}>
+                                <div className='col-md-1'></div>
+                                <div className='show-more-sub-item-bazarche-box-main col-md-3 col-xs-4' onClick={() => history.push('/bazarche')}>
                                     <h1>نمایش همه کالای شگفت انگیز</h1>
                                 </div>
                                 {amazingofferlist.map((index: any, i: any) => (
                                     i <= 1 ? (
-                                        <div className='sub-item-bazarche-box-main col-3'>
+                                        <div className='sub-item-bazarche-box-main col-md-3 col-xs-4'>
                                              <Link  to={'/detailproduct?hash=' + index.hash + '?category=' + index.categoryname}>
                                             <div className='div-img'>
 
@@ -324,9 +357,9 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
                                 ))}
 
 
-                                <div className='col-1'></div>
+                                <div className='col-md-1'></div>
                             </div>
-                            <div className='col-2 img-bazarche-box-main'>
+                            <div className='col-md-2  img-bazarche-box-main'>
                                 <h4>کالا های شگفت انگیز</h4>
                                 <img src={Bazarcheimg} alt=''></img>
                             </div>
@@ -481,26 +514,83 @@ index.have === true ? (
                         <h6>محصولات جدید کمیل</h6>
                     </Link>
                 </div>
-                <div className='row bannerads-row'>
-                    <Link className='col-md-4 col-xs-12' to={'/shop?catid='+thirdBannerid} onClick={() => {
-                        window.localStorage.setItem('categoryid', thirdBannerid)
-               
-                    }}>
-                        <img src={thirdBanner} style={{ cursor: "pointer" }} alt=''></img>
-                    </Link>
-                    <Link className='col-md-4 col-xs-12' to={'/shop?catid='+fourthBannerid} onClick={() => {
-                        window.localStorage.setItem('categoryid', fourthBannerid)
-               
-                    }}>
-                        <img src={fourhtBanner} style={{ cursor: "pointer" }} alt=''></img>
-                    </Link>
-                    <Link className='col-md-4 col-xs-12' to={'/shop?catid='+fifthBannerid} onClick={() => {
-                        window.localStorage.setItem('categoryid', fifthBannerid)
-               
-                    }}>
-                        <img src={fifthBanner} alt='' style={{ cursor: "pointer" }} ></img>
-                    </Link>
+                <div className='product-items row'>
+
+
+        {firstpageproduct.map((index: any) => (
+            <div className=' col-md-3 col-xs-6' style={{ marginTop: '20px' }}>
+                <div className='subitem'  >
+                <Link to={'/detailproduct?hash=' + index.hash + '?category=' + index.categoryname}  >
+
+<div className='div-img-new'>
+
+    <img src={index.imageUrl} alt=''></img>
+</div>
+<h1>{index.name}</h1>
+
+{index.stock === 0 ? (
+
+
+<h6 className='simpletxt'>به زودی</h6>
+
+
+) : (
+index.have === true ? (
+
+
+<div className='div-price-subitem-newproduct'>
+<div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+
+{index.discount !== 0 ? (
+<>
+<h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
+
+<h3 >{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()}</h3>
+</>
+) : (
+<h3 >{index.netPrice.toLocaleString()}</h3>
+)}
+
+<h3>تومان</h3>
+</div>
+<i></i>
+{index.discount !== 0 ? (
+<div className='discount-subitem-newproduct'>
+
+<h6 className='discounttxt'>{index.discount}%</h6>
+
+</div>
+) : null}
+
+
+</div>
+
+
+
+) : (
+
+
+<h6 className='simpletxt'>محصول ناموجود</h6>
+
+
+)
+)}
+
+
+</Link>
+     
                 </div>
+
+            </div>
+
+        ))}
+
+
+
+
+
+</div>
+
                 <div className='row row-service'>
                     <div className='col-12 box-service'>
                         <div className='row'>
@@ -529,7 +619,26 @@ index.have === true ? (
                         </div>
                     </div>
                 </div>
-
+                <div className='row bannerads-row'>
+                    <Link className='col-md-4 col-xs-12' to={'/shop?catid='+thirdBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', thirdBannerid)
+               
+                    }}>
+                        <img src={thirdBanner} style={{ cursor: "pointer" }} alt=''></img>
+                    </Link>
+                    <Link className='col-md-4 col-xs-12' to={'/shop?catid='+fourthBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', fourthBannerid)
+               
+                    }}>
+                        <img src={fourhtBanner} style={{ cursor: "pointer" }} alt=''></img>
+                    </Link>
+                    <Link className='col-md-4 col-xs-12' to={'/shop?catid='+fifthBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', fifthBannerid)
+               
+                    }}>
+                        <img src={fifthBanner} alt='' style={{ cursor: "pointer" }} ></img>
+                    </Link>
+                </div>
                 {/* <div className='row bannerads-row'>
                     <Link className='col-md-6 col-xs-12'  to={'/shop?catid='+sixtBannerid} onClick={() => {
                         window.localStorage.setItem('categoryid', sixtBannerid)

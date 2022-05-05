@@ -6,9 +6,49 @@ import { Link, useHistory } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import Menuprofile from '../../Component/menuprofile/menuprofile'
 import Mask1 from '../../../assets/images/landing/mask.png'
+import React, { useEffect,useState ,useCallback} from 'react';
+import { Config } from 'komeil/config/config';
 
 
-const history = () => {
+const History = () => {
+    const [logList,setlogList]=useState<any>([])
+    useEffect(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    getlogList()
+    }, []);
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    }
+    function getlogList(){
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+    
+            }
+    
+    
+        };
+    
+        fetch(Config()['webapi'] + "/order/Alllog/"+window.localStorage.getItem('phone'), requestOptions)
+            .then(response => {
+    
+    
+    
+                response.json().then(rep => {
+    
+   console.log(rep)
+                })
+    
+    
+    
+    
+    
+            })
+            .catch(error => console.log('error', error));
+    }
     return (
         <div className='row topnoor-history-page' >
             <div className='col-12'>
@@ -157,4 +197,4 @@ const history = () => {
         </div>
     )
 }
-export default history
+export default History

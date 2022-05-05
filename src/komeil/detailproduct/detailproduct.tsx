@@ -221,7 +221,7 @@ star
    <div className='secondRow-col-desc'>
     <h6>رنگ</h6>
     <div className="box-colors">
-
+{console.log(detailproduct.colorsList)}
               {detailproduct.colorsList !== undefined ? (
                                     detailproduct.colorsList.map((index: any) => (
                                         <div style={{ position: 'relative', cursor: 'pointer' }} onClick={() => clickoncolor(index.id)} >

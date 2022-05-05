@@ -7,16 +7,30 @@ import SearchIcon from '@material-ui/icons/Search';
 import Mask from '../../assets/images/landing/mask.png'
 import React, { useEffect,useState ,useCallback} from 'react';
 import { Config } from 'komeil/config/config';
-
-
+import Modal from 'react-bootstrap/Modal'
+import { toast } from 'react-toastify';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 const Purchase = () => {
     const [Orderlist,setOrderlist]=useState<any>([])
     const [cost,setcost]=useState<any>(0)
     const [accesstoken,setaccesstoken]=useState("")
     const [orderlistid,setorderlistid]=useState('')
+    const [userdata,setuserdata]=useState<any>({})
+    const [firstName,setfirstName]=useState('')
+    const [lastName,setlastName]=useState('')
+    const [email,setemail]=useState('')
+    const [address,setaddress]=useState('')
+    const [codeposti,setcodeposti]=useState('')
+    const [addressList,setaddressList]=useState([])
+    const [addAddress,setaddAddress]=useState(false)
+    const [addressId,setaddressId]=useState('')
     useEffect(() => {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
   getorderlist()
+  getuserdata()
+  getUserAddress()
   }, []);
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
@@ -70,8 +84,9 @@ const Purchase = () => {
      
     const body = {
         "orderListId": orderlistid,
-        "addressId": 0,
-        "totalprice": 1000,
+        "discountId": 0,
+        "addressId": parseInt(addressId),
+        "totalprice": (cost*10).toString(),
         "transporstId":0
           }
         var requestOptions = {
@@ -114,9 +129,130 @@ const Purchase = () => {
         .catch(error => console.log('error', error));  
      
   }
+  function getuserdata(){
+    var requestOptions = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+            // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+        }
+
+
+    };
+
+    fetch(Config()['webapi'] + "/user/detail?mobile="+window.localStorage.getItem('phone'), requestOptions)
+        .then(response => {
+
+
+
+            response.json().then(rep => {
+
+setfirstName(rep.firstName)
+setlastName(rep.lastName)
+setemail(rep.email)
+
+
+                setuserdata(rep)
+            })
+
+
+
+
+
+        })
+        .catch(error => console.log('error', error));
+}
+function getUserAddress(){
+    var requestOptions = {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': '*/*',
+          // "Authorization": "Basic " + window.localStorage.getItem('basic')
   
+      },
+  
+  
+  
+  };
+  
+  fetch(Config()['webapi'] + "/user/address?mobile="+window.localStorage.getItem('phone'), requestOptions)
+      .then(response => {
+  
+  
+          response.json().then(rep => {
+              setaddressList(rep)
+              console.log(rep)
+          })
+   
+  
+  
+  
+  
+  
+      })
+      .catch(error => console.log('error', error));
+     }
+     function createAddress(){
+      const bodyaddress = {
+          "des":address,
+          "codeposti": codeposti
+    }
+    var requestOptions = {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': '*/*',
+          // "Authorization": "Basic " + window.localStorage.getItem('basic')
+  
+      },
+      body:JSON.stringify(bodyaddress)
+  
+  
+  };
+  
+  fetch(Config()['webapi'] + "/user/address?mobile="+window.localStorage.getItem('phone'), requestOptions)
+      .then(response => {
+  
+  
+  if(response.status===200){
+      toast.success('با موفقیت ثبت شد')
+      getUserAddress()
+      setaddAddress(false)
+      setaddress('')
+      setcodeposti('')
+  }
+   
+  
+  
+  
+  
+  
+      })
+      .catch(error => console.log('error', error));
+     }
     return (
         <div className='row topnoor-purchase-page'>
+                      <Modal show={addAddress} onHide={()=>setaddAddress(false)}>
+        <Modal.Header closeButton>
+          
+        </Modal.Header>
+        <Modal.Body style={{ display: "flex;",flexDirection: "column"}}>
+           <h1 style={{textAlign: "right",fontSize:'18px',padding:'15px'}}>آدرس</h1>
+           <textarea value={address} onChange={(e)=>setaddress(e.target.value)} style={{direction:'rtl',marginRight:'15px',borderRadius:'5px',
+        borderStyle:'solid',borderColor:'gray',width:'100%'}}></textarea>
+           <h1 style={{textAlign: "right",fontSize:'18px',padding:'15px'}}>کد پستی</h1>
+           <input value={codeposti} onChange={(e)=>setcodeposti(e.target.value)} style={{direction:'rtl',marginRight:'15px',borderRadius:'5px',
+        borderStyle:'solid',borderColor:'gray',width:'100%'}}></input>
+           <br/>
+           <button style={{ width: '150px', height: '40px',borderColor: 'transparent',
+        borderRadius: "10px",backgroundColor: "#9439EF",color: 'white',
+        marginTop:' 20px'}} onClick={createAddress}>ثبت</button>
+        </Modal.Body>
+   
+      </Modal>
             <div className='col-12 col-title'>
                 <h1>پرداخت نهایی</h1>
             </div>
@@ -189,32 +325,56 @@ const Purchase = () => {
                   
             </div>
             <div className='col-5 col-data'>
+           
+                <div className='row'>
+                <div className='col-12'>
+    <div className='row'> 
+    <div className='col-md-12 col-xs-12 item-box-personal-box'>
+        <div className='col-item-box-personal-box'>
+   <h1> لیست آدرس ها</h1>
+        </div>
+     
+      
+    </div>
+    <RadioGroup
+        aria-labelledby="demo-radio-buttons-group-label"
+        defaultValue="female"
+        name="radio-buttons-group"
+        className='item-box-address-box'
+        onChange={(e)=>setaddressId(e.target.value)}
+      >
+        {addressList.map((index:any)=>(
+                  <FormControlLabel style={{direction:"rtl",textAlign:'right',color:'black'}}  color="black" value={index.id} control={<Radio />} label={<h1 style={{color:'black'}}>{index.des}</h1>} />
+        ))}
+      </RadioGroup>
+    {/* {addressList.map((index:any,i:any)=>(
+        <div className='col-md-12 col-xs-12 '>
+            <div className='item-box-address-box'>
+<h1>{++i}- آدرس : {index.des}</h1>
+        <h2>کد پستی : {index.postalcode}</h2>
+            </div>
+        
+    </div> 
+    ))} */}
+   
+  
+    <div className='col-md-12 col-xs-12 item-box-personal-box'>
+       <button onClick={()=>setaddAddress(true)} style={{ width: '150px', height: '40px',borderColor: 'transparent',
+        borderRadius: "10px",backgroundColor: "#9439EF",color: 'white',
+        marginTop:' 20px'}}>ثبت آدرس جدید</button>
+    </div>
+    </div>
+</div>
+                </div>
                 <div className='row'>
                     <div className='col-12 col-email'>
                         <h6>
                             شماره تلفن
                         </h6>
-                        <input></input>
+                        <input disabled={true} value={window.localStorage.getItem('phone')!}></input>
                     </div>
                 </div>
-                <div className='row'>
-                    <div className='col-12 col-address'>
-                        <h6>
-                           آدرس
-                        </h6>
-                        <div className='col-name-fname'>
-                          <input placeholder="نام خانوادگی" style={{marginRight:'10px'}}></input>  
-                          <input placeholder="نام" ></input>  
-                        </div>
-                        <input placeholder="شهر"></input>  
-                        <input placeholder="آدرس"></input>  
-                        <div className='col-name-fname'>
-                          <input placeholder="کشور" style={{marginRight:'10px'}}></input>  
-                          <input placeholder="استان" ></input>  
-                        </div>
-                    </div>
-                </div>
-                <div className='row'>
+                {/* <div className='row'>
                     <div className='col-6 col-method'>
                         <h6>
                            نحوه ارسال
@@ -227,7 +387,7 @@ const Purchase = () => {
                         </h6>
                         <input></input>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className='col-1'></div>
 

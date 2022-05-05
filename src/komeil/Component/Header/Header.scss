@@ -2,7 +2,8 @@
 
 .main-div-header {
  position: relative;
-  background-color: $perpel;
+  // background-color: $perpel;
+  background-color: $white;
 
 
 
@@ -25,7 +26,7 @@
 // float: right;
 
     img {
-      width: 60px;
+      width: 30px;
    
     }
 .box-txt-name{
@@ -147,7 +148,7 @@ h6{
     }
   }
 .bottom-box{
-  height: 50px;
+  // height: 50px;
   
  
 
@@ -164,6 +165,7 @@ i{
   padding-left: 10px  ;
 }
 }
+
 .item-box{
   display: flex;
 justify-content: center;
@@ -207,7 +209,7 @@ h6{
 .div-show-category{
   position: absolute;
   right: 0;
-  top:190px;
+  top:140px;
  background-color: white;
   z-index: 100;
   text-align: right;

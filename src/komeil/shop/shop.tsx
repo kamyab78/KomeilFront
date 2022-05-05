@@ -80,7 +80,7 @@ getlist(catid[1])
     </div>
 </div>
 <div className='row row-result'>
-    <div className='col-md-9 col-xs-12 box-result'>
+    <div className='col-md-12 col-xs-12 box-result'>
 {/* <div className='row'>
    
     <div className='col-2 sortitem-box-result'>
@@ -173,7 +173,7 @@ index.have === true ? (
 </div>
   
     </div>
-    <div className='col-md-2 col-xs-12 box-filter'>
+    {/* <div className='col-md-2 col-xs-12 box-filter'>
         <div className='row '>
             <div className='col-12 box-col-filter'>
                 <div className='row'>
@@ -265,7 +265,7 @@ index.have === true ? (
         </div>
         </div>
         
-    </div>
+    </div> */}
     </div>   
           
             </div>

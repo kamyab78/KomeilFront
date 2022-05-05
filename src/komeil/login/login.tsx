@@ -47,26 +47,26 @@ const Login = () => {
             .catch(error => console.log('error', error));
     }
     function getotp(){
-        // const body={
-        //     "mobile": phone
-        // }
-        // var requestOptions = {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Accept': '*/*',
-        //         // "Authorization": "Basic " + window.localStorage.getItem('basic')
-        //     },
-        //     body:JSON.stringify(body)
-        // };
+        const body={
+            "mobile": phone
+        }
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+            },
+            body:JSON.stringify(body)
+        };
 
-        // fetch(Config()['webapi'] + "/user/otp", requestOptions)
-        //     .then(response => {
-        //         if(response.status===200){
-        //             //  setstep(3)  
-        //         }
-        //     })
-        //     .catch(error => console.log('error', error));
+        fetch(Config()['webapi'] + "/user/otp", requestOptions)
+            .then(response => {
+                if(response.status===200){
+                    //  setstep(2)  
+                }
+            })
+            .catch(error => console.log('error', error));
     }
 
     function confirmpass(){
@@ -102,36 +102,32 @@ const Login = () => {
             .catch(error => console.log('error', error));
     }
     function confirmotp(){
-        if(otp==='12345')
-        setstep(3)
-        else
-        toast.error("کد اشتباه است")
-        // const body={
-        //     "mobile": phone,
-        //     "code":otp
-        // }
-        // var requestOptions = {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Accept': '*/*',
-        //         // "Authorization": "Basic " + window.localStorage.getItem('basic')
-        //     },
-        //     body:JSON.stringify(body)
-        // };
+        const body={
+            "mobile": phone,
+            "code":otp
+        }
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+            },
+            body:JSON.stringify(body)
+        };
 
-        // fetch(Config()['webapi'] + "/user/confirmOtp", requestOptions)
-        //     .then(response => {
-        //         response.json().then(rep => {
-        //             console.log(rep)
-        //      if(rep.code===200)
-        //            setstep(3)
-        //            else{
-        //             toast.error(rep.message);
-        //            }
-        //         })
-        //     })
-        //     .catch(error => console.log('error', error));
+        fetch(Config()['webapi'] + "/user/confirmOtp", requestOptions)
+            .then(response => {
+                response.json().then(rep => {
+                    console.log(rep)
+             if(rep.code===200)
+                   setstep(3)
+                   else{
+                    toast.error(rep.message);
+                   }
+                })
+            })
+            .catch(error => console.log('error', error));
     }
     function forgetpass(){
         setstep(2)

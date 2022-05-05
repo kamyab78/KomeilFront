@@ -1,7 +1,36 @@
 @import "src/utilities/references/index";
 .topnoor-personal-page{
     background-color: $whitef5;
-   
+   .modalAddress{
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    h1{
+        color: $black;
+        font-size: 20px;
+        padding: 15px;
+    }
+    input{
+        direction: rtl;
+        margin-right:15px;
+        border-radius: 10px;
+    height: 40px;
+    border-style: solid;
+    border-color: $graydd;
+    color: $gray;
+    background-color: transparent;
+    }
+    button{
+        width: 150px;
+        height: 40px;
+        border-color: transparent;
+        border-radius: 10px;
+        background-color: $perpel;
+        color: $white;
+        margin-top: 20px;
+    }
+    
+   }
     .personal-box{
         margin-bottom: 60px;
         display: flex;
@@ -34,7 +63,7 @@ margin-right: 10px;
         border-bottom-style:solid ;
         border-color: $perpel;
         border-width: 2px;
-        width: 20%;
+        // width: 20%;
      
     }
     }
@@ -60,7 +89,28 @@ button{
     border-color: transparent;
     border-radius: 10px;
     background-color: $perpel;
+    color: $white;
+    margin-top: 20px;
 }
+
+}
+.item-box-address-box{
+    background-color: $whitef5;
+    
+    text-align: right;
+    margin: 10px;
+    h1{
+        direction: rtl;
+        padding: 10px;
+        font-size: 18px;
+    }
+    h2{
+        direction: rtl;
+        padding: 10px;
+        font-size: 15px;
+
+
+    }
 }
         }
     }

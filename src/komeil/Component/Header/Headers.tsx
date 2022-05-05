@@ -6,7 +6,7 @@ import { Dropdown } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import { Config } from 'komeil/config/config';
-
+import {Navbar,Nav} from 'react-bootstrap'
 
 const Headers = () => {
     const history = useHistory();
@@ -195,13 +195,8 @@ const Headers = () => {
         <div className="row main-div-header">
             <div className='col-12'>
                 <div className='row'>
-
-
-                  
-
-                 
-                <div className='col-3'></div>
-                    <div className="col-4 search-div ">
+                <div className='col-md-3'></div>
+                    <div className="col-md-4 col-xs-6 search-div ">
                         <div className='box'>
                             <input placeholder='جستجوی محصولات در کمیل شاپ' onKeyUp={pressenter} value={searchtxt} onChange={(e) => searchsome(e.target.value)}></input>
                             <SearchIcon className='seachIcon' />
@@ -225,8 +220,8 @@ const Headers = () => {
 
 
                     </div>
-                    <div className='col-2'></div>
-                    <div className=" col-3">
+                    <div className='col-md-2'></div>
+                    <div className=" col-md-3 col-xs-6">
      <Link to='/'  className='logo-div'>
                         <img alt="" src={Logo} />
                         <div className='box-txt-name'>
@@ -239,9 +234,14 @@ const Headers = () => {
                
                
                 </div>
-                <div className='row bottom-box'>
 
-                <div className='col-3 profile-card-div'>
+              <Navbar collapseOnSelect expand="lg" className='bottom-box'>
+ 
+
+ <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{color:'blue',backgroundColor:'#ffc400'}} />
+ <Navbar.Collapse id="responsive-navbar-nav">
+   <Nav  fill style={{width:'100%'}}>
+   <Nav.Item className='profile-card-div'>
                         <div className='shoping-div' onClick={()=>history.push('/cart')}>
                             <i className="material-icons-outlined">
                                 shopping_bag
@@ -274,9 +274,10 @@ const Headers = () => {
                              
                             )}
                          
-                        </div>
-                    <div className='col-2'></div>
-                    <Link to='/bazarche' className="col-2 item-box" >
+                        </Nav.Item>
+                        <Nav.Item style={{flex:1}}></Nav.Item>
+                  
+                    <Nav.Link href='/bazarche' className="item-box" >
                         <div className='promotion-box'>
                             <h6>
                                پیشنهاد ویژه
@@ -287,36 +288,42 @@ const Headers = () => {
                             </i>
                         </div>
 
-                    </Link>
-                    <Link to='/blog' className='col-1 item-box'>
+                    </Nav.Link>
+                    <Nav.Link href='/blog' className='item-box'>
                         <h5>اخبار</h5>
-                    </Link>
-                    <Link to='/aboutus' className="col-1 item-box" ><h5>درباره ما</h5></Link>
+                    </Nav.Link>
+                    <Nav.Link href='/aboutus' className="item-box" ><h5>درباره ما</h5></Nav.Link>
                   
-                    <Link to='/' className='col-1 item-box'>
+                    <Nav.Link href='/' className='item-box'>
                         <h5>خانه</h5>
                         <i className="material-icons-outlined">
 home
 </i>
-                    </Link>
-                    <Link to='/' className="col-2 category-box" onMouseEnter={e => {
+                    </Nav.Link>
+                    <Nav.Item  onClick={e => {
                         setstylecategory({ display: 'block' });
-                    }}
-                        onMouseLeave={e => {
-                            setstylecategory({ display: 'none' })
-                        }} 
+                    }} className="category-box"         onMouseLeave={e => {
+                        setstylecategory({ display: 'none' })
+                    }} 
                >
 
                         دسته بندی
-                        <i className="material-icons-outlined">
+                        <i className="material-icons-outlined" onClick={() =>{console.log('1212')}}>
                             reorder
                         </i>
-                    </Link>
+                    </Nav.Item>
 
 
 
-                </div>
+   </Nav>
+
+</Navbar.Collapse>
+
+</Navbar>
+                
             </div>
+     
+
             <div className='col-12 div-show-category' style={stylecategory} 
                                >
                 <div className='row row-result-category' 

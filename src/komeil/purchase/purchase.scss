@@ -16,6 +16,10 @@ background-color: $white;
     border-left-style: solid;
     border-color: $graydd;
     border-width: 1px;
+
+
+
+
   .col-email{
     margin-top: 10px;
     text-align: right;
@@ -33,39 +37,69 @@ background-color: $white;
         border-radius: 10px;
     }
 }
-.col-address{
-    margin-top: 20px;
+.item-box-address-box{
+    background-color: $whitef5;
+    width: 100%;
     text-align: right;
-    h6{
-        font-weight: normal;
-        font-size: 20px;
-        
-    }
-    .col-name-fname{
-        display: flex;
-        flex-direction: row;
-        
-input{
-    width: 90%;
-        margin-top: 20px;
-        height: 45px;
-        border-style: solid;
-        border-color: $graydd;
-        border-radius: 10px;
+    margin: 10px;
+    h1{
         direction: rtl;
-       
-}
+        padding: 10px;
+        font-size: 18px;
+    }
+    h2{
+        direction: rtl;
+        padding: 10px;
+        font-size: 15px;
+
 
     }
-    input{
-        width: 100%;
-            margin-top: 20px;
-            height: 45px;
-            border-style: solid;
-            border-color: $graydd;
-            border-radius: 10px;
-            direction: rtl;
+}
+.item-box-personal-box{
+    margin-bottom: 20px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    .col-item-box-personal-box{
+        display: flex;
+        flex-direction: row-reverse;
+            h1{
+        padding-right: 30px;
+        padding-top: 30px;
+        padding-bottom: 15px;
+        border-bottom-style:solid ;
+        border-color: $perpel;
+        border-width: 2px;
+        // width: 20%;
+     
     }
+    }
+
+h6{
+    color: $black;
+    font-size: 20px;
+    padding: 15px;
+}
+input{
+    direction: rtl;
+    margin-right:15px;
+    border-radius: 10px;
+height: 40px;
+border-style: solid;
+border-color: $graydd;
+color: $gray;
+background-color: transparent;
+}
+button{
+    width: 150px;
+    height: 40px;
+    border-color: transparent;
+    border-radius: 10px;
+    background-color: $perpel;
+    color: $white;
+    margin-top: 20px;
+}
+
 }
 .col-drop{
     margin-top: 20px;
