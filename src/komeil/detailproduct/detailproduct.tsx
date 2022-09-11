@@ -13,6 +13,7 @@ import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 import ReactImageMagnify from 'react-image-magnify';
 import Modal from 'react-bootstrap/Modal'
+import ReactTooltip from 'react-tooltip';
 
 const Detailproduct = () => {
     const [detailproduct, setdetailproduct] = useState<any>({})
@@ -222,9 +223,10 @@ star
     <h6>رنگ</h6>
     <div className="box-colors">
               {detailproduct.colorsList !== undefined ? (
-                                    detailproduct.colorsList.map((index: any) => (
+                                    detailproduct.colorsList.map((index: any,i:any) => (
                                         <div style={{ position: 'relative', cursor: 'pointer' }} onClick={() => clickoncolor(index.id)} >
-                                            <div style={{ width: '35px', height: '35px', backgroundColor: index.hex, borderRadius: '100%', marginRight: '10px' }}> </div>
+                                            <div data-tip data-for={'id'+i} style={{ width: '35px', height: '35px', backgroundColor: index.hex, borderRadius: '100%', marginRight: '10px' ,borderStyle:'solid',borderColor:'gray',borderWidth:'1px'}}> </div>
+                                            <ReactTooltip id={'id'+i}>{index.name}</ReactTooltip>
                                             <div id={'divcolor' + index.id} style={{ position: 'absolute', width: '35px', height: '35px', borderRadius: '100%', backgroundColor: 'rgb(365,365,365,0.5)', top: '0', display: 'none' }}>
                                                 <span className="material-icons-outlined" style={{ margin: '5px' }}>
                                                     done
@@ -490,14 +492,9 @@ info
  <h1>{index.name}</h1>
 )}
   
-
-<div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
-{index.netPrice===0?(
-                                    <h3>برای قیمت تماس بگیرید</h3>
-                                ):index.netPrice===1?(
-                                    <h3>این محصول سفارشی می باشد</h3>
-                                ):(
-                                    index.discount !== 0 ? (
+         
+  <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+{index.discount !== 0 ? (
                                         <>
                                             <h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
 
@@ -506,46 +503,48 @@ info
                                             <h3>تومان</h3>
                                         </>
                                     ) : (
-                                        <>
-                                                <h3 >{index.netPrice.toLocaleString()}</h3>
-                                                <h3>تومان</h3>
-                                        </>
+                                        index.netPrice !==0 ?(
+                                            <>
+                                            <h3 >{index.netPrice.toLocaleString()}</h3>
+                                            <h3>تومان</h3>
+                                    </>
+                                        ):null
+                               
               
                                     )
-                                )}
-{/* {index.discount !== 0 ? (
-    <>
-        <h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
+                                }
+                                                       
 
-        <h3 >{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()}</h3>
-    </>
-) : (
-    <h3 >{index.netPrice.toLocaleString()}</h3>
-)} */}
-
-{/* <h3>تومان</h3> */}
-</div>
+                                                        
+                                                    </div>
 
 
-<div className='div-btn'>
+                                                    <div className='div-btn'>
+{index.have === true?(
+               index.stock === 0 ? (
+                <div className='cardbox-finish'>
 
-{index.stock === 0 ? (
-    <div className='cardbox-finish'>
+                    <h6>به زودی</h6>
+                </div>
+            ) : (
+                <div className='card-box'>
 
-        <h6>ناموجود</h6>
-    </div>
-) : (
+                    <h6>جزيیات بیشتر</h6>
+                </div>
+
+
+
+
+
+            )
+):(
     <div className='card-box'>
 
-        <h6>جزيیات بیشتر</h6>
-    </div>
-
-
-
-
-
-)}
+    <h6>ناموجود</h6>
 </div>
+)}
+                                         
+                                                    </div>
 
    </div>
 </Link>

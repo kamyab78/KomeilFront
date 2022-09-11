@@ -99,6 +99,8 @@ top:5px;
        padding-right: 15px;
        padding-left: 15px;
        color: $perpel;
+       cursor: pointer;
+
      }
         text-align: right;
       }
@@ -161,8 +163,11 @@ h6{
 display: flex;
 justify-content: center;
 align-items: center;
+cursor: pointer;
 i{
   padding-left: 10px  ;
+  cursor: pointer;
+
 }
 }
 
