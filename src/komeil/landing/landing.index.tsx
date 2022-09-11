@@ -16,6 +16,11 @@ import Banner2 from '../../assets/images/landing/banner2.png'
 import Banner3 from '../../assets/images/landing/banner3.png'
 import { Config } from '../config/config'
 import Banner4 from '../../assets/images/landing/banner4.png'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
 import { useState } from 'react';
 const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
     const [amazingofferlist, setamazingofferlist] = useState<any>([])
@@ -266,108 +271,315 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
     return (
         <div className="komeil-landing-page row">
             <div className='col'>
-                <div className='row banner-row'>
-
-                    <Link className='col-md-6 col-xs-12 banner-big-box' to={'/shop?catid='+firstBanneridfirst} onClick={() => {
+            <div className='row banner-row'>
+                    <div className='col-md-1 '></div>
+                    <Link className='col-md-10 col-xs-12 banner-big-box' to={'/shop?catid='+firstBanneridfirst} onClick={() => {
                         window.localStorage.setItem('categoryid', firstBanneridfirst)
-               
+                   
                     }}>
-                        <img src={firstBannerfirst} ></img>
+
+                        <img src={firstBannerfirst} alt='کمیل شاپ' title='کمیل شاپ'></img>
                     </Link>
-                    <Link className='col-md-6 col-xs-12 banner-big-box'  to={'/shop?catid='+firstBanneridsecond} onClick={() => {
-                        window.localStorage.setItem('categoryid', firstBanneridsecond)
-               
-                    }}>
-                        <img src={firstBannersecond} ></img>
-                    </Link>
+                    <div className='col-md-1'></div>
                 </div>
+                <div className='row banner-row'>
+                    <div className='col-md-1 '></div>
+                    <Link className='col-md-5 col-lg-5 col-6  banner-left-box' to={'/shop?catid='+secondBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', secondBannerid)
+              
+                    }}>
+                        <img src={secondBanner} alt='کمیل شاپ' title='کمیل شاپ'></img>
+
+                    </Link>
+                    <Link className='col-md-5 col-lg-5 col-6  banner-right-box' to={'/shop?catid='+thirdBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', thirdBannerid)
+               
+                    }}>
+                        <img src={thirdBanner} alt='کمیل شاپ' title='کمیل شاپ'></img>
+
+                    </Link>
+                    <div className='col-md-1 '></div>
+                </div>
+
+
 
                 <div className='row bazarche-row'>
+                    <div className='col-md-1 '></div>
 
-
-                    <div className='col-12 bazarche-box'>
+                    <div className='col-md-10 col-xs-12 bazarche-box'>
                         <div className='row bazarche-box-main '>
-                            <div className='col-10 item-bazarche-box-main'>
-                                <div className='col-md-1'></div>
-                                <div className='show-more-sub-item-bazarche-box-main col-md-3 col-xs-4' onClick={() => history.push('/bazarche')}>
-                                    <h1>نمایش همه کالای شگفت انگیز</h1>
-                                </div>
-                                {amazingofferlist.map((index: any, i: any) => (
-                                    i <= 1 ? (
-                                        <div className='sub-item-bazarche-box-main col-md-3 col-xs-4'>
-                                             <Link  to={'/detailproduct?hash=' + index.hash + '?category=' + index.categoryname}>
-                                            <div className='div-img'>
+                        
 
 
-                                                <img src={index.imageUrl} alt=''></img>
-                                            </div>
-                                            <h1>{index.name}</h1>
-                                            <div className='div-price-sub-item-bazarche-box-main'>
-                                                <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+<div className='col-md-10 col-xs-10 item-bazarche-box-main d-none d-md-block d-lg-block'>
+<Swiper
+     className='swipper-main'
+       spaceBetween={0}
+       slidesPerView={3}
+       navigation={true}
+      
+      
+       onSwiper={(swiper) => console.log(swiper)}
+       onSlideChange={() => console.log('slide change')}
+    >
+        {amazingofferlist.map((result: any,i) => (
+      <SwiperSlide>
+          <div className='sub-item-bazarche-box-main ' >
+          <Link to={'/detailproduct?hash=' + result.hash+'?category='+result.categoryname} >
+                                        <div className='div-img'>
+                                            {result.discount !== 0 ? (
+                                                <h6 className='discounttxt'>{result.discount}%</h6>
+                                            ) : null}
 
-                                                    {index.discount !== 0 ? (
-                                                        <>
-                                                            <h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
-
-                                                            <h3 >{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()}</h3>
-                                                        </>
-                                                    ) : (
-                                                        <h3 >{index.netPrice.toLocaleString()}</h3>
-                                                    )}
-
-                                                    <h3>تومان</h3>
-                                                </div>
-                                                <i></i>
-                                                {index.discount !== 0 ? (
-                                                    <div className='discount-sub-item-bazarche-box-main'>
-
-                                                        <h6 className='discounttxt'>{index.discount}%</h6>
-
-                                                    </div>
-                                                ) : null}
-                                            </div>
-<i style={{flex:1,color:'transparent'}}>5</i>
-                                            <div className='card-box' >
-                                                {index.stock === 0 ? (
-
-
-                                                    <h6>به زودی</h6>
-
-
-                                                ) : (
-                                                    index.have === true ? (
-
-
-                                                        <h6>مشاهده بیشتر</h6>
-
-
-                                                    ) : (
-
-
-                                                        <h6>محصول ناموجود</h6>
-
-
-                                                    )
-                                                )}
-                                            </div>
-                                        </Link>
+                                            <img src={result.imageUrl} alt={result.name} title={result.name}></img>
                                         </div>
-                                       ) : null
 
-                                ))}
+                                        <h1>{result.name}</h1>
+                              
+                                     
+                                    
+                                        <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+
+                                        {result.netPrice===0?(
+                                    <h3>برای قیمت تماس بگیرید</h3>
+                                ):result.netPrice===1?(
+                                    <h3>این محصول سفارشی می باشد</h3>
+                                ):(
+                                    result.discount !== 0 ? (
+                                        <>
+                                            <h3 className='amountafterdiscount'>{result.netPrice.toLocaleString()}</h3>
+
+                                            <h3 >{(result.netPrice * ((100 - result.discount) / 100)).toLocaleString()}</h3>
+
+                                            <h3>تومان</h3>
+                                        </>
+                                    ) : (
+                                        <>
+                                                <h3 >{result.netPrice.toLocaleString()}</h3>
+                                                <h3>تومان</h3>
+                                        </>
+              
+                                    )
+                                )}
+
+                                          
+                                        </div>
 
 
-                                <div className='col-md-1'></div>
-                            </div>
-                            <div className='col-md-2  img-bazarche-box-main'>
-                                <h4>کالا های شگفت انگیز</h4>
-                                <img src={Bazarcheimg} alt=''></img>
-                            </div>
+                                        <div className='div-btn'>
+                                            {result.stock === 0 ? (
+                                                <div className='cardbox-finish'>
+                                                    <h6>ناموجود</h6>
+
+                                                </div>
+                                            ) : (
+                                                <div className='card-box'>
+                                                    <h6>جزيیات بیشتر</h6>
+
+                                                </div>
+                                            )}
+
+                                        </div>
+                                    </Link>  
+          </div>
+         
+      </SwiperSlide>
+   
+      ))}
+    </Swiper>
+       {/* {amazingofferlist.map((result: any,i) => (
+                              
+                                                  <Link to={'/detailproduct?hash=' + result.hash+'?category='+result.categoryname} className='sub-item-bazarche-box-main col-md-3 col-xs-3' >
+                                        <div className='div-img'>
+                                            {result.discount !== 0 ? (
+                                                <h6 className='discounttxt'>{result.discount}%</h6>
+                                            ) : null}
+
+                                            <img src={result.imageUrl} alt=''></img>
+                                        </div>
+
+                                        <h1>{result.name}</h1>
+                              
+                                     
+                                    
+                                        <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+
+                                            {result.discount !== 0 ? (
+                                                <>
+                                                    <h3 className='amountafterdiscount'>{result.netPrice}</h3>
+
+                                                    <h3 >{result.netPrice * ((100 - result.discount) / 100)}</h3>
+                                                </>
+                                            ) : (
+                                                <h3 >{result.netPrice}</h3>
+                                            )}
+
+                                            <h3>تومان</h3>
+                                        </div>
+
+
+                                        <div className='div-btn'>
+                                            {result.stock === 0 ? (
+                                                <div className='cardbox-finish'>
+                                                    <h6>ناموجود</h6>
+
+                                                </div>
+                                            ) : (
+                                                <div className='card-box'>
+                                                    <h6>جزيیات بیشتر</h6>
+
+                                                </div>
+                                            )}
+
+                                        </div>
+                                    </Link>  
+                                    
+                        
+
+                                ))} */}
+</div>
+<div className='col-md-10 col-xs-10 item-bazarche-box-main d-block d-md-none d-lg-none'>
+<Swiper
+     
+       spaceBetween={0}
+       slidesPerView={2}
+       navigation={true}
+      
+      
+       onSwiper={(swiper) => console.log(swiper)}
+       onSlideChange={() => console.log('slide change')}
+    >
+        {amazingofferlist.map((result: any,i) => (
+      <SwiperSlide>
+           <div className='sub-item-bazarche-box-main ' >
+           <Link  to={'/detailproduct?hash=' + result.hash+'?category='+result.categoryname}>
+                                        <div className='div-img'>
+                                            {result.discount !== 0 ? (
+                                                <h6 className='discounttxt'>{result.discount}%</h6>
+                                            ) : null}
+
+                                            <img src={result.imageUrl} alt={result.name} title={result.name}></img>
+                                        </div>
+{result.name.length>=20?(
+ <h1>{result.name.substring(0,20)}...</h1>
+):(
+ <h1>{result.name}</h1>
+)}
+                                       
+                              
+                                     
+                                    
+                                        <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+                                        {result.netPrice===0?(
+                                    <h3>برای قیمت تماس بگیرید</h3>
+                                ):result.netPrice===1?(
+                                    <h3>این محصول سفارشی می باشد</h3>
+                                ):(
+                                    result.discount !== 0 ? (
+                                        <>
+                                            <h3 className='amountafterdiscount'>{result.netPrice.toLocaleString()}</h3>
+
+                                            <h3 >{(result.netPrice * ((100 - result.discount) / 100)).toLocaleString()}</h3>
+
+                                            <h3>تومان</h3>
+                                        </>
+                                    ) : (
+                                        <>
+                                                <h3 >{result.netPrice.toLocaleString()}</h3>
+                                                <h3>تومان</h3>
+                                        </>
+              
+                                    )
+                                )}
+                                        </div>
+
+
+                                        <div className='div-btn'>
+                                            {result.stock === 0 ? (
+                                                <div className='cardbox-finish'>
+                                                    <h6>ناموجود</h6>
+
+                                                </div>
+                                            ) : (
+                                                <div className='card-box'>
+                                                    <h6>جزيیات بیشتر</h6>
+
+                                                </div>
+                                            )}
+
+                                        </div>
+                                        </Link>
+                                    </div>  
+      </SwiperSlide>
+   
+      ))}
+    </Swiper>
+       {/* {amazingofferlist.map((result: any,i) => (
+                              
+                                                  <Link to={'/detailproduct?hash=' + result.hash+'?category='+result.categoryname} className='sub-item-bazarche-box-main col-md-3 col-xs-3' >
+                                        <div className='div-img'>
+                                            {result.discount !== 0 ? (
+                                                <h6 className='discounttxt'>{result.discount}%</h6>
+                                            ) : null}
+
+                                            <img src={result.imageUrl} alt=''></img>
+                                        </div>
+
+                                        <h1>{result.name}</h1>
+                              
+                                     
+                                    
+                                        <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+
+                                            {result.discount !== 0 ? (
+                                                <>
+                                                    <h3 className='amountafterdiscount'>{result.netPrice}</h3>
+
+                                                    <h3 >{result.netPrice * ((100 - result.discount) / 100)}</h3>
+                                                </>
+                                            ) : (
+                                                <h3 >{result.netPrice}</h3>
+                                            )}
+
+                                            <h3>تومان</h3>
+                                        </div>
+
+
+                                        <div className='div-btn'>
+                                            {result.stock === 0 ? (
+                                                <div className='cardbox-finish'>
+                                                    <h6>ناموجود</h6>
+
+                                                </div>
+                                            ) : (
+                                                <div className='card-box'>
+                                                    <h6>جزيیات بیشتر</h6>
+
+                                                </div>
+                                            )}
+
+                                        </div>
+                                    </Link>  
+                                    
+                        
+
+                                ))} */}
+</div>
+                      
+                           
+                                <div className='col-md-2 col-xs-2 img-bazarche-box-main'>
+                                    <h4>فروش ویژه</h4>
+                                    <img src={Bazarcheimg} alt='image' title='title'></img>
+                                    <button onClick={()=>history.push('/bazarche')}>مشاهده همه</button>
+                                </div>
+                         
+
+
                         </div>
                     </div>
-
+                    <div className='col-md-1 '></div>
                 </div>
-                <div className='row newproduct-row'>
+                {/* <div className='row newproduct-row'>
 
                     <div className='col-md-6 col-xs-12 '>
                         <div className='row'>
@@ -513,112 +725,140 @@ index.have === true ? (
                         <img src={secondBanner} style={{ cursor: "pointer" }} alt='' ></img>
                         <h6>محصولات جدید کمیل</h6>
                     </Link>
-                </div>
-                <div className='product-items row'>
+                </div> */}
 
+                <div className='row product-row'>
+                    <div className='col-md-1 '></div>
 
-        {firstpageproduct.map((index: any) => (
-            <div className=' col-md-3 col-xs-6' style={{ marginTop: '20px' }}>
-                <div className='subitem'  >
-                <Link to={'/detailproduct?hash=' + index.hash + '?category=' + index.categoryname}  >
+                    <div className='col-md-10 col-xs-12 product-box'>
+                        <div className='product-box-main'>
+                            <h1>محصولات</h1>
 
-<div className='div-img-new'>
+                            <div className='product-items row'>
 
-    <img src={index.imageUrl} alt=''></img>
-</div>
-<h1>{index.name}</h1>
+                                <div className=' col-md-1'></div>
+                                <div className=' col-md-10 col-xs-12'>
+                                    <div className='row'>
+                                        {productlist.map((result: any) => (
+                                            <div className=' col-md-4 vol-lg-4 col-6' style={{ marginTop: '20px' }}>
+                                                <div className='sub-product-items'  >
+                                                  <Link  to={'/detailproduct?hash=' + result.hash+'?category='+result.categoryname}>
+                                                                 <div className='div-img'>
+                                                        {result.discount !== 0 ? (
+                                                            <h6 className='discounttxt'>{result.discount}%</h6>
+                                                        ) : null}
 
-{index.stock === 0 ? (
+                                                        <img src={result.imageUrl} alt={result.name} title={result.name}></img>
+                                                    </div>
 
-
-<h6 className='simpletxt'>به زودی</h6>
-
-
-) : (
-index.have === true ? (
-
-
-<div className='div-price-subitem-newproduct'>
-<div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
-
-{index.discount !== 0 ? (
-<>
-<h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
-
-<h3 >{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()}</h3>
-</>
-) : (
-<h3 >{index.netPrice.toLocaleString()}</h3>
+                                                    {result.name.length>=38?(
+ <h1>{result.name.substring(0,38)}...</h1>
+):(
+ <h1>{result.name}</h1>
 )}
+                                               
+                                                   
+                                                    <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+{result.discount !== 0 ? (
+                                        <>
+                                            <h3 className='amountafterdiscount'>{result.netPrice.toLocaleString()}</h3>
 
-<h3>تومان</h3>
-</div>
-<i></i>
-{index.discount !== 0 ? (
-<div className='discount-subitem-newproduct'>
+                                            <h3 >{(result.netPrice * ((100 - result.discount) / 100)).toLocaleString()}</h3>
 
-<h6 className='discounttxt'>{index.discount}%</h6>
+                                            <h3>تومان</h3>
+                                        </>
+                                    ) : (
+                                        result.netPrice !==0 ?(
+                                            <>
+                                            <h3 >{result.netPrice.toLocaleString()}</h3>
+                                            <h3>تومان</h3>
+                                    </>
+                                        ):null
+                               
+              
+                                    )
+                                }
+                                                       
 
-</div>
-) : null}
-
-
-</div>
-
-
-
-) : (
-
-
-<h6 className='simpletxt'>محصول ناموجود</h6>
-
-
-)
-)}
+                                                        
+                                                    </div>
 
 
-</Link>
-     
+                                                    <div className='div-btn'>
+{result.have === true?(
+               result.stock === 0 ? (
+                <div className='cardbox-finish'>
+
+                    <h6>به زودی</h6>
+                </div>
+            ) : (
+                <div className='card-box'>
+
+                    <h6>جزيیات بیشتر</h6>
                 </div>
 
-            </div>
-
-        ))}
 
 
 
 
+            )
+):(
+    <div className='card-box'>
 
+    <h6>ناموجود</h6>
 </div>
+)}
+                                         
+                                                    </div>
+                                                  </Link>
+                                     
+                                                </div>
 
-                <div className='row row-service'>
-                    <div className='col-12 box-service'>
-                        <div className='row'>
-                            <div className='col-12 box-title'>
-                                <h6>برند ها</h6>
-                            </div>
-                        </div>
-                        <div className='row brands'>
-                            {brandlist.map((index: any) => (
-                                <div className='col-md-2 col-xs-4' onClick={() => {
-                                    window.localStorage.setItem('brandid', index.id)
-                                    history.push('/brand')
-                                }}>
-                                    <div className='subitem-service'>
+                                            </div>
 
-                                       
-                                            <img src={index.imageUrl} alt=''></img>
-                                       
-                                        <h1>{index.title}</h1>
+                                        ))}
+
 
                                     </div>
                                 </div>
-                            ))}
+                                <div className=' col-md-1'></div>
+
+
+                            </div>
 
 
                         </div>
                     </div>
+                    <div className='col-md-1 '></div>
                 </div>
+                <div className='row brand-row'>
+                    <div className='col-md-1 '></div>
+
+                    <div className='col-md-10 col-xs-12 brand-box'>
+                        <div className='brand-box-main'>
+                            <h1>برند ها</h1>
+                            <div className='brands row'>
+                                {brandlist.map((item: any) => (
+                                    <div className='brands-items col-md-1 col-xs-4' onClick={() => {
+                                        window.localStorage.setItem('brandid', item.id)
+                                        history.push('/brand')
+                                    }}>
+                                        <img src={item.imageUrl} alt=''></img>
+                                        <h6>{item.title}</h6>
+                                    </div>
+                                ))}
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-md-1 '></div>
+                </div>
+
+
+
+
+
                 <div className='row bannerads-row'>
                     <Link className='col-md-4 col-xs-12' to={'/shop?catid='+thirdBannerid} onClick={() => {
                         window.localStorage.setItem('categoryid', thirdBannerid)

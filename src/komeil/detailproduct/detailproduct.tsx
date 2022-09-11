@@ -221,7 +221,6 @@ star
    <div className='secondRow-col-desc'>
     <h6>رنگ</h6>
     <div className="box-colors">
-{console.log(detailproduct.colorsList)}
               {detailproduct.colorsList !== undefined ? (
                                     detailproduct.colorsList.map((index: any) => (
                                         <div style={{ position: 'relative', cursor: 'pointer' }} onClick={() => clickoncolor(index.id)} >
@@ -471,26 +470,50 @@ info
                </div>
              
                <div className='row'>
-                   <div className='col-1'></div>
-                   <div className='col-10 txt-col-related'>
-                       <h6>محصولات مشابه</h6></div>
-                   <div className='col-1'></div>
-<div className='col-2'></div>
-<div className='col-8 '>
-                        <div className='row ' style={{ marginBottom: '20px' }} >
+                    <div className='col-1'></div>
+                    <div className='col-10 txt-col-related'>
+                        <h6>محصولات مشابه</h6></div>
+                    <div className='col-1'></div>
+                    <div className='col-2'></div>
+                    <div className='col-8 '>
+                        <div className='row row-scroll' style={{ marginBottom: '20px' }} >
                             {relatedlist.map((index:any)=>(
-   <Link className='col-md-4 col-xs-12 row-item-center ' to={'/detailproduct?hash=' + index.hash+'?category='+index.categoryname} onClick={() => window.location.replace('/detailproduct?hash=' + index.hash+'?category='+index.categoryname)}>
+   <Link className='col-md-4 row-item-center ' to={'/detailproduct?hash=' + index.hash+'?category='+index.categoryname} onClick={() => window.location.replace('/detailproduct?hash=' + index.hash+'?category='+index.categoryname)}>
    <div className='item-related'>
        <div className='div-img'>
-           <img src={index.imageUrl} alt=''></img>
+           <img src={index.imageUrl} alt='image' title='title'></img>
        </div>
 
-       <h1>{index.name}</h1>
+       {index.name.length>=30?(
+ <h1>{index.name.substring(0,30)}...</h1>
+):(
+ <h1>{index.name}</h1>
+)}
   
 
 <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+{index.netPrice===0?(
+                                    <h3>برای قیمت تماس بگیرید</h3>
+                                ):index.netPrice===1?(
+                                    <h3>این محصول سفارشی می باشد</h3>
+                                ):(
+                                    index.discount !== 0 ? (
+                                        <>
+                                            <h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
 
-{index.discount !== 0 ? (
+                                            <h3 >{(index.netPrice * ((100 - index.discount) / 100)).toLocaleString()}</h3>
+
+                                            <h3>تومان</h3>
+                                        </>
+                                    ) : (
+                                        <>
+                                                <h3 >{index.netPrice.toLocaleString()}</h3>
+                                                <h3>تومان</h3>
+                                        </>
+              
+                                    )
+                                )}
+{/* {index.discount !== 0 ? (
     <>
         <h3 className='amountafterdiscount'>{index.netPrice.toLocaleString()}</h3>
 
@@ -498,9 +521,9 @@ info
     </>
 ) : (
     <h3 >{index.netPrice.toLocaleString()}</h3>
-)}
+)} */}
 
-<h3>تومان</h3>
+{/* <h3>تومان</h3> */}
 </div>
 
 
@@ -534,8 +557,9 @@ info
 
                     </div>
 
-<div className='col-2'></div>
-               </div>
+
+                    <div className='col-2'></div>
+                </div>
              
                </div>
                </div>

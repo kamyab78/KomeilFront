@@ -86,7 +86,7 @@ const Purchase = () => {
         "orderListId": orderlistid,
         "discountId": 0,
         "addressId": parseInt(addressId),
-        "totalprice": (cost*10).toString(),
+        "totalprice": cost*10,
         "transporstId":0
           }
         var requestOptions = {

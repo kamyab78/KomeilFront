@@ -51,6 +51,7 @@
 }
 .row-result{
     .box-result{
+
         background-color: $whiteff;
         border-radius: 10px;
         margin: 25px;
@@ -74,53 +75,85 @@ border-width: 1px;
             }
         }
         .subitem-box-result{
-            margin-top: 20px;
-            cursor: pointer;
-            border-style: solid;
-            border-color:rgba($black,0.3);
-            border-radius: 5px;
-            border-width: 1px;
-            direction: rtl;
-            text-align: right;
-            height: 95%;
+         margin-top: 20px;
+         cursor: pointer;
+         border-style: solid;
+
+         border-radius: 5px;
+         border-width: 1px;
+         direction: rtl;
+         text-align: right;
+         height: 95%;
+
+
+         border-color:$graydd;
+         // padding-top: 10px;
+       border-width: 1px;
+         text-align: right;
+       
+      
+      
+      
+        box-shadow: 5px 5px 5px 5px $graydd;
             .div-img-subitem-box-result{
                 margin:20px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
 img{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+    width: 90%;
+    height: 90%;
+max-height: 280px;
+    padding-top: 15px;
+
 }
             }
             h6{
                 font-weight: normal;
                 font-size: 15px;
-                text-align: center;
+                text-align: right;
+                margin:15px
+                                }
+                                h2{
+font-size: 12px;
+color:rgba($black,0.5);
+padding:15px;
+                                }
+                                h1{
+                                    padding-top: 10px;
+                                    padding-right: 20px;
+                                    font-size: 16px;
+                                    color: $gray66;
+                                    direction: rtl;
                                 }
             .div-price-subitem-box-result{
                 display: flex;
                 flex-direction: row;
-                justify-content: center;
-                align-items: center;
+                // justify-content: center;
+                // align-items: center;
                 margin: 15px;
-                .div-price-subitem-box-result-price-amount{
-                    display: flex;
-                    flex-direction: row-reverse;
-      h5{
+                .discounttxt{
+                    position: absolute;
+                    top:10px;
+                    left:10px;
+                  
+                    background-color: $red;
+                    width: 40px;
+                    text-align: center;
+                    border-radius: 5px;
+                    color:$white
+                  }
+                  .amountafterdiscount{
+                    text-decoration: line-through;
+                  }
+                h5{
 font-weight: normal;
 font-size: 15px;
-padding: 5px;
+
                 }
-            
-                .firstprice{
-                    
-                        text-decoration: line-through;  
-                    
+                h3{
+                    font-size: unset;
                 }
-                }
-          
                 i{
 flex: 1;
                 }
@@ -139,11 +172,69 @@ color: $white;
 }
             }
             }
+            .div-btn{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .card-box{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                border-style: solid;
+                border-color: $perpel;
+                border-width: 1px;
+                display: flex;
+                width: 90%;
+                text-align: right;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                flex-direction: row-reverse;
+                margin-bottom: 30px;
+                h6{
+                  color: $perpel;
+                   font-size: 16px;
+                  font-weight: bold;
+                }
+                i{
+                  padding-top: 10px;
+                  color: $perpel;
+                  // font-weight: bold;
+                }
+                
+              }
+              .cardbox-finish{
+                margin-top: 20px;
+                border-style: solid;
+              border-color: $perpel;
+                border-width: 1px;
+                display: flex;
+                width: 90%;
+                text-align: right;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                flex-direction: row-reverse;
+                margin-bottom: 30px;
+                h6{
+                  font-size: 16px;
+                  font-weight: bold;
+                  color:$perpel
+                }
+              }
+              }
            
         }
     }
     .box-filter{
-         
+        // background-color: blue; position: sticky; top: 0; width: 40%; float: right;
+        // position: fixed;
+        h1{
+                text-align: right;
+                font-size: 19px;
+                font-weight: bold;
+        }
+     
         margin-top: 25px;
         .box-col-filter{
             background-color: $whiteff;
@@ -190,13 +281,19 @@ color: rgba($black,0.5);
         }
         }
         .box-col-brand-filter{
-            background-color: $whiteff;
+            
             border-radius: 10px; 
             margin-top: 25px;
-            .title-list-of-brand-filter-col{
+            .box-filter{
+                background-color: $whiteff;
+                border-radius: 10px;
+                // border-bottom-style: solid;
+                // border-color:rgba($graydd,0.5);
+                // margin:10px;
+                       .title-list-of-brand-filter-col{
                 border-bottom-style:solid ;
                 border-width: 1px;
-                border-color: $graydd;
+                // border-color: $graydd;
             text-align: right;
                 
            
@@ -204,35 +301,39 @@ color: rgba($black,0.5);
 h6{
    font-size: 11px;
    padding: 5px;
-   font-weight: normal;
+   font-weight: bold;
   
 }
-       } 
-       .list-of-brand-filter-col{
-           .sub-list-of-brand-filter-col{
-               display: flex;
-               flex-direction: row;
-          justify-content: center;
-          align-items: center;
-               i{
+.list-of-brand-filter-col{
+      
+    .sub-list-of-brand-filter-col{
+        display: flex;
+        flex-direction: row;
+   justify-content: center;
+   align-items: center;
+        i{
 flex: 1;
-               }
-               h1{
+        }
+        h1{
 font-size: 10px;
 color: $gray;
-               }
-               h6{
-                font-size: 10px;
-                font-weight: normal;
-               }
-               .check-classs{
+        }
+        h6{
+         font-size: 10px;
+         font-weight: normal;
+        }
+        .check-classs{
 color: $perpel;
-               }
-           }
-       }
+        }
+    }
+}
+       } 
+   
+            }
+     
         }
         .box-col-available-filter{
-            background-color: $whiteff;
+            background-color: $white;
             border-radius: 10px; 
             margin-top: 25px;
             .available-filter-col{
@@ -257,7 +358,7 @@ h6{
      
         }
         .box-col-price-filter{
-            background-color: $whiteff;
+            background-color: $white;
             border-radius: 10px; 
             margin-top: 25px;
             .title-price-filter-col{
@@ -296,24 +397,69 @@ font-weight: normal;
                }
            }
            .div-btn{
-                     display: flex;
-           justify-content: center;
-           align-items: center;
-           margin-bottom: 15px;
-        button{
-            width: 50%;
-            font-size: 12px;
-            background-color: $perpel;
-            border-color: transparent;
-            color:$white;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .card-box{
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-style: solid;
+            border-color: $perpel;
+            border-width: 1px;
+            display: flex;
+            width: 90%;
+            text-align: right;
+            justify-content: center;
+            align-items: center;
             height: 30px;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-           }
+            flex-direction: row-reverse;
+            padding-bottom: 10px;
+            h6{
+              color: $perpel;
+               font-size: 16px;
+              font-weight: bold;
+            }
+            i{
+              padding-top: 10px;
+              color: $perpel;
+              // font-weight: bold;
+            }
+            
+          }
+          .cardbox-finish{
+            margin-top: 20px;
+            border-style: solid;
+          border-color: $perpel;
+            border-width: 1px;
+            display: flex;
+            width: 90%;
+            text-align: right;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            flex-direction: row-reverse;
+            padding-bottom: 10px;
+            h6{
+              font-size: 16px;
+              font-weight: bold;
+              color:$perpel
+            }
+          }
+          }
        }
      
         }
+    }
+    @media (min-width: 1160px){
+.box-filter{
+   
+width: 230px;
+box-sizing: border-box;
+// position: fixed;
+position: sticky !important;
+
+}
     }
 }
 .col-catname{

@@ -321,81 +321,67 @@ img{
     }
     
 }
-.item-related{
-    margin: 10px;
-    text-align: right;
-    border-radius: 10px;
-    // height: 100%;
-    width: 80%;
-    box-shadow: 5px 5px 5px 5px $graydd;
-    margin-top: 20px;
-    .div-img{
+.row-scroll{
+ 
+    .row-item-center{
         display: flex;
-        align-items: center;
         justify-content: center;
-        width: 100%;
-         img{
-            object-fit: cover;
-      width: 150px;
-      height: 150px;
-      padding-top: 15px;
-    }  
-    }
-    h3{
-        padding-top: 10px;
-            padding-right: 10px;
-        font-size: 15px;
-      }
-      .amountafterdiscount{
-        text-decoration: line-through;
-      }
-    h1{
-      padding-top: 20px;
-      padding-right: 10px;
-      font-size: 14px;
-      color: $gray66;
-    }
-    h5{
-font-size: 12px;
-color: $gray99;
-padding-top: 20px;
-padding-right: 10px;
-    }
-
-background-color: $whiteff;
-.div-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-    .card-box{
-        margin-top: 20px;
-        border-style: solid;
-        border-color: $perpel;
-        border-width: 1px;
-        display: flex;
-        width: 90%;
+        align-items: center;
+        margin-top: 10px;
+        min-width: 290px;
+     .item-related{
+        margin: 10px;
         text-align: right;
+        border-radius: 10px;
+        height: 100%;
+        width: 100%;
+        min-width: 270px;
+        // margin-left: 20px;
+        // margin-right: 20px;
+        box-shadow: 5px 5px 5px 5px $graydd;
+        .div-img{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+             img{
+                object-fit: cover;
+          width: 150px;
+          height: 150px;
+          padding-top: 15px;
+        }  
+        }
+        h3{
+            padding-top: 10px;
+                padding-right: 10px;
+            font-size: 15px;
+          }
+          .amountafterdiscount{
+            text-decoration: line-through;
+          }
+        h1{
+          padding-top: 20px;
+          padding-right: 10px;
+          font-size: 14px;
+          color: $gray66;
+          direction: rtl;
+        }
+        h5{
+    font-size: 12px;
+    color: $gray99;
+    padding-top: 20px;
+    padding-right: 10px;
+        }
+    
+    background-color: $whiteff;
+    .div-btn{
+        display: flex;
         justify-content: center;
         align-items: center;
-        height: 40px;
-        flex-direction: row-reverse;
-        padding-bottom: 10px;
-        cursor: pointer;
-        h6{
-        color: $perpel;
-        font-weight: bold;
-        }
-        i{
-        color: $perpel;
-        // font-weight: bold;
-        }
-        
-        }
-        .cardbox-finish{
+        .card-box{
             margin-top: 20px;
             border-style: solid;
-          border-color: $perpel;
+            border-color: $perpel;
             border-width: 1px;
             display: flex;
             width: 90%;
@@ -405,15 +391,51 @@ background-color: $whiteff;
             height: 40px;
             flex-direction: row-reverse;
             padding-bottom: 10px;
+            cursor: pointer;
             h6{
-              font-size: 12px;
-              font-weight: bold;
-              color:$perpel
+            color: $perpel;
+            font-weight: bold;
             }
-        }
-}
+            i{
+            color: $perpel;
+            // font-weight: bold;
+            }
+            
+            }
+            .cardbox-finish{
+                margin-top: 20px;
+                border-style: solid;
+              border-color: $perpel;
+                border-width: 1px;
+                display: flex;
+                width: 90%;
+                text-align: right;
+                justify-content: center;
+                align-items: center;
+                height: 40px;
+                flex-direction: row-reverse;
+                padding-bottom: 10px;
+                h6{
+                  font-size: 12px;
+                  font-weight: bold;
+                  color:$perpel
+                }
+            }
+    }
+    
+    }
+  
+    }
 
 }
+
+@media (max-width: 1010px){
+.row-scroll{
+display: flex;
+flex-wrap: nowrap;
+overflow-x: auto;
+}
+  }
 .txt-col-features{
     text-align: right;
     h6{
