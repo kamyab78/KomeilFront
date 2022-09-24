@@ -300,7 +300,7 @@ const Headers = () => {
 home
 </i>
                     </Nav.Link>
-                    <Nav.Item  onClick={e => {
+                    <Nav.Item   onClick={e => {
                         setstylecategory({ display: 'block' });
                     }} className="category-box"         onMouseLeave={e => {
                         setstylecategory({ display: 'none' })

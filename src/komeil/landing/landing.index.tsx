@@ -758,7 +758,7 @@ index.have === true ? (
 )}
                                                
                                                    
-                                                    <div style={{ display: 'flex', flexDirection: 'row-reverse' }} >
+                                                    <div className='classRowprice' >
 {result.discount !== 0 ? (
                                         <>
                                             <h3 className='amountafterdiscount'>{result.netPrice.toLocaleString()}</h3>
