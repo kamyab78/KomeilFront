@@ -17,7 +17,7 @@ import Banner3 from '../../assets/images/landing/banner3.png'
 import { Config } from '../config/config'
 import Banner4 from '../../assets/images/landing/banner4.png'
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y , Autoplay} from 'swiper';
 import 'swiper/scss'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
@@ -272,6 +272,49 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
         <div className="komeil-landing-page row">
             <div className='col'>
             <div className='row banner-row'>
+
+            <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        speed={2500}
+        autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+        }}
+
+        modules={[Autoplay]}
+        className="mySwiper"
+      >
+
+        <SwiperSlide className="media-card">
+        <Link className='' to={'/shop?catid='+firstBanneridfirst} onClick={() => {
+                        window.localStorage.setItem('categoryid', firstBanneridfirst)
+                   
+                    }}>
+
+                        <img src={firstBannerfirst} alt='کمیل شاپ' title='کمیل شاپ'></img>
+                    </Link>
+        </SwiperSlide>
+        <SwiperSlide className="media-card">
+        <Link className='' to={'/shop?catid='+secondBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', secondBannerid)
+              
+                    }}>
+                        <img src={secondBanner} alt='کمیل شاپ' title='کمیل شاپ'></img>
+                    </Link>
+        </SwiperSlide>
+        <SwiperSlide className="media-card">
+        <Link className=''  to={'/shop?catid='+thirdBannerid} onClick={() => {
+                        window.localStorage.setItem('categoryid', thirdBannerid)
+               
+                    }}>
+                        <img src={thirdBanner} alt='کمیل شاپ' title='کمیل شاپ'></img>
+                    </Link>
+        </SwiperSlide>
+      </Swiper>
+
+
+{/* 
                     <div className='col-md-1 '></div>
                     <Link className='col-md-10 col-xs-12 banner-big-box' to={'/shop?catid='+firstBanneridfirst} onClick={() => {
                         window.localStorage.setItem('categoryid', firstBanneridfirst)
@@ -280,9 +323,9 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
 
                         <img src={firstBannerfirst} alt='کمیل شاپ' title='کمیل شاپ'></img>
                     </Link>
-                    <div className='col-md-1'></div>
+                    <div className='col-md-1'></div> */}
                 </div>
-                <div className='row banner-row'>
+                {/* <div className='row banner-row'>
                     <div className='col-md-1 '></div>
                     <Link className='col-md-5 col-lg-5 col-6  banner-left-box' to={'/shop?catid='+secondBannerid} onClick={() => {
                         window.localStorage.setItem('categoryid', secondBannerid)
@@ -299,7 +342,7 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
 
                     </Link>
                     <div className='col-md-1 '></div>
-                </div>
+                </div> */}
 
 
 

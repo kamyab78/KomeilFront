@@ -226,7 +226,7 @@ h6{
      .col-row-result-category{
          background-color: white;
            .col-item-category{
-      
+      margin-top: 10px;
       display: flex;
     
       flex-direction: row-reverse;
@@ -236,10 +236,10 @@ h6{
       }
       h6{
         direction: rtl;
-        padding-top: 10px;
-        font-size: 15px;
+        padding-top: 24px;
+        font-size: 18px;
         cursor: pointer;
-        font-weight: bold;
+        font-weight: normal;
       padding-right: 7px;
         &:hover {
           color: $perpel;
@@ -256,6 +256,7 @@ h6{
   img{
     width: 400px;
     height: 400px;
+    margin: 18px;
   }
 }
   }
