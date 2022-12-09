@@ -9,6 +9,8 @@ import SecondBanner from '../../assets/images/blog/secondB.png'
 import Image2 from '../../assets/images/blog/Mask.png'
 import { useEffect, useState } from 'react';
 import {Config} from '../config/config'
+import MetaTags from 'react-meta-tags';
+
 const Detailblog = () => {
     const [Detailblog,setDetailblog]= useState<any>({})
     window.onbeforeunload = function () {
@@ -40,6 +42,8 @@ getDetailblog()
            
                 response.json().then(rep => {
                     console.log(rep)
+                    document.title = rep.titleMetatag
+
 setDetailblog(rep)
                 })
 
@@ -53,6 +57,13 @@ setDetailblog(rep)
    
 return(
     <div className='row komeil-Detailblog-page'>
+                    <MetaTags>
+
+<meta property="canonical" content={Detailblog.canonicalMetatag} />
+<meta name="description" content={Detailblog.descriptionMetatag} />
+<meta property="og:title" content={Detailblog.titleMetatag} />
+<meta property="og:image" content="%PUBLIC_URL%/Logo.png" />
+</MetaTags>
        <div className='col-12'>
  
 <div className='row2'>

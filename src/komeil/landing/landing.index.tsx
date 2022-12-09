@@ -22,6 +22,8 @@ import 'swiper/scss'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 import { useState } from 'react';
+import MetaTags from 'react-meta-tags';
+
 const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
     const [amazingofferlist, setamazingofferlist] = useState<any>([])
     const [productlist, setproductlist] = useState<any>([])
@@ -52,6 +54,9 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
     const [brandlist, setbrandlist] = useState([])
     const [firstpageproduct,setfirstpageproduct]=useState([])
     const sliderRef = useRef<Slider | null>(null);
+    const [descriptionMetatag,setdescriptionMetatag]=useState('')
+    const [canonicalMetatag,setcanonicalMetatag]=useState('')
+    const [titleMetatag,settitleMetatag]=useState('')
     const history = useHistory();
     const settings = {
         dots: false,
@@ -67,11 +72,46 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
         getAmazingoffer()
         getproduct()
         getBanner()
+        getConfig()
+
         getbrand()
         firstpage()
     }, []);
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
+      }
+      function getConfig(){
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            }
+
+
+        };
+
+        fetch(Config()['webapi'] + "/landing/config", requestOptions)
+            .then(response => {
+
+
+
+                response.json().then(rep => {
+                    console.log(rep)
+             setdescriptionMetatag(rep.descriptionMetatag)
+                    settitleMetatag(rep.titleMetatag)
+                    document.title=rep.titleMetatag
+                    setcanonicalMetatag(rep.canonicalMetatag)
+                })
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));
       }
     function getAmazingoffer() {
         var requestOptions = {
@@ -270,6 +310,13 @@ const Landing: React.FC<ConnectedProps<typeof connector>> = function () {
     }
     return (
         <div className="komeil-landing-page row">
+                   <MetaTags>
+                
+                <meta property="canonical" content={canonicalMetatag} />
+           <meta name="description" content={descriptionMetatag} />
+           <meta property="og:title" content={titleMetatag} />
+           <meta property="og:image" content="%PUBLIC_URL%/Logo.png" />
+         </MetaTags>
             <div className='col'>
             <div className='row banner-row'>
 

@@ -14,6 +14,7 @@ import 'react-medium-image-zoom/dist/styles.css'
 import ReactImageMagnify from 'react-image-magnify';
 import Modal from 'react-bootstrap/Modal'
 import ReactTooltip from 'react-tooltip';
+import MetaTags from 'react-meta-tags';
 
 const Detailproduct = () => {
     const [detailproduct, setdetailproduct] = useState<any>({})
@@ -22,6 +23,9 @@ const Detailproduct = () => {
     const [isModalOpen,setIsModalOpen]=useState(false)
     const [imgurl,setimgurl]=useState('')
     const [addphoto,setaddphoto]=useState<any>([])
+    const [descriptionMetatag,setdescriptionMetatag]=useState('')
+    const [canonicalMetatag,setcanonicalMetatag]=useState('')
+    const [titleMetatag,settitleMetatag]=useState('')
     const [relatedlist,setrelatedlist]=useState([])
     useEffect(() => {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -67,6 +71,10 @@ const Detailproduct = () => {
                     arradd.sort((firstItem, secondItem) => firstItem.createdAt - secondItem.createdAt);
                   
                     setaddphoto(arradd.reverse())
+                    setdescriptionMetatag(rep.descriptionMetatag)
+                    settitleMetatag(rep.titleMetatag)
+                    document.title=rep.titleMetatag
+                    setcanonicalMetatag(rep.canonicalMetatag)
                     setdetailproduct(rep)
                 })
 
@@ -196,7 +204,13 @@ const Detailproduct = () => {
       }, [])
 return(
     <div className='row komeil-detailproduct-page' >
-
+             <MetaTags>
+                
+                <meta property="canonical" content={canonicalMetatag} />
+           <meta name="description" content={descriptionMetatag} />
+           <meta property="og:title" content={titleMetatag} />
+           <meta property="og:image" content="%PUBLIC_URL%/Logo.png" />
+         </MetaTags>
        <div className='col-12'>
            <div className='row row-base'>
            <Modal show={isModalOpen} onHide={()=>setIsModalOpen(false)}>

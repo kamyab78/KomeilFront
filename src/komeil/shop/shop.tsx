@@ -12,8 +12,15 @@ import { Checkbox ,Switch,Slider } from '@material-ui/core';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Config } from 'komeil/config/config';
+import MetaTags from 'react-meta-tags';
+
 const Shop: React.FC<ConnectedProps<typeof connector>> = function () {
     const [productlist,setproductlist]=useState<any>([])
+    const [descriptionMetatag, setdescriptionMetatag] = useState('')
+    const [canonicalMetatag, setcanonicalMetatag] = useState('')
+    const [titleMetatag, settitleMetatag] = useState('')
+    const [Detailcategory, setDetailcategory] = useState<any>({})
+
     useEffect(() => {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         var location = window.location.href;
@@ -21,12 +28,47 @@ const Shop: React.FC<ConnectedProps<typeof connector>> = function () {
         var secondarray = splitloc[1]
         var catid = secondarray.split('catid=')
         console.log(catid[1])
-   
+        getConfigCategory(catid[1])
+
 getlist(catid[1])
     }, [window.localStorage.getItem('categoryid')]);
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
       }
+      function getConfigCategory(id) {
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+                // "Authorization": "Basic " + window.localStorage.getItem('basic')
+
+            }
+
+
+        };
+
+        fetch(Config()['webapi'] + "/landing/getdetailcategory?categoryid=" + id, requestOptions)
+            .then(response => {
+
+
+
+                response.json().then(rep => {
+                    console.log(rep)
+                    setdescriptionMetatag(rep.descriptionMetatag)
+                    settitleMetatag(rep.titleMetatag)
+                    document.title = rep.titleMetatag
+                    setcanonicalMetatag(rep.canonicalMetatag)
+                    setDetailcategory(rep)
+                })
+
+
+
+
+
+            })
+            .catch(error => console.log('error', error));
+    }
     function getlist(id){
         var requestOptions = {
             method: 'GET',
@@ -68,6 +110,13 @@ getlist(catid[1])
     };
     return (
         <div className="komeil-shop-page row">
+                        <MetaTags>
+
+<meta property="canonical" content={canonicalMetatag} />
+<meta name="description" content={descriptionMetatag} />
+<meta property="og:title" content={titleMetatag} />
+<meta property="og:image" content="%PUBLIC_URL%/Logo.png" />
+</MetaTags>
             <div className='col'>
             <div className='row'>
     <div className='col-12 col-catname'>
