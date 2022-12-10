@@ -360,13 +360,13 @@ info
 </div>
 </div>
 <div className='col-md-3 col-xs-12 col-img'>
-<img alt='' src={ detailproduct.imageUrl} onClick={()=>{setimgurl( detailproduct.imageUrl);setIsModalOpen(true)}}></img>
+<img alt={detailproduct.altImg} title={detailproduct.title} src={ detailproduct.imageUrl} onClick={()=>{setimgurl( detailproduct.imageUrl);setIsModalOpen(true)}}></img>
 
 <div className='additional-img'>
 {detailproduct.productAdditionalImages !== undefined ? (
                                addphoto.map((index: any,i:any) => (
                                  i<=2?(
-                                    <img alt='' src={index.imageUrl} onClick={()=>{setimgurl(index.imageUrl);setIsModalOpen(true)}}></img>
+                                    <img alt={detailproduct.altImg} title={detailproduct.title} src={index.imageUrl} onClick={()=>{setimgurl(index.imageUrl);setIsModalOpen(true)}}></img>
                 
                                  ):null
                                         
