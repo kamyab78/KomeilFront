@@ -24,6 +24,7 @@
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-fullscreen-image": "0.0.3",
+    "react-ga": "^3.3.1",
     "react-image-magnify": "^2.1.1",
     "react-medium-image-zoom": "^4.3.4",
     "react-meta-tags": "^1.0.1",

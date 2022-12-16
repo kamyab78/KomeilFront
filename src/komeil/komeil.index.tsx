@@ -23,9 +23,15 @@ import Shop from './shop/shop'
 import Brand from './brand/brand';
 import Terms from './terms/terms';
 import Detailblog from './blog/detailblog'
-
+import ReactGA from 'react-ga';
+const TRACKING_ID = "G-XWFZMCD5S6";
 const Komeil: React.FC<ConnectedProps<typeof connector>> = function (props: ConnectedProps<typeof connector>) {
+    useEffect(() => {
+        console.log("12")
+        ReactGA.initialize(TRACKING_ID);
 
+        ReactGA.pageview(window.location.pathname + window.location.search);
+      }, []);
     return (
         <Router>
        
