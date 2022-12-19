@@ -139,7 +139,7 @@ getlist(catid[1])
                                         <div className='subitem-box-result' >
                                             <Link to={'/detailproduct?hash=' + index.hash + '?category=' + index.categoryname}>
                                                 <div className='div-img-subitem-box-result'>
-                                                    <img src={index.imageUrl} alt={index.name} title={index.name}></img>
+                                                    <img src={index.imageUrl} alt={index.altImg} title={index.name}></img>
                                                 </div>
 
                                                 {index.name.length >= 38 ? (
